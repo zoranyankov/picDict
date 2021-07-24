@@ -1,1 +1,18 @@
 /* You can add global styles to this file, and also import other style files */
+
+html {
+    box-sizing: border-box;
+    text-align: center;
+    height: 100vh;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: inherit;
+}
+
+.wrapper-1 {
+    max-width: 75rem;
+    margin: 2rem auto;
+}

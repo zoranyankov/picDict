@@ -2,6 +2,7 @@
     height: 75vh;
     position: relative;
     z-index: 1;
+    height: 80vh;
 }
 
 .main-wrapper::after {
@@ -22,6 +23,5 @@
 }
 
 p {
-    height: 80vh;
     margin: 0;
 }

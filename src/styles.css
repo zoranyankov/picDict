@@ -6,6 +6,11 @@ html {
     height: 100vh;
 }
 
+body {
+    margin: 0;
+    padding: 0;
+}
+
 *,
 *::before,
 *::after {
@@ -14,5 +19,5 @@ html {
 
 .wrapper-1 {
     max-width: 75rem;
-    margin: 2rem auto;
+    margin: 0 auto;
 }

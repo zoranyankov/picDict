@@ -1,6 +1,6 @@
 :host {
     display: block;
-    background-color: #073a6d;
+    background-color: #636165;
     color: white;
     padding: 7px;
     position: relative;
@@ -10,11 +10,12 @@
 
 
 /* .footer-wrapper {
-    display: flex;
-    justify-content: space-around
-} */
+display: flex;
+justify-content: space-around
+}  */
 
 p {
     margin: 0;
     font-size: small;
+    color: #f7ce60;
 }

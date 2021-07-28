@@ -2,11 +2,15 @@
     height: 75vh;
     position: relative;
     z-index: 1;
-    height: 80vh;
+    height: 78vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .main-wrapper::after {
-    opacity: 30%;
+    opacity: 10%;
+    /* opacity: 30%; */
     background-image: url('https://www.science.edu/acellus/wp-content/uploads/2016/12/Acellus-Grade-2-Reading-Language-Arts.jpg');
     /* background-image: url('http://1.bp.blogspot.com/-_wcCuXhvlHY/UvebB9JRM9I/AAAAAAAACMg/9GKpICKoX_M/s1600/vocab.png'); */
     background-repeat: no-repeat;

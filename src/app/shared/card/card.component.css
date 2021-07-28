@@ -1,7 +1,3 @@
-.card-wrapper {
-    margin: 50px auto;
-}
-
 .card-img img {
     box-shadow: 2px 3px 10px 0px #afaaaa;
     border-radius: 7px;
@@ -10,6 +6,11 @@
 .card-name {
     font-size: 3rem;
     margin: 20px auto;
+    /* color: #075d07; */
     color: green;
     text-shadow: 1px 1px 3px #1315b8;
+    /* background: #59dec6; */
+    width: max-content;
+    border-radius: 5px;
+    padding: 5px 12px;
 }

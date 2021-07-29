@@ -54,3 +54,10 @@
     border-radius: 50%;
     max-width: 5rem;
 }
+
+.header-nav-items li a.active-link {
+    /* color: #5cf1d5; */
+    color: rgb(46 44 47);
+    background-color: #f6c95b;
+    /* font-weight: bold; */
+}

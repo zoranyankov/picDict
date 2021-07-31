@@ -1,31 +1,3 @@
-.auth-container {
-    height: 75vh;
-    position: relative;
-    z-index: 1;
-    height: 78vh;
-    justify-content: center;
-    align-items: center;
-    box-shadow: 0px 1px 10px 1px white;
-}
-
-.auth-container::after {
-    opacity: 10%;
-    /* opacity: 30%; */
-    background-image: url('https://www.science.edu/acellus/wp-content/uploads/2016/12/Acellus-Grade-2-Reading-Language-Arts.jpg');
-    /* background-image: url('http://1.bp.blogspot.com/-_wcCuXhvlHY/UvebB9JRM9I/AAAAAAAACMg/9GKpICKoX_M/s1600/vocab.png'); */
-    background-repeat: no-repeat;
-    background-size: cover;
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    top: 0;
-    left: 0;
-    margin-right: 2px;
-    display: inline-block;
-    content: "";
-    z-index: -1;
-}
-
 .auth-container .containter {
     display: inline-block;
     text-align: center;

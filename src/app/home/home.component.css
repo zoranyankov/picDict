@@ -1,0 +1,21 @@
+/* @import url('https://fonts.googleapis.com/css2?family=Style+Script&display=swap'); */
+
+@import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
+:host {
+    max-width: 80vw;
+}
+
+.welcome-text-heading {
+    font-family: 'Lobster', cursive;
+    font-size: 35px;
+}
+
+.welcome-text-content {
+    /* font-family: 'MonteCarlo'; */
+    /* font-family: 'Style Script', cursive; */
+    font-family: 'Lobster', cursive;
+    font-size: 20px;
+    letter-spacing: 1px;
+    line-height: 32px;
+    margin-bottom: 50px;
+}

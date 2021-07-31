@@ -1,0 +1,76 @@
+.auth-container {
+    height: 75vh;
+    position: relative;
+    z-index: 1;
+    height: 78vh;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0px 1px 10px 1px white;
+}
+
+.auth-container::after {
+    opacity: 10%;
+    /* opacity: 30%; */
+    background-image: url('https://www.science.edu/acellus/wp-content/uploads/2016/12/Acellus-Grade-2-Reading-Language-Arts.jpg');
+    /* background-image: url('http://1.bp.blogspot.com/-_wcCuXhvlHY/UvebB9JRM9I/AAAAAAAACMg/9GKpICKoX_M/s1600/vocab.png'); */
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin-right: 2px;
+    display: inline-block;
+    content: "";
+    z-index: -1;
+}
+
+.auth-container .containter {
+    display: inline-block;
+    text-align: center;
+}
+
+p {
+    margin: 0;
+}
+
+.auth-container .form-container {
+    position: relative;
+    text-align: center;
+}
+
+.auth-container .form-control {
+    width: 300px;
+    border-radius: 0.3rem;
+    padding: 0.5rem;
+}
+
+.auth-container .form-group {
+    position: relative;
+}
+
+.form-label {
+    display: block;
+}
+
+.auth-container .btn {
+    /* position: relative; */
+    margin-right: 1rem;
+    text-decoration: none;
+    padding: 8px 13px;
+    /* background-color: rgb(44 151 202);
+    border-radius: 4px;
+    color: white; */
+    background-color: rgb(46 44 47);
+    border-radius: 4px;
+    color: #f6c95b;
+    border: 1px solid #521b52b0;
+    box-shadow: 1px 1px 3px 0px #757373;
+    margin: 20px;
+}
+
+.auth-container .btn:hover {
+    background-color: rgb(117 116 117);
+    color: #ffde8e;
+}

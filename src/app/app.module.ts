@@ -22,7 +22,7 @@ import { UserModule } from './user/user.module';
     CoreModule,
     SharedModule,
     PicwordsModule,
-    UserModule
+    UserModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

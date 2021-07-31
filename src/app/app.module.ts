@@ -7,6 +7,8 @@ import { AboutComponent } from './about/about.component';
 import { CoreModule } from './core/core.module';
 import { MainComponent } from './main/main.component';
 import { SharedModule } from './shared/shared.module';
+import { PicwordsModule } from './picwords/picwords.module';
+import { UserModule } from './user/user.module';
 
 @NgModule({
   declarations: [
@@ -18,7 +20,9 @@ import { SharedModule } from './shared/shared.module';
     BrowserModule,
     AppRoutingModule,
     CoreModule,
-    SharedModule
+    SharedModule,
+    PicwordsModule,
+    UserModule
   ],
   providers: [],
   bootstrap: [AppComponent]

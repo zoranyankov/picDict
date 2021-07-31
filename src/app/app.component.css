@@ -1,8 +1,7 @@
 .main-content-wrapper {
-    height: 75vh;
     position: relative;
     z-index: 1;
-    height: 78vh;
+    min-height: 78vh;
     display: flex;
     justify-content: center;
     align-items: center;

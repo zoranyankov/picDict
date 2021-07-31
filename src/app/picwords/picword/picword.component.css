@@ -1,6 +1,7 @@
 .picword-img img {
     box-shadow: 2px 3px 10px 0px #afaaaa;
     border-radius: 7px;
+    max-width: 200px;
 }
 
 .picword-name {

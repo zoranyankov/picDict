@@ -1,0 +1,13 @@
+.pw-list-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    width: 70rem;
+}
+
+.pw-list-wrapper div {
+    padding: 0 70px;
+    flex-grow: 1;
+    display: inline-flex;
+}

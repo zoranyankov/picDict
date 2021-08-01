@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { StateService } from '../core/state.service';
 
 @Component({
   selector: 'app-home',
@@ -6,10 +7,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-
-  constructor() { }
+  isLogged: Boolean = false;
+  constructor(private _state: StateService) { }
 
   ngOnInit(): void {
+    this.isLogged = this._state.isLogged;
   }
 
 }

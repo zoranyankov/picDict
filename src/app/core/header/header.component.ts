@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { StateService } from '../state.service';
 
 @Component({
   selector: 'app-header',
@@ -6,10 +7,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
-
-  constructor() { }
+  isLogged: Boolean = false;
+  constructor(private _state: StateService) { }
 
   ngOnInit(): void {
+    this.isLogged = this._state.isLogged;
   }
 
 }

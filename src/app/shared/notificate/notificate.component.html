@@ -1,0 +1,10 @@
+<div class="notification">
+    <div *ngIf="notificate.messages">
+        <p [class]="notificate.type" *ngFor="let message of notificate.messages">{{message.message}}</p>
+    </div>
+</div>
+<!-- <div class="notification">
+    <div *ngIf="notificate.messages" [class]="notificate.type">
+        <p class="message" *ngFor="let message of notificate.messages">{{message.message}}</p>
+    </div>
+</div> -->

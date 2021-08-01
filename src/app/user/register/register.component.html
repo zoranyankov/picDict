@@ -9,7 +9,6 @@
             <label class="form-label" htmlFor="username">Username</label>
             <input type="username" class="form-control" placeholder="Username" name="username" ngModel>
         </div>
-        <!-- <Notificate type="error">{this.state.errors.username} <br /></Notificate> -->
         <div class="form-group">
             <label class="form-label" htmlFor="password">Password</label>
             <input type="password" class="form-control" placeholder="Password" name="password" ngModel>
@@ -21,6 +20,7 @@
         </div>
         <!-- <Notificate type="error">{this.state.errors.rePassword} <br /></Notificate> -->
         <button class="btn">Register</button>
+        <app-notificate [notificate]="notificate"></app-notificate>
         <div>
             Already have an account?
             <a routerLink="/auth/login"><span class="nav-a">Login now</span> </a>

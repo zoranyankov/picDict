@@ -7,6 +7,7 @@ import { UserRoutingModule } from './user-routing.module';
 import { FormsModule } from '@angular/forms';
 import { AuthService } from './auth.service';
 import { ErrorService } from './error.service';
+import { SharedModule } from '../shared/shared.module';
 
 
 
@@ -19,7 +20,8 @@ import { ErrorService } from './error.service';
   imports: [
     CommonModule,
     UserRoutingModule,
-    FormsModule
+    FormsModule,
+    SharedModule
   ],
   providers: [
     AuthService,

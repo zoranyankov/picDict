@@ -13,7 +13,11 @@ export class ErrorService {
     if(!err.error || !err.error.errors) {
       return throwError('UNKNOWN')
     }else{
-      return throwError(err.error.errors[0].message)
+      console.log(err);
+      console.log(err.error);
+      console.log(err.error.errors);
+      
+      return throwError(err.error.errors)
     }
   }
 

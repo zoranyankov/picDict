@@ -1,0 +1,26 @@
+.notification div p.error {
+    color: rgb(145, 31, 3);
+    font-weight: bold;
+}
+
+.notification div p.max-width {
+    color: rgb(145, 31, 3);
+    font-weight: bold;
+    max-width: 88%;
+}
+
+.notification div p.max-width2 {
+    color: rgb(145, 31, 3);
+    font-weight: bold;
+    max-width: 69%;
+}
+
+.notification div p.message {
+    color: green;
+    font-weight: bold;
+}
+
+.notification div p.notify {
+    color: lightblue;
+    font-weight: bold;
+}

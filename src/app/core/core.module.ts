@@ -5,6 +5,7 @@ import { FooterComponent } from './footer/footer.component';
 import { RouterModule } from '@angular/router';
 import { StateService } from './state.service';
 import { IsLogged } from './guards/is.logged';
+import { NotLogged } from './guards/not.logged';
 
 
 
@@ -23,7 +24,8 @@ import { IsLogged } from './guards/is.logged';
   ],
   providers:[
     StateService,
-    IsLogged
+    IsLogged,
+    NotLogged
   ]
 })
 export class CoreModule { }

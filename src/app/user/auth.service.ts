@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 import { catchError, tap } from 'rxjs/operators';
 import { ConfigService } from '../config/config.service';
+import { StateService } from '../core/state.service';
 import { IRegResponse } from '../shared/interfaces/register-response-interface';
 import { ErrorService } from './error.service';
 import { IAuthResponse } from './userInterfaces/auth-response.interface';
@@ -12,7 +13,12 @@ import { User } from './userModels/user.model';
 export class AuthService {
 
   currentUser = new BehaviorSubject<User | null>(null);
-  constructor(private config: ConfigService, private http: HttpClient, private _errorService: ErrorService) { }
+  constructor(
+    private config: ConfigService,
+    private http: HttpClient,
+    private _errorService: ErrorService,
+    private _state: StateService
+    ) { }
 
   register(username: string, password: string) {
     console.log('in cliet register');
@@ -24,7 +30,11 @@ export class AuthService {
         }),
         tap(res => {
           console.log(res);
-          this.authenticateUser(res.user.username, res.token)
+          this.authenticateUser(res.user.username, res.token);
+          console.log(this._state.isLogged);
+          
+          this._state.changeLoggedState(true);
+          console.log(this._state.isLogged);
         })
       )
   }
@@ -37,7 +47,8 @@ export class AuthService {
           return this._errorService.handleError(err);
         }),
         tap(res => {
-          this.authenticateUser(res.user.username, res.token)
+          this.authenticateUser(res.user.username, res.token);
+          this._state.changeLoggedState(true);
         })
       )
   }

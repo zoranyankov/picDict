@@ -1,11 +1,12 @@
-import { Injectable } from '@angular/core';
+import { EventEmitter, Injectable } from '@angular/core';
 import { IState } from '../shared/interfaces/state-interface';
 
 @Injectable()
 export class StateService {
-  state: IState = {username: '', isLogged: false, isAuthorized: false}
+  state: IState = { username: '', isLogged: false, isAuthorized: false }
+  isLoggedUpdated : EventEmitter<any> = new EventEmitter();
   constructor() { }
-  private _setState(newState: IState){
+  private _setState(newState: IState) {
     this.state = newState;
   }
 
@@ -17,7 +18,8 @@ export class StateService {
     return this.state.username
   }
 
-  set setLoggedState(newState: Boolean) {
+  changeLoggedState(newState: Boolean) {
     this.state.isLogged = newState;
+    this.isLoggedUpdated.emit(this.state.isLogged)
   }
 }

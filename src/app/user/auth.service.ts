@@ -10,11 +10,26 @@ import { User } from './userModels/user.model';
 @Injectable()
 export class AuthService {
 
-  currentUser = new BehaviorSubject<User|null>(null);
-  constructor(private config: ConfigService, private http:HttpClient, private _errorService: ErrorService) { }
+  currentUser = new BehaviorSubject<User | null>(null);
+  constructor(private config: ConfigService, private http: HttpClient, private _errorService: ErrorService) { }
 
-  register(username: string,password: string) {
-    return this.http.post<IAuthResponse>(this.config.SERVER_AUTH_URL, {username, password})
+  register(username: string, password: string) {
+    console.log('in cliet register');
+    return this.http.post<IAuthResponse>(this.config.SERVER_AUTH_URL('register'), { username: username, password: password })
+      .pipe(
+        catchError(err => {
+          console.log(err);
+          return this._errorService.handleError(err);
+        }),
+        tap(res => {
+          console.log(res);
+          this.authenticateUser(res.user, res.token)
+        })
+      )
+  }
+
+  login(username: string, password: string) {
+    return this.http.post<IAuthResponse>(this.config.SERVER_AUTH_URL('login'), { username, password })
       .pipe(
         catchError(err => {
           console.log(err);
@@ -25,20 +40,7 @@ export class AuthService {
         })
       )
   }
-
-  login(username: string,password: string) {
-    return this.http.post<IAuthResponse>(this.config.SERVER_AUTH_URL,{ username, password})
-      .pipe(
-        catchError(err => {
-          console.log(err);
-          return this._errorService.handleError(err);
-        }),
-        tap(res => {
-          this.authenticateUser(res.user, res.token)
-        })
-      )
-  }
-  private authenticateUser(user: string, token: string){
+  private authenticateUser(user: string, token: string) {
     // const expirationDate = new Date(new Date().getTime() + expiresIn*1000);
     const newUser = new User(user, token)
     console.log(newUser);

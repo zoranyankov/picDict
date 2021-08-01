@@ -1,5 +1,5 @@
 export interface IAuthResponse {
     user: string,
-    localId: string,
+    // localId: string,
     token: string
 }

@@ -10,10 +10,10 @@ export class ErrorService {
   constructor() { }
 
   handleError(err:HttpErrorResponse){
-    if(!err.error || !err.error.error) {
+    if(!err.error || !err.error.errors) {
       return throwError('UNKNOWN')
     }else{
-      return throwError(err.error.error.message)
+      return throwError(err.error.errors[0].message)
     }
   }
 

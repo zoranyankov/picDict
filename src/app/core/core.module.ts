@@ -6,6 +6,7 @@ import { RouterModule } from '@angular/router';
 import { StateService } from './state.service';
 import { IsLogged } from './guards/is.logged';
 import { NotLogged } from './guards/not.logged';
+import { Logout } from './guards/logout';
 
 
 
@@ -25,7 +26,8 @@ import { NotLogged } from './guards/not.logged';
   providers:[
     StateService,
     IsLogged,
-    NotLogged
+    NotLogged,
+    Logout
   ]
 })
 export class CoreModule { }

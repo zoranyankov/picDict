@@ -1,7 +1,9 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { IsLogged } from '../core/guards/is.logged';
+import { Logout } from '../core/guards/logout';
 import { NotLogged } from '../core/guards/not.logged';
+import { HomeComponent } from '../home/home.component';
 import { LoginComponent } from './login/login.component';
 import { ProfileComponent } from './profile/profile.component';
 import { RegisterComponent } from './register/register.component';
@@ -34,7 +36,13 @@ const routes: Routes = [
   },
   {
     path: 'auth/logout',
-    redirectTo: '/',
+    component: HomeComponent,
+    canActivate: [
+      Logout
+    ],
+    data: {
+      paramsActivateRedirectUrl: '/'
+    }
   },
   {
     path: 'auth/profile',

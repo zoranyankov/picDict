@@ -9,35 +9,65 @@ import { PicwordDetailsComponent } from './picword-details/picword-details.compo
 import { PicwordListComponent } from './picword-list/picword-list.component';
 
 const routes: Routes = [
-  {
-    path:'pw/:',
-    component: AboutComponent,
-    canActivate: [
-      IsLogged
-    ],
-    data: {
-      paramsActivateRedirectUrl: '/'
-    },
-  },
+  // {
+  //   path:'pw',
+  //   component: AboutComponent,
+  //   canActivate: [
+  //     IsLogged
+  //   ],
+  //   data: {
+  //     paramsActivateRedirectUrl: '/'
+  //   },
+  // },
   {
     path:'pw/picwords',
     component: PicwordListComponent,
-  },
-  {
-    path:'pw/create-picword',
-    component: CreatePicwordComponent,
-  },
-  {
-    path:'pw/find-picword',
-    component: FindPicwordComponent,
-  },
-  {
-    path:'pw/edit-picword',
-    component: EditPicwordComponent,
-  },
-  {
-    path:'pw/picword-details',
-    component: PicwordDetailsComponent,
+      canActivate: [
+        IsLogged
+      ],
+      data: {
+        paramsActivateRedirectUrl: '/'
+      },
+    },
+    {
+      path:'pw/create-picword',
+      component: CreatePicwordComponent,
+      canActivate: [
+        IsLogged
+      ],
+      data: {
+        paramsActivateRedirectUrl: '/'
+      },
+    },
+    {
+      path:'pw/find-picword',
+      component: FindPicwordComponent,
+      canActivate: [
+        IsLogged
+      ],
+      data: {
+        paramsActivateRedirectUrl: '/'
+      },
+    },
+    {
+      path:'pw/edit-picword',
+      component: EditPicwordComponent,
+      canActivate: [
+        IsLogged
+      ],
+      data: {
+        paramsActivateRedirectUrl: '/'
+      },
+    },
+    {
+      path:'pw/picword-details',
+      component: PicwordDetailsComponent,
+      canActivate: [
+        IsLogged
+      ],
+      data: {
+        paramsActivateRedirectUrl: '/'
+      },
   }
 ];
 

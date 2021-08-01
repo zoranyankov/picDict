@@ -3,6 +3,8 @@ import { CommonModule } from '@angular/common';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { RouterModule } from '@angular/router';
+import { StateService } from './state.service';
+import { IsLogged } from './guards/is.logged';
 
 
 
@@ -18,6 +20,10 @@ import { RouterModule } from '@angular/router';
   exports: [
     HeaderComponent,
     FooterComponent
+  ],
+  providers:[
+    StateService,
+    IsLogged
   ]
 })
 export class CoreModule { }

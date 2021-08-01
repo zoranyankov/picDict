@@ -20,7 +20,7 @@ import { PicwordListComponent } from './picword-list/picword-list.component';
   ],
   imports: [
     CommonModule,
-    PicwordsRoutingModule
+    PicwordsRoutingModule,
   ],  
   exports: [
     PicwordComponent

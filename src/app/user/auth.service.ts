@@ -1,12 +1,12 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Router } from '@angular/router';
 import { BehaviorSubject } from 'rxjs';
 import { catchError, tap } from 'rxjs/operators';
 import { ConfigService } from '../config/config.service';
 import { StateService } from '../core/state.service';
 import { IRegResponse } from '../shared/interfaces/register-response-interface';
 import { ErrorService } from './error.service';
-import { IAuthResponse } from './userInterfaces/auth-response.interface';
 import { User } from './userModels/user.model';
 
 @Injectable()
@@ -14,15 +14,16 @@ export class AuthService {
 
   currentUser = new BehaviorSubject<User | null>(null);
   constructor(
-    private config: ConfigService,
-    private http: HttpClient,
+    private _config: ConfigService,
+    private _http: HttpClient,
     private _errorService: ErrorService,
-    private _state: StateService
+    private _state: StateService,
+    private _router: Router,
     ) { }
 
   register(username: string, password: string) {
     console.log('in cliet register');
-    return this.http.post<IRegResponse>(this.config.SERVER_AUTH_URL('register'), { username: username, password: password })
+    return this._http.post<IRegResponse>(this._config.SERVER_AUTH_URL('register'), { username: username, password: password })
       .pipe(
         catchError(err => {
           console.log(err);
@@ -31,16 +32,14 @@ export class AuthService {
         tap(res => {
           console.log(res);
           this.authenticateUser(res.user.username, res.token);
-          console.log(this._state.isLogged);
-          
           this._state.changeLoggedState(true);
-          console.log(this._state.isLogged);
+          this._router.navigateByUrl('');
         })
       )
   }
 
   login(username: String, password: String) {
-    return this.http.post<IRegResponse>(this.config.SERVER_AUTH_URL('login'), { username, password })
+    return this._http.post<IRegResponse>(this._config.SERVER_AUTH_URL('login'), { username, password })
       .pipe(
         catchError(err => {
           console.log(err);
@@ -49,6 +48,7 @@ export class AuthService {
         tap(res => {
           this.authenticateUser(res.user.username, res.token);
           this._state.changeLoggedState(true);
+          this._router.navigateByUrl('');
         })
       )
   }

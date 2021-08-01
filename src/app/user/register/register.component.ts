@@ -32,4 +32,7 @@ export class RegisterComponent implements OnInit {
           this.notificate = { type: 'error', messages: err };
         });
       }
+      // ngOnChanges(change: SimpleChanges) {
+
+      // }
   }

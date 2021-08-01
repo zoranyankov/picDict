@@ -5,6 +5,8 @@ import { RegisterComponent } from './register/register.component';
 import { ProfileComponent } from './profile/profile.component';
 import { UserRoutingModule } from './user-routing.module';
 import { FormsModule } from '@angular/forms';
+import { AuthService } from './auth.service';
+import { ErrorService } from './error.service';
 
 
 
@@ -18,6 +20,10 @@ import { FormsModule } from '@angular/forms';
     CommonModule,
     UserRoutingModule,
     FormsModule
+  ],
+  providers: [
+    AuthService,
+    ErrorService
   ]
 })
 export class UserModule { }

@@ -7,6 +7,9 @@ import { EditPicwordComponent } from './edit-picword/edit-picword.component';
 import { PicwordDetailsComponent } from './picword-details/picword-details.component';
 import { PicwordsRoutingModule } from './picword-routing.module';
 import { PicwordListComponent } from './picword-list/picword-list.component';
+import { FormsModule } from '@angular/forms';
+import { PicwordsService } from './picwords.service';
+import { SharedModule } from '../shared/shared.module';
 
 
 @NgModule({
@@ -16,14 +19,19 @@ import { PicwordListComponent } from './picword-list/picword-list.component';
     CreatePicwordComponent,
     EditPicwordComponent,
     PicwordDetailsComponent,
-    PicwordListComponent
+    PicwordListComponent,
   ],
   imports: [
     CommonModule,
     PicwordsRoutingModule,
+    FormsModule,
+    SharedModule
   ],  
   exports: [
     PicwordComponent
+  ],
+  providers: [
+    PicwordsService
   ]
 })
 export class PicwordsModule { }

@@ -6,7 +6,7 @@ import { AuthService } from '../user/auth.service';
 export class ConfigService {
 
   // SERVER_AUTH_URL: string = `${environment.serverUrl}auth`;
-  API_QUESTION_URL: string = `${environment.serverUrl}api/questions`;
+  API_PICWORD_URL: string = `${environment.serverUrl}api/picWords`;
   API_RESULT_URL: string = `${environment.serverUrl}api/results`;
   PEXELS_API_URL: string = 'https://opentdb.com/api.php';
 

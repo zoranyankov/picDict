@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, DoCheck, OnInit } from '@angular/core';
 import { AuthService } from '../user/auth.service';
 
 @Component({
@@ -6,7 +6,7 @@ import { AuthService } from '../user/auth.service';
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css']
 })
-export class HomeComponent implements OnInit {
+export class HomeComponent implements OnInit, DoCheck {
   isLogged: Boolean = false;
   constructor(private _auth: AuthService) { }
 
@@ -14,5 +14,7 @@ export class HomeComponent implements OnInit {
     this.isLogged = this._auth.getLoggedState();
     console.log(this.isLogged);
   }
-
+  ngDoCheck() {
+    this.isLogged = this._auth.getLoggedState();
+  }
 }

@@ -5,7 +5,7 @@ import { BehaviorSubject } from 'rxjs';
 import { catchError, tap } from 'rxjs/operators';
 import { ConfigService } from '../config/config.service';
 import { IRegResponse } from '../shared/interfaces/register-response-interface';
-import { ErrorService } from './error.service';
+import { ErrorService } from '../shared/services/error.service';
 import { User } from './userModels/user.model';
 
 @Injectable()
@@ -35,27 +35,26 @@ export class AuthService {
       )
   }
 
-  verify(verifyData: { username: String, token: String }) {
-    // console.log('in client verify');
-    return this._http.post<IRegResponse>(this._config.SERVER_AUTH_URL('verify'), verifyData)
-      .pipe(
-        catchError(err => {
-          console.log(err);
-          return this._errorService.handleError(err);
-        }),
-        tap(res => {
-          // if (!res || !res.result) {
-          if (!res) {
-            localStorage.removeItem('sid');
-            console.log('appErr');
-            return false;
-          }
-          console.log(res);
-          this.authenticateUser(res.user.username, res.token);
-          return true;
-        })
-      )
-  }
+  // verify(verifyData: { username: String, token: String }) {
+  //   // console.log('in client verify');
+  //   return this._http.post<IRegResponse>(this._config.SERVER_AUTH_URL('verify'), verifyData)
+  //     .pipe(
+  //       catchError(err => {
+  //         console.log(err);
+  //         return this._errorService.handleError(err);
+  //       }),
+  //       tap(res => {
+  //         // if (!res || !res.result) {
+  //         if (!res) {
+  //           localStorage.removeItem('sid');
+  //           console.log('appErr');
+  //           return false;
+  //         }
+  //         console.log(res);
+  //         return true;
+  //       })
+  //     )
+  // }
 
   login(username: String, password: String) {
     return this._http.post<IRegResponse>(this._config.SERVER_AUTH_URL('login'), { username, password })
@@ -71,20 +70,18 @@ export class AuthService {
       )
   }
 
-  getLoggedState = () => {
+  getLoggedState(): Boolean {
     let storage = localStorage.getItem('sid');
-    let currentStorage = storage ? JSON.parse(storage): null;
-    let {_token } = currentStorage || {_token: null};
-    console.log(_token);
-    
-    // let validToken = this.verify({ username: user.username, token: _token })
+    let currentStorage = storage ? JSON.parse(storage) : null;
+    let { _token } = currentStorage || { _token: null };
+    // console.log(_token);
     return _token;
   }
 
   private authenticateUser(user: String, token: String) {
     // const expirationDate = new Date(new Date().getTime() + expiresIn*1000);
     const newUser = new User(user, token)
-    console.log(newUser);
+    // console.log(newUser);
     this.currentUser.next(newUser);
     localStorage.setItem('sid', JSON.stringify(newUser))
   }

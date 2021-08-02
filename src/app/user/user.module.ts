@@ -6,8 +6,8 @@ import { ProfileComponent } from './profile/profile.component';
 import { UserRoutingModule } from './user-routing.module';
 import { FormsModule } from '@angular/forms';
 import { AuthService } from './auth.service';
-import { ErrorService } from './error.service';
 import { SharedModule } from '../shared/shared.module';
+import { ErrorService } from '../shared/services/error.service';
 
 
 

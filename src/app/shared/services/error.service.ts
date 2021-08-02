@@ -11,7 +11,7 @@ export class ErrorService {
 
   handleError(err:HttpErrorResponse){
     if(!err.error || !err.error.errors) {
-      return throwError('UNKNOWN')
+      return throwError([{message:'UNKNOWN ERROR'}])
     }else{
       console.log(err);
       console.log(err.error);

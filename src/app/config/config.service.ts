@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
+import { AuthService } from '../user/auth.service';
 
 @Injectable()
 export class ConfigService {
@@ -8,8 +9,8 @@ export class ConfigService {
   API_QUESTION_URL: string = `${environment.serverUrl}api/questions`;
   API_RESULT_URL: string = `${environment.serverUrl}api/results`;
   PEXELS_API_URL: string = 'https://opentdb.com/api.php';
-  
-  SERVER_AUTH_URL(path:string) : string {
+
+  SERVER_AUTH_URL(path: string): string {
     return `${environment.serverUrl}auth/${path}`;
   }
   // //Authentication Endpoints
@@ -27,12 +28,12 @@ export class ConfigService {
     const hasToken = JSON.parse(localStorage.getItem('sid') || '');
     if (!hasToken) {
       return null;
-    } else if (!hasToken.hasOwnProperty('token')) {
+    } else if (!hasToken.hasOwnProperty('_token')) {
       return null;
     }
-    return hasToken.token;
+    return hasToken._token;
   }
-  
+
   //   //LOCAL USER SERVICES - optional
   //  localUser = {
   //   saveUser(userInfo:Object) {

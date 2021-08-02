@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { StateService } from '../core/state.service';
+import { AuthService } from '../user/auth.service';
 
 @Component({
   selector: 'app-home',
@@ -8,12 +8,11 @@ import { StateService } from '../core/state.service';
 })
 export class HomeComponent implements OnInit {
   isLogged: Boolean = false;
-  constructor(private _state: StateService) { }
+  constructor(private _auth: AuthService) { }
 
   ngOnInit(): void {
-    this.isLogged = this._state.isLogged;
+    this.isLogged = this._auth.getLoggedState();
     console.log(this.isLogged);
-    
   }
 
 }

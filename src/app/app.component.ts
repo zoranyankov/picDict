@@ -1,23 +1,16 @@
-import { Component, OnDestroy, OnInit, SimpleChanges } from '@angular/core';
-import { StateService } from './core/state.service';
+import { Component, OnInit } from '@angular/core';
+import { AuthService } from './user/auth.service';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent implements OnInit, OnDestroy{
+export class AppComponent implements OnInit{
   title = 'picDict';
   isLogged: Boolean = false
-  constructor(private _state:StateService) {}
+  constructor(private _auth:AuthService) {}
   ngOnInit() {
-    this._state.isLoggedUpdated.subscribe((isLogged) =>{
-      console.log('Logged Change');
-      
-      this.isLogged = isLogged;
-    })
-  }
-  ngOnDestroy() {
-    this._state.isLoggedUpdated.unsubscribe();
+    this.isLogged = this._auth.getLoggedState()
   }
 }

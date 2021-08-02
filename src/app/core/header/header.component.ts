@@ -1,24 +1,19 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
-import { StateService } from '../state.service';
+import { Component, DoCheck, OnInit } from '@angular/core';
+import { AuthService } from 'src/app/user/auth.service';
 
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.css']
 })
-export class HeaderComponent implements OnInit, OnDestroy{
+export class HeaderComponent implements OnInit, DoCheck{
   isLogged: Boolean = false;
-  constructor(private _state: StateService) { }
+  constructor(private _auth: AuthService) { }
 
   ngOnInit(): void {
-    this.isLogged = this._state.isLogged;
-    this._state.isLoggedUpdated.subscribe((isLogged) =>{
-      console.log('Logged Change');
-      
-      this.isLogged = isLogged;
-    })
+  this.isLogged = this._auth.getLoggedState();
   }
-  ngOnDestroy() {
-    this._state.isLoggedUpdated.unsubscribe();
+  ngDoCheck() {
+    this.isLogged = this._auth.getLoggedState();
   }
 }

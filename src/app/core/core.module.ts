@@ -3,7 +3,6 @@ import { CommonModule } from '@angular/common';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { RouterModule } from '@angular/router';
-import { StateService } from './state.service';
 import { IsLogged } from './guards/is.logged';
 import { NotLogged } from './guards/not.logged';
 import { Logout } from './guards/logout';
@@ -24,7 +23,6 @@ import { Logout } from './guards/logout';
     FooterComponent
   ],
   providers:[
-    StateService,
     IsLogged,
     NotLogged,
     Logout

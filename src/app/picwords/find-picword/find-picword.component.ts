@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-find-picword',
@@ -11,5 +12,8 @@ export class FindPicwordComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
+  onFindSubmit(form:NgForm) {
+    let {word} = form.value;
+    console.log(word);
+  }
 }

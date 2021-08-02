@@ -29,6 +29,8 @@ export class LoginComponent implements OnInit {
       },
         // Handle server errors
         err => {
+          console.log(err);
+          
           this.notificate = { type: 'error', messages: err };
         });
       }

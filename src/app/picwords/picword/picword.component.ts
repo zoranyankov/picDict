@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { IPW } from 'src/app/shared/interfaces/picword-interface';
 
 @Component({
   selector: 'app-picword',
@@ -6,8 +7,10 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./picword.component.css']
 })
 export class PicwordComponent implements OnInit {
-
-  constructor() { }
+  @Input('picWords') pWs: IPW[];
+  constructor() { 
+    this.pWs = [];
+  }
 
   ngOnInit(): void {
   }

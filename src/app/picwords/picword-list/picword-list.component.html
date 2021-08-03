@@ -1,21 +1,5 @@
 <div class="pw-list-wrapper">
-
-    <div class="picword-card">
-        <app-picword></app-picword>
-    </div>
-    <div class="picword-card">
-        <app-picword></app-picword>
-    </div>
-    <div class="picword-card">
-        <app-picword></app-picword>
-    </div>
-    <div class="picword-card">
-        <app-picword></app-picword>
-    </div>
-    <div class="picword-card">
-        <app-picword></app-picword>
-    </div>
-    <div class="picword-card">
-        <app-picword></app-picword>
-    </div>
+    <!-- <div class="picword-card" *ngFor="let picWord of picWords"> -->
+    <app-picword [picWords]="picWords"></app-picword>
+    <!-- </div> -->
 </div>

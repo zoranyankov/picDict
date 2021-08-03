@@ -1,8 +1,8 @@
 <div class="picword-wrapper">
-    <div class="picword">
+    <div class="picword" *ngFor="let pW of pWs">
         <div class="picword-img">
-            <img src="https://images.pexels.com/photos/1640777/pexels-photo-1640777.jpeg?auto=compress&cs=tinysrgb&dpr=1&fit=crop&h=200&w=280" alt="food-pic">
+            <img [src]="pW.pictureUrl" alt="food-pic">
         </div>
-        <h5 class="picword-name">FOOD</h5>
+        <h5 class="picword-name">{{pW.word}}</h5>
     </div>
 </div>

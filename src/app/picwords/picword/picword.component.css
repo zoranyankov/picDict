@@ -1,12 +1,38 @@
+.picword-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    width: 70rem;
+    height: fit-content;
+}
+
+.picword {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0 50px;
+    flex-grow: 1;
+    flex-shrink: 1;
+}
+
+.picword-img {
+    margin: 0;
+    width: 250px;
+    height: 250px;
+}
+
 .picword-img img {
     box-shadow: 2px 3px 10px 0px #afaaaa;
     border-radius: 7px;
-    /* max-width: 200px; */
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 
 .picword-name {
     font-size: 3rem;
-    margin: 20px auto;
+    margin: 0;
     /* color: #075d07; */
     color: green;
     text-shadow: 1px 1px 3px #1315b8;

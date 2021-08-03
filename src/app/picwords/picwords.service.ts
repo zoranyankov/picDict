@@ -21,4 +21,15 @@ export class PicwordsService {
       )
   }
 
+  getAll() {
+    const token = this._config.getToken();
+    return this._http.get(`${this._config.API_PICWORD_URL}/`, { headers: { 'x-access-token': token } })
+      .pipe(
+        catchError(err => {
+          console.log(err);
+          return this._errorService.handleError(err);
+        })
+      )
+  }
+
 }

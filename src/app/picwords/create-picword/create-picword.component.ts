@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { Router } from '@angular/router';
 import { INotificate } from 'src/app/shared/interfaces/notificate-interface';
 import { PicwordsService } from '../picwords.service';
 
@@ -11,7 +12,7 @@ import { PicwordsService } from '../picwords.service';
 export class CreatePicwordComponent implements OnInit {
 
   notificate: INotificate = { type: '', messages: [] }
-  constructor(private _pwService: PicwordsService) { }
+  constructor(private _pwService: PicwordsService, private _router: Router) { }
 
   ngOnInit(): void {
   }
@@ -27,6 +28,7 @@ export class CreatePicwordComponent implements OnInit {
           throw new Error(response.errors);
         }
         this.notificate = {type: 'message', messages: [{message: 'PW Created'}]};
+        this._router.navigateByUrl('/pw/picwords');
       },
       err => {
         console.log(err);

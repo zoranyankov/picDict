@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { IPW } from 'src/app/shared/interfaces/picword-interface';
 
 @Component({
@@ -8,11 +8,19 @@ import { IPW } from 'src/app/shared/interfaces/picword-interface';
 })
 export class PicwordComponent implements OnInit {
   @Input('picWords') pWs: IPW[];
+  @Input('find') inFind: boolean;
+  @Output() onCopy = new EventEmitter<IPW>();
+
   constructor() { 
     this.pWs = [];
+    this.inFind = false;
   }
 
   ngOnInit(): void {
+  }
+  
+  copyLink(pW : IPW) {
+    this.onCopy.emit(pW);
   }
 
 }

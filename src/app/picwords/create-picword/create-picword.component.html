@@ -30,12 +30,19 @@
         <!-- <div class="form-group"> -->
         <label>
             Write the word: 
-            <input type="text" class="form-control text" placeholder="Car" name="word" ngModel>
+            <input type="text" class="form-control text" placeholder="Car" name="word" [ngModel]="pexelWord.word">
         </label>
         <label for="correct_answer">
             Choose the picture: 
-            <input type="url" class="form-control url" placeholder="https://..." name="picture" ngModel>
+            <input type="url" class="form-control url" placeholder="https://..." name="picture" [ngModel]="pexelWord.pictureUrl">
         </label>
+
+        <p>You can search for picture in PEXELS.COM -
+            <a routerLink="/pw/find-picword">Find PicWord</a>
+        </p>
+        <!-- <p>You can paste the picture from PEXELS.COM -
+            <button ()="pasteUrl()">Paste PicWord</button>
+        </p> -->
         <!-- <Notificate maxWidth={true} type="error">{fields.errors.correct_answer || < br />}</Notificate> -->
         <!-- </div> -->
         <!-- <div class="form-group"> -->

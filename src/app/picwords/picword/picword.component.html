@@ -3,6 +3,13 @@
         <div class="picword-img">
             <img [src]="pW.pictureUrl" alt="food-pic">
         </div>
-        <h5 class="picword-name">{{pW.word}}</h5>
+        <ng-template [ngIf]="!inFind" [ngIfElse]="findLink">
+            <h5 class="picword-name">{{pW.word}}</h5>
+        </ng-template>
+        <ng-template #findLink>
+            <form #form="ngForm" (ngSubmit)="copyLink(pW)">
+                <button class="picword-name btn">COPY PEXEL</button>
+            </form>
+        </ng-template>
     </div>
 </div>

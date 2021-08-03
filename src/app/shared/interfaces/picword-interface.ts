@@ -1,4 +1,4 @@
 export interface IPW {
-    word: String,
-    pictureUrl: String
+    word: string,
+    pictureUrl: string
 }

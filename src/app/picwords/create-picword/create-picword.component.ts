@@ -1,7 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 import { INotificate } from 'src/app/shared/interfaces/notificate-interface';
+import { IPW } from 'src/app/shared/interfaces/picword-interface';
+import { PexelsService } from '../pexels.service';
 import { PicwordsService } from '../picwords.service';
 
 @Component({
@@ -9,12 +11,21 @@ import { PicwordsService } from '../picwords.service';
   templateUrl: './create-picword.component.html',
   styleUrls: ['./create-picword.component.css']
 })
-export class CreatePicwordComponent implements OnInit {
-
+export class CreatePicwordComponent implements OnInit, OnDestroy {
+  pexelWord: IPW = {word: '', pictureUrl: ''};
   notificate: INotificate = { type: '', messages: [] }
-  constructor(private _pwService: PicwordsService, private _router: Router) { }
+  constructor(
+    private _pwService: PicwordsService,
+    private _router: Router,
+    private _pexels: PexelsService
+    ) { }
 
   ngOnInit(): void {
+    this.pexelWord = this._pexels.getPexelW();
+  }
+
+  ngOnDestroy() {
+    this._pexels.setPexelW({word:'',pictureUrl:''})
   }
   
   onCreateSubmit(form: NgForm) {

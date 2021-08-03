@@ -48,3 +48,7 @@
     background-color: rgb(117 116 117);
     color: #ffde8e;
 }
+
+:host {
+    margin: 50px auto;
+}

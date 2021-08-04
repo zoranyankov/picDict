@@ -2,26 +2,84 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.1.1.
 
-## Development server
+# Have Fun and learn English words with PicWord Angular App
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+A JavaScript application built with Angular. It offers Guest and User page views. You can view and create "PicWords" (a Picture with Word cards) and learn English words in a funny way. If you want to create a new "PicWord", but you don't have an idea where to get a picture from, then in help comes the build in search functionality to get pictures for you from external REST-API covered by www.pexels.com - only by giving word as search criteria (so easy).
 
-## Code scaffolding
+Own created PicWords are stored in Node.js Back-end with Mongo DB – Express and Mongoose are used.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+[Go to Pexels](https://www.pexels.com/)
 
-## Build
+[Try PicWord (live demo)](Comming up...)
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+Getting Started
+---------------
 
-## Running unit tests
+```shell
+$ git clone https://github.com/davidrayoussef/react-quiz.git
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+For client side
+$ cd client
+$ npm install
+$ npm start
 
-## Running end-to-end tests
+For server side
+$ cd server
+$ npm install
+$ npm start
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+```
 
-## Further help
+App Structure
+-------------
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+```
+PicDictApp
+├───Guest
+|    ├── Welcome page
+|    ├── Login
+|    ├── Register
+|    └── About
+└─── User
+     ├── Welcome page
+     ├── PicWords
+     |   ├── All PicWords
+     |   ├── Find PicWord (searched in PexelWord)
+     |   └── Create PicWord
+     ├── Profile
+     |   └── Created PicWords
+     |       ├── Edit PicWord
+     |       └── Delete PicWord
+     └── Logout
+```
+
+Guest page
+----------
+
+Not logged users can see the Welcome page and the About page - with ability to register or login (if already have an account).
+
+
+<!-- ![alt text](https://res.cloudinary.com/softquizy/image/upload/c_scale,w_600/v1618060032/GuestPage_ppysym.png) -->
+
+
+User page
+---------
+
+Logged in users can navigate through header-navigation menu. All PicWords is populated only when there is created PicWords in the database - if not? - be the first to create some. Find PexelWord helps you in an easy and straight-forward way to find new pictures to be used.
+
+
+<!-- ![alt text](https://res.cloudinary.com/softquizy/image/upload/c_scale,w_600/v1618059650/UserPage_fgvedj.png) -->
+
+Logged in users has also access to a Profile page which has an options to shows a list with created form current user PicWords. Every PicWord in the list has creaton date/time. Every PicWord has also Edit and Delete buttons for managing the current PicWord.
+
+
+<!-- ![alt text](https://res.cloudinary.com/softquizy/image/upload/c_scale,w_600/v1618059654/ProfilePage_cejqo5.png) -->
+
+
+Notes
+---------
+
+
+All images used in the application are stored via claud-base platform for image and video managing service called Claudinary. More info at the link below:
+
+[Claudinary](https://cloudinary.com/)

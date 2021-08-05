@@ -21,7 +21,7 @@ $ git clone https://github.com/davidrayoussef/react-quiz.git
 For client side
 $ cd client
 $ npm install
-$ npm start
+$ ng serve
 
 For server side
 $ cd server
@@ -46,7 +46,7 @@ PicDictApp
      |   ├── All PicWords
      |   ├── Find PicWord (searched in PexelWord)
      |   └── Create PicWord
-     ├── Profile
+     ├── Profile  // still not implemented! (TODO...)
      |   └── Created PicWords
      |       ├── Edit PicWord
      |       └── Delete PicWord
@@ -56,24 +56,25 @@ PicDictApp
 Guest page
 ----------
 
+
 Not logged users can see the Welcome page and the About page - with ability to register or login (if already have an account).
 
 
-<!-- ![alt text](https://res.cloudinary.com/softquizy/image/upload/c_scale,w_600/v1618060032/GuestPage_ppysym.png) -->
+![alt text](https://res.cloudinary.com/dwacfzgzg/image/upload/v1628184357/GitHub%20ScreenShots/guest_c53xga.png)
 
 
 User page
 ---------
 
-Logged in users can navigate through header-navigation menu. All PicWords is populated only when there is created PicWords in the database - if not? - be the first to create some. Find PexelWord helps you in an easy and straight-forward way to find new pictures to be used.
+Logged in users can navigate through header-navigation menu. All PicWords page is populated only when there is created PicWords in the database - if not? - be the first to create some. Find PexelWord helps you in an easy and straight-forward way to find new pictures to be used.
 
 
-<!-- ![alt text](https://res.cloudinary.com/softquizy/image/upload/c_scale,w_600/v1618059650/UserPage_fgvedj.png) -->
+![alt text](https://res.cloudinary.com/dwacfzgzg/image/upload/v1628184224/GitHub%20ScreenShots/all_picWords_t2vvs2.png)
 
-Logged in users has also access to a Profile page which has an options to shows a list with created form current user PicWords. Every PicWord in the list has creaton date/time. Every PicWord has also Edit and Delete buttons for managing the current PicWord.
+Logged in users have also access to a Profile page which has an options to shows a list with created from current user PicWords. Every PicWord in the list has creaton date/time. Every PicWord has also Edit and Delete buttons for managing the current PicWord.
 
 
-<!-- ![alt text](https://res.cloudinary.com/softquizy/image/upload/c_scale,w_600/v1618059654/ProfilePage_cejqo5.png) -->
+![alt text](https://res.cloudinary.com/dwacfzgzg/image/upload/v1628184223/GitHub%20ScreenShots/profile_fsukhw.png)
 
 
 Notes

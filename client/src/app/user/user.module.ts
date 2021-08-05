@@ -7,7 +7,7 @@ import { UserRoutingModule } from './user-routing.module';
 import { FormsModule } from '@angular/forms';
 import { AuthService } from './auth.service';
 import { SharedModule } from '../shared/shared.module';
-import { ErrorService } from '../shared/services/error.service';
+import { HelpService } from '../shared/services/help.service';
 
 
 
@@ -25,7 +25,7 @@ import { ErrorService } from '../shared/services/error.service';
   ],
   providers: [
     AuthService,
-    ErrorService
+    HelpService
   ]
 })
 export class UserModule { }

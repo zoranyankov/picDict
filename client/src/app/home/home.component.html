@@ -4,7 +4,7 @@
         use them as a reference when you forget some word and its meaning. You can also search through all of the "PicWords" created from the rest of the registered users. Release your imagination and have a lot of Fun with PicDict Application!
     </p>
 </div>
-<app-picword></app-picword>
+<app-picword [home]="true" [picWords]="pws"></app-picword>
 <div *ngIf="!isLogged">
     <p>Already a member? - <a routerLink="auth/login">Login</a></p>
     <p>Don't have an account? - <a routerLink="auth/register">Register</a></p>

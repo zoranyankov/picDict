@@ -7,16 +7,21 @@ import { IPW } from 'src/app/shared/interfaces/picword-interface';
   styleUrls: ['./picword.component.css']
 })
 export class PicwordComponent implements OnInit {
+  wrapper: string = 'picword-wrapper';
+
   @Input('picWords') pWs: IPW[];
   @Input('find') inFind: boolean;
+  @Input('home') inHome: boolean;
   @Output() onCopy = new EventEmitter<IPW>();
 
   constructor() { 
     this.pWs = [];
     this.inFind = false;
+    this.inHome = false;
   }
-
+  
   ngOnInit(): void {
+    this.wrapper = this.inHome ? 'home-wrapper' : 'picword-wrapper';
   }
   
   copyLink(pW : IPW) {

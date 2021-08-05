@@ -10,7 +10,7 @@ Own created PicWords are stored in Node.js Back-end with Mongo DB – Express an
 
 [Go to Pexels](https://www.pexels.com/)
 
-[Try PicWord (live demo)](Comming up...)
+[Try PicWord (live demo)](https://picdict.netlify.app/)
 
 Getting Started
 ---------------

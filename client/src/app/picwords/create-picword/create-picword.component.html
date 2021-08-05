@@ -37,9 +37,7 @@
             <input type="url" class="form-control url" placeholder="https://..." name="picture" [ngModel]="pexelWord.pictureUrl">
         </label>
 
-        <p>You can search for picture in PEXELS.COM -
-            <a routerLink="/pw/find-picword">Find PicWord</a>
-        </p>
+
         <!-- <p>You can paste the picture from PEXELS.COM -
             <button ()="pasteUrl()">Paste PicWord</button>
         </p> -->
@@ -80,6 +78,10 @@
             <!-- <button class="btn">AddIcon</button> -->
             <button class="button" type="submit">Create</button>
         </div>
+        <p class="pexels">You can search for picture with PEXELS.COM
+        </p>
+        <a class="small button" routerLink="/pw/find-picword">Search with PicWord</a>
+
         <app-notificate [notificate]="notificate"></app-notificate>
     </form>
 </div>

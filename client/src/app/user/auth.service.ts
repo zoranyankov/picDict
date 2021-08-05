@@ -70,6 +70,14 @@ export class AuthService {
       )
   }
 
+  getLoggedUserName(){
+    let cookie = localStorage.getItem('sid');
+    let {user} = cookie ? JSON.parse(cookie): {user: ''};
+    console.log(user);
+    return  user;
+  }
+
+
   getLoggedState(): Boolean {
     let storage = localStorage.getItem('sid');
     let currentStorage = storage ? JSON.parse(storage) : null;

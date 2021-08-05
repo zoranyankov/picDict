@@ -60,7 +60,7 @@ Guest page
 Not logged users can see the Welcome page and the About page - with ability to register or login (if already have an account).
 
 
-![alt text](https://res.cloudinary.com/dwacfzgzg/image/upload/v1628184357/GitHub%20ScreenShots/guest_c53xga.png)
+![alt text](https://res.cloudinary.com/dwacfzgzg/image/upload/v1628196258/GitHub%20ScreenShots/guest_3_tihdrc.png)
 
 
 User page

@@ -2,8 +2,8 @@
     <!-- <div class="choose-external-header">
         <Image cloudName="softquizy" class="choose-external-logo" publicId='choose-quiz'/>
     </div> -->
-    <form *ngIf="picWords.length == 0" #form="ngForm" class="choose-external-form" (ngSubmit)="onFindSubmit(form)">
-        <h2 class="choose-external-title">Search for picture in PEXELS</h2><br />
+    <form #form="ngForm" class="choose-external-form" (ngSubmit)="onFindSubmit(form)">
+        <h2 *ngIf="picWords.length == 0" class="choose-external-title">Search for picture in PEXELS</h2><br />
 
         <!-- TODO: Add Categories -->
         <!-- <label for="category">Select Category: </label>
@@ -25,7 +25,7 @@
         <!-- <Notificate type="error">{fields.errors.pexels_difficulty || <br />}</Notificate> -->
         <button type="submit" class="button">Search in PEXELS</button>
     </form>
+    <app-picword *ngIf="picWords.length > 0" [picWords]="picWords" [find]="true" (onCopy)="onCopy($event)"></app-picword>
     <!-- <div class="https-container" *ngIf="picWords.length > 0"> -->
-    <app-picword [picWords]="picWords" [find]="true" (onCopy)="onCopy($event)"></app-picword>
     <!-- </div> -->
 </div>

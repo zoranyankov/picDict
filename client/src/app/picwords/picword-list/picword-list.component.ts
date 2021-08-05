@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { IPW } from 'src/app/shared/interfaces/picword-interface';
+import { HelpService } from 'src/app/shared/services/help.service';
 // import { IPWRes } from 'src/app/shared/interfaces/picword-res-interface';
 import { PicwordsService } from '../picwords.service';
 
@@ -10,12 +11,16 @@ import { PicwordsService } from '../picwords.service';
 })
 export class PicwordListComponent implements OnInit {
   picWords : IPW[] = [];
-  constructor(private _picword: PicwordsService) { }
+  constructor(private _picword: PicwordsService, private _helpService: HelpService) { }
 
   ngOnInit(): void {
     this._picword.getAll()
       .subscribe((response: any) => {
-        this.picWords = response;
+        let shuffle = this._helpService.shuffleArray(response);
+        console.log(shuffle);
+        console.log(shuffle.slice(0,4));
+        
+        this.picWords = shuffle.slice(0,6);
       },
       err => {
         // this.notificate = { type: 'error', messages: err };

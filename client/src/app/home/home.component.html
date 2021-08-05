@@ -6,6 +6,6 @@
 </div>
 <app-picword [home]="true" [picWords]="pws"></app-picword>
 <div *ngIf="!isLogged">
-    <p>Already a member? - <a routerLink="auth/login">Login</a></p>
-    <p>Don't have an account? - <a routerLink="auth/register">Register</a></p>
+    <p class="auth-links">Already a member? - <a routerLink="auth/login">Login</a></p>
+    <p class="auth-links">Don't have an account? - <a routerLink="auth/register">Register</a></p>
 </div>

@@ -26,6 +26,12 @@ p {
     display: block;
 }
 
+.auth-links {
+    font-weight: bold;
+    font-size: 20px;
+    font-style: italic;
+}
+
 .auth-container .btn {
     /* position: relative; */
     margin-right: 1rem;

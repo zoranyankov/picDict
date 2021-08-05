@@ -19,3 +19,9 @@
     line-height: 32px;
     margin-bottom: 50px;
 }
+
+.auth-links {
+    font-weight: bold;
+    font-size: 20px;
+    font-style: italic;
+}

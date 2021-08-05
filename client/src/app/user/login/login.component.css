@@ -46,3 +46,9 @@ p {
     background-color: rgb(117 116 117);
     color: #ffde8e;
 }
+
+.auth-links {
+    font-weight: bold;
+    font-size: 20px;
+    font-style: italic;
+}

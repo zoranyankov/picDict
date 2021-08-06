@@ -1,12 +1,14 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { NotificateComponent } from './notificate/notificate.component';
+import { ErrorComponent } from './error/error.component';
 
 
 
 @NgModule({
   declarations: [
-    NotificateComponent
+    NotificateComponent,
+    ErrorComponent
   ],
   imports: [
     CommonModule

@@ -74,6 +74,7 @@ export class AuthService {
     let cookie = localStorage.getItem('sid');
     let {user} = cookie ? JSON.parse(cookie): {user: ''};
     console.log(user);
+    console.log(cookie);
     return  user;
   }
 

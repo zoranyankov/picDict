@@ -4,6 +4,7 @@ import { AboutComponent } from './about/about.component';
 import { IsLogged } from './core/guards/is.logged';
 import { HomeComponent } from './home/home.component';
 import { PicwordListComponent } from './picwords/picword-list/picword-list.component';
+import { ErrorComponent } from './shared/error/error.component';
 
 const routes: Routes = [
   {
@@ -14,6 +15,10 @@ const routes: Routes = [
   {
     path:'about',
     component: AboutComponent,
+  },
+  {
+    path:'**',
+    component: ErrorComponent,
   },
   // {
   //   path:'pw',

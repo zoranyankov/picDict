@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { ConfigService } from 'src/app/config/config.service';
 import { AuthService } from '../auth.service';
 
 @Component({

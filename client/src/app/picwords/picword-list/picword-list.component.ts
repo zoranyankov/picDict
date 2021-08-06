@@ -17,9 +17,6 @@ export class PicwordListComponent implements OnInit {
     this._picword.getAll()
       .subscribe((response: any) => {
         let shuffle = this._helpService.shuffleArray(response);
-        console.log(shuffle);
-        console.log(shuffle.slice(0,4));
-        
         this.picWords = shuffle.slice(0,6);
       },
       err => {

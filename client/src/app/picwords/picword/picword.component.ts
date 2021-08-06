@@ -8,6 +8,7 @@ import { IPW } from 'src/app/shared/interfaces/picword-interface';
 })
 export class PicwordComponent implements OnInit {
   wrapper: string = 'picword-wrapper';
+  findStyle: string = '';
 
   @Input('picWords') pWs: IPW[];
   @Input('find') inFind: boolean;
@@ -22,6 +23,7 @@ export class PicwordComponent implements OnInit {
   
   ngOnInit(): void {
     this.wrapper = this.inHome ? 'home-wrapper' : 'picword-wrapper';
+    this.findStyle = this.inFind ? 'picword-img find' : 'picword-img';
   }
   
   copyLink(pW : IPW) {

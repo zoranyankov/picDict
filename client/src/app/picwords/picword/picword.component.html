@@ -1,14 +1,17 @@
 <div class="{{wrapper}}">
     <div class="picword" *ngFor="let pW of pWs">
-        <div class="picword-img">
-            <img [src]="pW.pictureUrl" alt="food-pic">
-        </div>
         <ng-template [ngIf]="!inFind" [ngIfElse]="findLink">
+            <div class="picword-img">
+                <img [src]="pW.pictureUrl" alt="food-pic">
+            </div>
             <h5 class="picword-name">{{pW.word}}</h5>
         </ng-template>
         <ng-template #findLink>
-            <form #form="ngForm" (ngSubmit)="copyLink(pW)">
-                <button class="picword-name btn">COPY PEXEL</button>
+            <form #form="ngForm">
+                <div (click)="copyLink(pW)" class="{{findStyle}}">
+                    <img [src]="pW.pictureUrl" alt="food-pic">
+                </div>
+                <button (click)="copyLink(pW)" class="picword-name btn">COPY PEXEL</button>
             </form>
         </ng-template>
     </div>

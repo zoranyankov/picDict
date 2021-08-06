@@ -15,12 +15,10 @@
 }
 
 .create-question-content .button {
+    cursor: pointer;
     margin-right: 1rem;
     text-decoration: none;
     padding: 8px 13px;
-    /* background-color: rgb(44 151 202);
-    border-radius: 4px;
-    color: white; */
     background-color: rgb(46 44 47);
     border-radius: 4px;
     color: #f6c95b;

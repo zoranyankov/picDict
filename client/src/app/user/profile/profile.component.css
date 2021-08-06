@@ -1,6 +1,8 @@
 .profile-content {
     padding: 1rem 0rem;
     text-align: center;
+    display: flex;
+    flex-direction: column;
 }
 
 .profile-content .profile-header {
@@ -43,6 +45,7 @@
 
 .profile-content .button {
     cursor: pointer;
+    text-transform: capitalize;
     margin-right: 1rem;
     text-decoration: none;
     padding: 8px 13px;
@@ -64,3 +67,10 @@
     text-align: center;
     padding: 1rem 7rem;
 }
+
+.profile-page-buttons {
+    display: flex;
+    justify-content: space-between;
+}
+
+.profile-page-buttons .btn-wrapper {}

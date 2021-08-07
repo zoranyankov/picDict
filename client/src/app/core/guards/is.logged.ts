@@ -11,8 +11,8 @@ export class IsLogged implements CanActivate {
         ) { }
     canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean | UrlTree | Observable<boolean | UrlTree> | Promise<boolean | UrlTree> {
         const {data : {paramsActivateRedirectUrl}} = route;
-        let validToken = this._auth.getToken();
-        if (validToken) { return true; }
+        
+        if (this._auth.getLoggedUserToken()) { return true; } //TODO: token validation
 
         return this._router.parseUrl(paramsActivateRedirectUrl || '/');
         // throw new Error("Method not implemented.");

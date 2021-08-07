@@ -11,9 +11,9 @@ export class HeaderComponent implements OnInit, DoCheck{
   constructor(private _auth: AuthService) { }
 
   ngOnInit(): void {
-  this.isLogged = this._auth.getToken();
+  this.isLogged = this._auth.getLoggedUserId() ? true : false;
   }
   ngDoCheck() {
-    this.isLogged = this._auth.getToken();
+    this.isLogged = this._auth.getLoggedUserId() ? true : false;
   }
 }

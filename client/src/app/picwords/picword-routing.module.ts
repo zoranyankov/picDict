@@ -30,14 +30,13 @@ const routes: Routes = [
       },
     },
   {
-    path:'pw/user-pwList',
+    path:'pw/user-pwList/:userId',
     component: PicwordListComponent,
       canActivate: [
         IsLogged
       ],
       data: {
-        paramsActivateRedirectUrl: '/',
-        userPwList: true
+        paramsActivateRedirectUrl: '/'
       },
     },
     {

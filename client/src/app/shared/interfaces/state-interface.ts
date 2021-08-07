@@ -1,5 +1,5 @@
 export interface IState {
-    username: String,
-    isLogged: Boolean,
-    isAuthorized: Boolean
+    isAuthName: string,
+    isLogged: boolean,
+    isAuthorized: boolean
 }

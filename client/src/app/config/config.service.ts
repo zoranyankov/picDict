@@ -26,15 +26,19 @@ export class ConfigService {
   constructor() { }
 
   //Get current Token 
-  getToken = () => {
-    const hasToken = JSON.parse(localStorage.getItem('sid') || '');
-    if (!hasToken) {
-      return null;
-    } else if (!hasToken.hasOwnProperty('_token')) {
-      return null;
-    }
-    return hasToken._token;
-  }
+  // getToken = () => {
+  //   console.log('ingetToken');
+  //   let hasCookie = localStorage.getItem('sid');
+  //   if (!hasCookie) {
+  //     return null;
+  //   }
+  //   const {_token} = JSON.parse(hasCookie);
+  //   console.log(_token);
+    
+  //   if (_token) {
+  //     return _token;
+  //   }
+  // }
 
   //   //LOCAL USER SERVICES - optional
   //  localUser = {

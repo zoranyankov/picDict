@@ -8,9 +8,13 @@ import { AuthService } from '../auth.service';
 })
 export class ProfileComponent implements OnInit {
   userName: string = 'User';
+  userId: string = '';
   constructor(private _authService: AuthService) { }
 
   ngOnInit(): void {
-    this.userName = this._authService.getLoggedUserName()
+    this.userName = this._authService.getLoggedUserName();
+    this.userId = this._authService.getLoggedUserId();
+    console.log(this.userId);
+    
   }
 }

@@ -4,20 +4,20 @@ import { Router } from '@angular/router';
 import { BehaviorSubject } from 'rxjs';
 import { catchError, tap } from 'rxjs/operators';
 import { ConfigService } from '../config/config.service';
+import { StateService } from '../core/state.service';
 import { IRegResponse } from '../shared/interfaces/register-response-interface';
 import { HelpService } from '../shared/services/help.service';
 import { User } from './userModels/user.model';
 
 @Injectable()
 export class AuthService {
-  private _userId: string = '';
-
   currentUser = new BehaviorSubject<User | null>(null);
   constructor(
     private _config: ConfigService,
     private _http: HttpClient,
     private _errorService: HelpService,
     private _router: Router,
+    private _stateService: StateService
   ) { }
 
   register(username: string, password: string) {
@@ -67,40 +67,43 @@ export class AuthService {
         tap(res => {
           console.log(res);
           console.log(res.user);
-          
+
           this.authenticateUser(res.user._id, res.user.username, res.token);
           this._router.navigateByUrl('');
         })
       )
   }
 
-  getLoggedUserName(){
+  getLoggedUserName() {
     let cookie = localStorage.getItem('sid');
-    let {user} = cookie ? JSON.parse(cookie): {user: ''};
+    let { user } = cookie ? JSON.parse(cookie) : { user: '' };
     console.log(user);
     console.log(cookie);
-    return  user;
+    return user;
   }
 
-
-  getToken(): boolean {
+  getLoggedUserId(): string {
+    let storage = localStorage.getItem('sid');
+    let currentStorage = storage ? JSON.parse(storage) : null;
+    let { _userId } = currentStorage || { _userId: null };
+    // console.log(_token);
+    return _userId;
+  }
+  
+  getLoggedUserToken = () => {
     let storage = localStorage.getItem('sid');
     let currentStorage = storage ? JSON.parse(storage) : null;
     let { _token } = currentStorage || { _token: null };
-    // console.log(_token);
+    console.log(_token);
     return _token;
-  }
-
-  getUserId(): string {
-    return this._userId;
   }
 
   private authenticateUser(userId: string, user: string, token: string) {
     // const expirationDate = new Date(new Date().getTime() + expiresIn*1000);
-    const newUser = new User(user, token)
+    const newUser = new User(userId, user, token)
     // console.log(newUser);
     this.currentUser.next(newUser);
-    localStorage.setItem('sid', JSON.stringify(newUser))
-    this._userId = userId;
+    localStorage.setItem('sid', JSON.stringify(newUser));
+    this._stateService.setState({isAuthName: user, isLogged: true, isAuthorized: true});
   }
 }

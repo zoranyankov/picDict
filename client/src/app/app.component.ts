@@ -8,9 +8,9 @@ import { AuthService } from './user/auth.service';
 })
 export class AppComponent implements OnInit{
   title = 'picDict';
-  isLogged: Boolean = false
+  isLogged: boolean = false
   constructor(private _auth:AuthService) {}
   ngOnInit() {
-    this.isLogged = this._auth.getToken()
+    this.isLogged = this._auth.getLoggedUserId() ? true : false;
   }
 }

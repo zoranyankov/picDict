@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { PicwordsService } from '../picwords.service';
 
 @Component({
   selector: 'app-picword-details',
@@ -7,9 +9,25 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PicwordDetailsComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    private _activatedRoute: ActivatedRoute,
+    private _picword: PicwordsService
+  ) { }
 
   ngOnInit(): void {
+    let pwId = this._activatedRoute.snapshot.params.pwId;
+    console.log(pwId);
+    this._picword.getone(pwId)
+    .subscribe((response: any) => {
+      console.log(response);
+      // if (!response) {
+      //   throw new Error('No Data Found!')
+      // }
+      // this.profilePWs = response;
+    },
+      err => {
+        // this.notificate = { type: 'error', messages: err };
+      })
   }
 
 }

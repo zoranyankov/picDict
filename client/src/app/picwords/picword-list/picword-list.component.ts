@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+// import { ActivatedRoute } from '@angular/router';
 import { IPW } from 'src/app/shared/interfaces/picword-interface';
 import { HelpService } from 'src/app/shared/services/help.service';
 // import { IPWRes } from 'src/app/shared/interfaces/picword-res-interface';
@@ -16,12 +16,12 @@ export class PicwordListComponent implements OnInit {
   constructor(
     private _picword: PicwordsService,
     private _helpService: HelpService,
-    private _activatedRoute: ActivatedRoute
+    // private _activatedRoute: ActivatedRoute
   ) { }
 
   ngOnInit(): void {
-    let userId = this._activatedRoute.snapshot.params.userId;
-    console.log(userId);
+    // let userId = this._activatedRoute.snapshot.params.userId;
+    // console.log(userId);
 
     this._picword.getAll()
       .subscribe((response: any) => {

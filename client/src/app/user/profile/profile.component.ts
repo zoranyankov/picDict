@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { PicwordsService } from 'src/app/picwords/picwords.service';
 import { IPW } from 'src/app/shared/interfaces/picword-interface';
 import { IPWRes } from 'src/app/shared/interfaces/picword-res-interface';
-import { HelpService } from 'src/app/shared/services/help.service';
+// import { HelpService } from 'src/app/shared/services/help.service';
 import { AuthService } from '../auth.service';
 
 @Component({
@@ -18,7 +18,7 @@ export class ProfileComponent implements OnInit {
   constructor(
     private _auth: AuthService,
     private _picword: PicwordsService,
-    private _help: HelpService,
+    // private _help: HelpService,
     ) { }
 
   ngOnInit(): void {
@@ -42,6 +42,6 @@ export class ProfileComponent implements OnInit {
   }
 
   onSelect(event: IPW) {
-
+    
   }
 }

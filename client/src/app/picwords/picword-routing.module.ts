@@ -72,7 +72,7 @@ const routes: Routes = [
       },
     },
     {
-      path:'pw/picword-details',
+      path:'pw/picword-details/:pwId',
       component: PicwordDetailsComponent,
       canActivate: [
         IsLogged

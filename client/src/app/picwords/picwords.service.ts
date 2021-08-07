@@ -41,12 +41,23 @@ export class PicwordsService {
   getByUserId(userId: string) {
     const token = this._auth.getLoggedUserToken();
     return this._http.get(`${this._config.API_PICWORD_URL}/byUser/${userId}`, { headers: { 'x-access-token': token } })
-      // .pipe(
-      //   catchError(err => {
-      //     console.log(err);
-      //     return this._errorService.handleError(err);
-      //   })
-      // )
+      .pipe(
+        catchError(err => {
+          console.log(err);
+          return this._errorService.handleError(err);
+        })
+      )
+  }
+
+  getone(pwId: string) {
+    const token = this._auth.getLoggedUserToken();
+    return this._http.get(`${this._config.API_PICWORD_URL}/${pwId}`, { headers: { 'x-access-token': token } })
+      .pipe(
+        catchError(err => {
+          console.log(err);
+          return this._errorService.handleError(err);
+        })
+      )
   }
 
 }

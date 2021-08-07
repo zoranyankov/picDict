@@ -148,7 +148,8 @@ router.get('/:picWordId', verifyToken, (req, res) => {
     console.log('inPicWord getOne by picWordId api route');
     picWordService.getOne(picWordId)
         .then((picWord) => {
-            res.status(302).json(picWord);
+            // res.status(302).json(picWord);
+            res.status(200).json(picWord);
             return;
         })
         .catch(err => {

@@ -49,9 +49,31 @@ export class PicwordsService {
       )
   }
 
-  getone(pwId: string) {
+  getOne(pwId: string) {
     const token = this._auth.getLoggedUserToken();
     return this._http.get(`${this._config.API_PICWORD_URL}/${pwId}`, { headers: { 'x-access-token': token } })
+      .pipe(
+        catchError(err => {
+          console.log(err);
+          return this._errorService.handleError(err);
+        })
+      )
+  }
+
+  deleteOne(pwId: string) {
+    const token = this._auth.getLoggedUserToken();
+    return this._http.delete(`${this._config.API_PICWORD_URL}/delete/${pwId}`, { headers: { 'x-access-token': token } })
+      .pipe(
+        catchError(err => {
+          console.log(err);
+          return this._errorService.handleError(err);
+        })
+      )
+  }
+
+  editOne(pwId: string, pw: IPWCreate) {
+    const token = this._auth.getLoggedUserToken();
+    return this._http.patch(`${this._config.API_PICWORD_URL}/edit/${pwId}`, pw, { headers: { 'x-access-token': token } })
       .pipe(
         catchError(err => {
           console.log(err);

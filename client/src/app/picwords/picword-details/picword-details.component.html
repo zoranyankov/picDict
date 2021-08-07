@@ -1,1 +1,18 @@
-<p>picword-details works!</p>
+<div class="picword-wrapper">
+    <ng-template [ngIf]="pW" [ngIfElse]="loading">
+        <div class="picword">
+            <div class="picword-img">
+                <img [src]="pW.pictureUrl" alt="food-pic">
+            </div>
+            <h5 class="picword-name">{{pW.word}}</h5>
+            <h3 class="pw-info-title">Created - <span>{{pW?.createdAt}}</span></h3>
+            <div class="buttons">
+                <button [routerLink]="['/pw/picword/', pW._id, 'Edit']" class="pw-edit button">Edit</button>
+                <button [routerLink]="['/pw/picword/', pW._id, 'Delete']" class="pw-delete button">Delete</button>
+            </div>
+        </div>
+    </ng-template>
+    <ng-template #loading>
+        Loading...
+    </ng-template>
+</div>

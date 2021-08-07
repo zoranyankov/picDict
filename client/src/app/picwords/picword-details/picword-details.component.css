@@ -1,0 +1,98 @@
+.picword-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    width: 70rem;
+    height: fit-content;
+}
+
+.picword {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 20px 50px;
+    flex-grow: 1;
+    flex-shrink: 1;
+}
+
+.picword-img {
+    margin: 0;
+    width: 250px;
+    height: 250px;
+}
+
+.picword-wrapper .flag img {
+    cursor: pointer;
+}
+
+.picword-img img {
+    box-shadow: 2px 3px 10px 0px #afaaaa;
+    border-radius: 7px;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.picword-name {
+    font-size: 2rem;
+    margin: 0;
+    /* color: #075d07; */
+    color: green;
+    text-shadow: 1px 1px 3px #1315b8;
+    /* background: #59dec6; */
+    width: max-content;
+    border-radius: 5px;
+    padding: 5px 12px;
+    text-transform: capitalize;
+    border: none;
+}
+
+.pw-info-list {
+    list-style: none;
+    padding: 0;
+}
+
+.buttons {
+    display: flex;
+    justify-content: space-between;
+    width: 20%;
+}
+
+.picword .button {
+    cursor: pointer;
+    margin-right: 1rem;
+    text-decoration: none;
+    padding: 5px 30px;
+    font-size: 15px;
+    border-radius: 4px;
+    box-shadow: 1px 1px 3px 0px #757373;
+    margin: 10px 0 100px 0;
+}
+
+.picword .pw-edit {
+    background-color: #005c0c;
+    color: #f6c95b;
+    border: 1px solid #521b52b0;
+}
+
+.picword .pw-delete {
+    background-color: #a51e1e;
+    color: #f6c95b;
+    border: 1px solid #521b52b0;
+}
+
+.picword .button:hover {
+    background-color: #757475;
+    color: #ffde8e;
+}
+
+.picword .pw-delete:hover {
+    background-color: #ff4040;
+    color: #000000;
+}
+
+.picword .pw-edit:hover {
+    background-color: #2d9c3c;
+    color: #000000;
+}

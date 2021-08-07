@@ -4,79 +4,16 @@
     </div>
     <form #form="ngForm" class="create-question-form" (ngSubmit)="onCreateSubmit(form)">
         <h1 class="create-question-title">Create new PicWord</h1>
-
-        <!-- <div class="form-group"> -->
-        <!-- TODO: Add Categories -->
-        <!-- <label for="category">Select Category: </label>
-        <select name="category" class="form-control">
-            <option value="any">Any Category</option>
-            <option value="6">Math</option>
-            <option value="7">Geography</option>
-            <option value="8">History</option>
-        </select> -->
-        <!-- <Notificate maxWidth2={true} type="error">{fields.errors.category || < br />}</Notificate> -->
-
-        <!-- </div> -->
-        <!-- <div class="form-group"> -->
-        <!-- <label for="difficulty">Select Difficulty: </label>
-        <select name="difficulty" class="form-control">
-            <option value="any">Any Difficulty</option>
-            <option value="easy">Easy</option>
-            <option value="medium">Medium</option>
-            <option value="hard">Hard</option>
-        </select> -->
-        <!-- <Notificate maxWidth2={true} type="error">{fields.errors.difficulty || < br />}</Notificate> -->
-        <!-- </div> -->
-        <!-- <div class="form-group"> -->
         <label>
             Write the word: 
-            <input type="text" class="form-control text" placeholder="Car" name="word" [ngModel]="pexelWord.word">
+            <input disabled="{{action == 'Delete'}}" type="text" class="form-control text" placeholder="Car" name="word" [ngModel]="pexelWord.word">
         </label>
         <label for="correct_answer">
             Choose the picture: 
-            <input type="url" class="form-control url" placeholder="https://..." name="picture" [ngModel]="pexelWord.pictureUrl">
+            <input disabled="{{action == 'Delete'}}" type="url" class="form-control url" placeholder="https://..." name="picture" [ngModel]="pexelWord.pictureUrl">
         </label>
-
-
-        <!-- <p>You can paste the picture from PEXELS.COM -
-            <button ()="pasteUrl()">Paste PicWord</button>
-        </p> -->
-        <!-- <Notificate maxWidth={true} type="error">{fields.errors.correct_answer || < br />}</Notificate> -->
-        <!-- </div> -->
-        <!-- <div class="form-group"> -->
-        <!-- <label>Choose the picture: 
-                <div  class="button">
-                    <span>Select File</span>
-                    <input type="file" name="pic">
-                </div>
-            </label> -->
-        <!-- <Notificate maxWidth={true} type="error">{fields.errors.question ||<br/>}</Notificate> -->
-        <!-- </div> -->
-        <!-- <div class="form-group"> -->
-        <!-- <label for="incorrect_answer">Write the wrong answers: </label> -->
-        <!-- {fields.incorrect_answers.map((wa, i) => -->
-        <!-- <div key={i} > -->
-        <!-- </div> -->
-        <!-- <div class="form-group"> -->
-        <!-- <textarea type="text" class="form-control incorrect-answer" placeholder="Some wrong answer" name="incorrect_answer"></textarea> -->
-
-        <!-- {i > 0
-                    ? <button class="remove-btn" onClick={(e) => removeClick(e, fields, i)} >
-                        <RemoveCircleIcon />
-                    </button>
-                    : <button class="remove-btn" onClick={(e) => {
-                        e.preventDefault();
-                        console.log('You must give at least one wrong answer')
-                    }} >
-                        <VpnKeyIcon />
-                    </button>
-                } -->
-        <!-- <Notificate maxWidth={true} type="error">{fields.errors[`incorrect_answer_${i}`] || < br />}</Notificate> -->
-        <!-- </div> -->
-        <!-- )} -->
         <div class="buttons">
-            <!-- <button class="btn">AddIcon</button> -->
-            <button class="button" type="submit">Create</button>
+            <button class="{{buttonClass}}" type="submit">{{buttonName}}</button>
         </div>
         <p class="pexels">You can search for picture with PEXELS.COM
         </p>

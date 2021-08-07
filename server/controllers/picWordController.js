@@ -192,7 +192,8 @@ router.patch('/edit/:picWordId', verifyToken, (req, res, next) => {
     // }
     picWordService.update(picWordId, { ...newPicWord })
         .then(picWord => {
-            res.status(302).json(picWord);
+            // res.status(302).json(picWord);
+            res.status(200).json(picWord);
             // console.log(data);
             // res.redirect(`/picWords/details/${data._id}`);
             return;
@@ -215,7 +216,8 @@ router.delete('/delete/:picWordId', verifyToken, (req, res, next) => {
     console.log('inDelete');
     picWordService.removeOne(req.params.picWordId)
         .then((data) => {
-            res.status(202).json(data);
+            // res.status(202).json(data);
+            res.status(200).json(data);
             // res.render('picWords/deletePicWord', { ...data });
             return;
         })

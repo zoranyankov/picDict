@@ -17,7 +17,7 @@
                 <div [routerLink]="['/pw/picword-details', pW._id]" class="{{flagStyle}}">
                     <img [src]="pW.pictureUrl" alt="food-pic">
                 </div>
-                <button type="submit" [routerLink]="['/pw/picword-details', pW._id]" class="picword-name btn">COPY PEXEL</button>
+                <button type="submit" [routerLink]="['/pw/picword-details', pW._id]" class="picword-name btn">{{pW.word}}</button>
             </div>
         </ng-template>
     </div>

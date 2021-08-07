@@ -48,7 +48,7 @@
     /* background-color: rgb(44 151 202);
     border-radius: 4px;
     color: white; */
-    background-color: rgb(46 44 47);
+    background-color: #2e2c2f;
     border-radius: 4px;
     color: #f6c95b;
     border: 1px solid #521b52b0;
@@ -56,13 +56,13 @@
 }
 
 .header-nav-items li a:hover {
-    background-color: rgb(117 116 117);
+    background-color: #757475;
     color: #ffde8e;
 }
 
 .header-nav-items li a.active-link {
     /* color: #5cf1d5; */
-    color: rgb(46 44 47);
+    color: #2e2c2f;
     background-color: #f6c95b;
     /* font-weight: bold; */
 }

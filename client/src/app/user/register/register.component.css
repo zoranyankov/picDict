@@ -37,7 +37,7 @@ p {
     margin-right: 1rem;
     text-decoration: none;
     padding: 8px 13px;
-    background-color: rgb(46 44 47);
+    background-color: #2e2c2f;
     border-radius: 4px;
     color: #f6c95b;
     border: 1px solid #521b52b0;
@@ -46,6 +46,6 @@ p {
 }
 
 .auth-container .btn:hover {
-    background-color: rgb(117 116 117);
+    background-color: #757475;
     color: #ffde8e;
 }

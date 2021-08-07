@@ -20,66 +20,77 @@ const routes: Routes = [
   //   },
   // },
   {
-    path:'pw/picwords',
+    path: 'pw/picwords',
     component: PicwordListComponent,
-      canActivate: [
-        IsLogged
-      ],
-      data: {
-        paramsActivateRedirectUrl: '/'
-      },
+    canActivate: [
+      IsLogged
+    ],
+    data: {
+      paramsActivateRedirectUrl: '/'
     },
+  },
   {
-    path:'pw/user-pwList/:userId',
+    path: 'pw/user-pwList/:userId',
     component: PicwordListComponent,
-      canActivate: [
-        IsLogged
-      ],
-      data: {
-        paramsActivateRedirectUrl: '/',
-        flag: 'profile'
-      },
+    canActivate: [
+      IsLogged
+    ],
+    data: {
+      paramsActivateRedirectUrl: '/',
+      flag: 'profile'
     },
-    {
-      path:'pw/create-picword',
-      component: CreatePicwordComponent,
-      canActivate: [
-        IsLogged
-      ],
-      data: {
-        paramsActivateRedirectUrl: '/'
-      },
+  },
+  {
+    path: 'pw/create-picword',
+    component: CreatePicwordComponent,
+    canActivate: [
+      IsLogged
+    ],
+    data: {
+      paramsActivateRedirectUrl: '/'
     },
-    {
-      path:'pw/find-picword',
-      component: FindPicwordComponent,
-      canActivate: [
-        IsLogged
-      ],
-      data: {
-        paramsActivateRedirectUrl: '/',
-        flag: 'find'
-      },
+  },
+  {
+    path: 'pw/find-picword',
+    component: FindPicwordComponent,
+    canActivate: [
+      IsLogged
+    ],
+    data: {
+      paramsActivateRedirectUrl: '/',
+      flag: 'find'
     },
-    {
-      path:'pw/edit-picword',
-      component: EditPicwordComponent,
-      canActivate: [
-        IsLogged
-      ],
-      data: {
-        paramsActivateRedirectUrl: '/'
-      },
+  },
+  {
+    path: 'pw/edit-picword',
+    component: EditPicwordComponent,
+    canActivate: [
+      IsLogged
+    ],
+    data: {
+      paramsActivateRedirectUrl: '/'
     },
-    {
-      path:'pw/picword-details/:pwId',
-      component: PicwordDetailsComponent,
-      canActivate: [
-        IsLogged
-      ],
-      data: {
-        paramsActivateRedirectUrl: '/'
-      },
+  },
+  {
+    path: 'pw/picword-details/:pwId',
+    component: PicwordDetailsComponent,
+    pathMatch: 'full',
+    canActivate: [
+      IsLogged
+    ],
+    data: {
+      paramsActivateRedirectUrl: '/'
+    },
+  },
+  {
+    path: 'pw/picword/:pwId/:action',
+    component: CreatePicwordComponent,
+    canActivate: [
+      IsLogged
+    ],
+    data: {
+      paramsActivateRedirectUrl: '/'
+    },
   }
 ];
 

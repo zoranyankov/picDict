@@ -2,7 +2,7 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 import { INotificate } from 'src/app/shared/interfaces/notificate-interface';
-import { IPW } from 'src/app/shared/interfaces/picword-interface';
+import { IPWCreate } from 'src/app/shared/interfaces/pwCreate-interface';
 import { PexelsService } from '../pexels.service';
 import { PicwordsService } from '../picwords.service';
 
@@ -12,7 +12,7 @@ import { PicwordsService } from '../picwords.service';
   styleUrls: ['./create-picword.component.css']
 })
 export class CreatePicwordComponent implements OnInit, OnDestroy {
-  pexelWord: IPW = {word: '', pictureUrl: ''};
+  pexelWord: IPWCreate = {word: '', pictureUrl: ''};
   notificate: INotificate = { type: '', messages: [] }
   constructor(
     private _pwService: PicwordsService,

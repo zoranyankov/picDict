@@ -8,6 +8,7 @@ import { FormsModule } from '@angular/forms';
 import { AuthService } from './auth.service';
 import { SharedModule } from '../shared/shared.module';
 import { HelpService } from '../shared/services/help.service';
+import { PicwordsModule } from '../picwords/picwords.module';
 
 
 
@@ -21,7 +22,8 @@ import { HelpService } from '../shared/services/help.service';
     CommonModule,
     UserRoutingModule,
     FormsModule,
-    SharedModule
+    SharedModule,
+    PicwordsModule
   ],
   providers: [
     AuthService,

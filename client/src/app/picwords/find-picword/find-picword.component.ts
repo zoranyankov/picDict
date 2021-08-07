@@ -26,9 +26,12 @@ export class FindPicwordComponent implements OnInit {
     this._pexels.search(word)
     .subscribe((response: any) => {
       let https: IPW[]= [];
-      response.photos.forEach((x: {src: {tiny: string}}) => https.push({word: word, pictureUrl: x.src.tiny}));
+      console.log(response);
+      
+      // Destructuring PEXELS response
+      response.photos.forEach((x: {id:string, src: {tiny: string}}) => https.push({_id: x.id, word: word, pictureUrl: x.src.tiny}));
       let shuffled = this._helpService.shuffleArray(https);
-      this.picWords = https.slice(0,3);
+      this.picWords = shuffled.slice(0,3);
     },
     err => {
     })

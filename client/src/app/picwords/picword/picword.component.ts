@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { IPW } from 'src/app/shared/interfaces/picword-interface';
+import { IPWRes } from 'src/app/shared/interfaces/picword-res-interface';
 
 @Component({
   selector: 'app-picword',
@@ -8,26 +9,30 @@ import { IPW } from 'src/app/shared/interfaces/picword-interface';
 })
 export class PicwordComponent implements OnInit {
   wrapper: string = 'picword-wrapper';
-  findStyle: string = '';
+  flagStyle: string = '';
 
   @Input('picWords') pWs: IPW[];
-  @Input('find') inFind: boolean;
+  @Input('flag') flag: string;
   @Input('home') inHome: boolean;
   @Output() onCopy = new EventEmitter<IPW>();
+  @Output() onSelect = new EventEmitter<IPW>();
 
   constructor() { 
     this.pWs = [];
-    this.inFind = false;
+    this.flag = '';
     this.inHome = false;
   }
   
   ngOnInit(): void {
     this.wrapper = this.inHome ? 'home-wrapper' : 'picword-wrapper';
-    this.findStyle = this.inFind ? 'picword-img find' : 'picword-img';
+    this.flagStyle = this.flag ? 'picword-img flag' : 'picword-img';
   }
   
   copyLink(pW : IPW) {
     this.onCopy.emit(pW);
+  }
+  selectPw(pW : IPW) {
+    this.onSelect.emit(pW);
   }
 
 }

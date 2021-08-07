@@ -1,5 +1,4 @@
-export interface IPW {
-    _id: string,
+export interface IPWCreate {
     word: string,
     pictureUrl: string
 }

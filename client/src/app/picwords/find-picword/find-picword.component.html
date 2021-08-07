@@ -26,7 +26,7 @@
         <button *ngIf="picWords.length == 0" type="submit" class="button">Search in PEXELS</button>
         <button *ngIf="picWords.length > 0" type="submit" class="button">More...</button>
     </form>
-    <app-picword *ngIf="picWords.length > 0" [picWords]="picWords" [find]="true" (onCopy)="onCopy($event)"></app-picword>
+    <app-picword *ngIf="picWords.length > 0" [picWords]="picWords" [flag]="'find'" (onCopy)="onCopy($event)"></app-picword>
     <!-- <div class="https-container" *ngIf="picWords.length > 0"> -->
     <!-- </div> -->
 </div>

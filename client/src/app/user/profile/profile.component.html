@@ -1,23 +1,28 @@
 <div class="profile-content">
-    <div class="profile-header">
-        <!-- <Image cloudName="softquizy" class="profile-animation" publicId='profile-page-logo' /> -->
-        <div class="profile-data">
-            <h1 class="profile-title">{{userName}}'s Page</h1>
-            <img class="profile-logo" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQHgwL4r2DN1qg91OOqIViiv0Uxw-9yqo-PiQ&usqp=CAU" alt="profile-logo">
-            <h6 class="profile-logo-title">Profile picture is comming up...</h6>
+    <ng-template [ngIf]="profilePWs.length == 0" [ngIfElse]="userCreated">
+        <div class="profile-header">
+            <!-- <Image cloudName="softquizy" class="profile-animation" publicId='profile-page-logo' /> -->
+            <div class="profile-data">
+                <h1 class="profile-title">{{userName}}'s Page</h1>
+                <img class="profile-logo" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQHgwL4r2DN1qg91OOqIViiv0Uxw-9yqo-PiQ&usqp=CAU" alt="profile-logo">
+                <h6 class="profile-logo-title">Profile picture is comming up...</h6>
+            </div>
         </div>
-    </div>
-    <div class="profile-page-buttons">
+        <div class="profile-page-buttons">
 
-        <div class="btn-wrapper">
-            <!-- <p>PROFILE RESULTS</p> -->
-            <button class="button">{{userName}}'s Results</button>
+            <div class="btn-wrapper">
+                <!-- <p>PROFILE RESULTS</p> -->
+                <button class="button">{{userName}}'s Results</button>
+            </div>
+            <div class="btn-wrapper">
+                <!-- <p>CREATED PICWORDS</p> -->
+                <button (click)="laodPws()" class="button">{{userName}}'s PicWords</button>
+            </div>
         </div>
-        <div class="btn-wrapper">
-            <!-- <p>CREATED PICWORDS</p> -->
-            <button [routerLink]="['/pw/user-pwList/', userId]" class="button">{{userName}}'s PicWords</button>
-        </div>
-    </div>
+    </ng-template>
+    <ng-template #userCreated>
+        <app-picword *ngIf="profilePWs.length > 0" [picWords]="profilePWs" [flag]="'profile'" (onSelect)="onSelect($event)"></app-picword>
+    </ng-template>
 
     <!-- <div class="profile-results">
             <Switch>

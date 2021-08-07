@@ -36,7 +36,8 @@ const routes: Routes = [
         IsLogged
       ],
       data: {
-        paramsActivateRedirectUrl: '/'
+        paramsActivateRedirectUrl: '/',
+        flag: 'profile'
       },
     },
     {
@@ -56,7 +57,8 @@ const routes: Routes = [
         IsLogged
       ],
       data: {
-        paramsActivateRedirectUrl: '/'
+        paramsActivateRedirectUrl: '/',
+        flag: 'find'
       },
     },
     {

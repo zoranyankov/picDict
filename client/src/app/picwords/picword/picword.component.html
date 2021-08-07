@@ -1,18 +1,24 @@
 <div class="{{wrapper}}">
     <div class="picword" *ngFor="let pW of pWs">
-        <ng-template [ngIf]="!inFind" [ngIfElse]="findLink">
+        <ng-template [ngIf]="!flag" [ngIfElse]="findLink">
             <div class="picword-img">
                 <img [src]="pW.pictureUrl" alt="food-pic">
             </div>
             <h5 class="picword-name">{{pW.word}}</h5>
         </ng-template>
-        <ng-template #findLink>
-            <form #form="ngForm">
-                <div (click)="copyLink(pW)" class="{{findStyle}}">
+        <ng-template #findLink [ngSwitch]="flag">
+            <div *ngSwitchCase="'find'">
+                <div (click)="copyLink(pW)" class="{{flagStyle}}">
                     <img [src]="pW.pictureUrl" alt="food-pic">
                 </div>
-                <button (click)="copyLink(pW)" class="picword-name btn">COPY PEXEL</button>
-            </form>
+                <button type="submit" (click)="copyLink(pW)" class="picword-name btn">COPY PEXEL</button>
+            </div>
+            <div *ngSwitchCase="'profile'">
+                <div [routerLink]="['/pw/picword-details', pW._id]" class="{{flagStyle}}">
+                    <img [src]="pW.pictureUrl" alt="food-pic">
+                </div>
+                <button type="submit" [routerLink]="['/pw/picword-details', pW._id]" class="picword-name btn">COPY PEXEL</button>
+            </div>
         </ng-template>
     </div>
 </div>

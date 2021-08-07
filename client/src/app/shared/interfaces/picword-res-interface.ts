@@ -1,10 +1,10 @@
 export interface IPWRes {
     createdAt: Date,
-    creatorId: String,
-    creatorName: String,
+    creatorId: string,
+    creatorName: string,
     isCreator: Boolean,
-    pictureUrl: String,
-    word: String,
+    pictureUrl: string,
+    word: string,
     __v: Number,
-    _id: String,
+    _id: string,
 }

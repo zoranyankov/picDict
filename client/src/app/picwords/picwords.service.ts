@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { catchError } from 'rxjs/operators';
 import { ConfigService } from '../config/config.service';
-import { IPW } from '../shared/interfaces/picword-interface';
+import { IPWCreate } from '../shared/interfaces/pwCreate-interface';
 import { HelpService } from '../shared/services/help.service';
 import { AuthService } from '../user/auth.service';
 
@@ -16,7 +16,7 @@ export class PicwordsService {
     private _errorService: HelpService
   ) { }
 
-  createPW(pw: IPW) {
+  createPW(pw: IPWCreate) {
     const token = this._auth.getLoggedUserToken();
     return this._http.post(`${this._config.API_PICWORD_URL}/create`, pw, { headers: { 'x-access-token': token } })
       .pipe(

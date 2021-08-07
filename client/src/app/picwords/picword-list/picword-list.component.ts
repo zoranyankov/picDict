@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { throwError } from 'rxjs';
 import { IPW } from 'src/app/shared/interfaces/picword-interface';
 import { HelpService } from 'src/app/shared/services/help.service';
 // import { IPWRes } from 'src/app/shared/interfaces/picword-res-interface';
@@ -23,35 +22,21 @@ export class PicwordListComponent implements OnInit {
   ngOnInit(): void {
     let userId = this._activatedRoute.snapshot.params.userId;
     console.log(userId);
-    
-    if (userId) {
-      // query.subscribe((uId: string) => {
-      //   userId = uId;
-      // })
-      console.log(userId);
-      this._picword.getByUserId(userId)
-        .subscribe((response: any) => {
-          console.log(response);
-          if(!response){
-            throw new Error('No Data Found!')
-          }
-          
-          let shuffle = this._helpService.shuffleArray(response);
-          this.picWords = shuffle.slice(0, 6);
-        },
-          err => {
-            // this.notificate = { type: 'error', messages: err };
-          })
-    } else {
-      this._picword.getAll()
-        .subscribe((response: any) => {
-          let shuffle = this._helpService.shuffleArray(response);
-          this.picWords = shuffle.slice(0, 6);
-        },
-          err => {
-            // this.notificate = { type: 'error', messages: err };
-          })
-    }
+
+    this._picword.getAll()
+      .subscribe((response: any) => {
+        let shuffle = this._helpService.shuffleArray(response);
+        shuffle = shuffle.slice(0, 6);
+
+        // Convert IPWRes to IPW
+        shuffle = shuffle.map(x => ({_id: x._id, word: x.word, pictureUrl: x.pictureUrl}));
+        console.log(shuffle);
+        this.picWords = shuffle;
+      },
+        err => {
+          // this.notificate = { type: 'error', messages: err };
+        })
+
   }
 
 }

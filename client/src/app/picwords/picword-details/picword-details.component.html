@@ -1,6 +1,7 @@
 <div class="picword-wrapper">
     <ng-template [ngIf]="pW" [ngIfElse]="loading">
         <div class="picword">
+            <h1 class="profile-title">PicWord Details</h1>
             <div class="picword-img">
                 <img [src]="pW.pictureUrl" alt="food-pic">
             </div>
@@ -13,6 +14,11 @@
         </div>
     </ng-template>
     <ng-template #loading>
-        Loading...
+        <div class="picword">
+            <h1 class="profile-title">PicWord Details</h1>
+            <div class="loading">
+                <h1>Loading...</h1>
+            </div>
+        </div>
     </ng-template>
 </div>

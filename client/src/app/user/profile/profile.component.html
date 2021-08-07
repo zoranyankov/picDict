@@ -21,6 +21,7 @@
         </div>
     </ng-template>
     <ng-template #userCreated>
+        <h1 class="profile-title">{{userName}}'s PicWords</h1>
         <app-picword *ngIf="profilePWs.length > 0" [picWords]="profilePWs" [flag]="'profile'" (onSelect)="onSelect($event)"></app-picword>
     </ng-template>
 

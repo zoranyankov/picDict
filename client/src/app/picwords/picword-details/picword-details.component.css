@@ -96,3 +96,7 @@
     background-color: #2d9c3c;
     color: #000000;
 }
+
+.loading {
+    min-height: 300px;
+}

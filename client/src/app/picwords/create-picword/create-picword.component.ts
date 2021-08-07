@@ -69,7 +69,7 @@ export class CreatePicwordComponent implements OnInit, OnDestroy {
           throw new Error(response.errors);
         }
         this.notificate = {type: 'message', messages: [{message: 'PW Created'}]};
-        this._router.navigateByUrl('/pw/picwords');
+        this._router.navigateByUrl('/auth/profile/picwords');
       },
       err => {
         console.log(err);
@@ -101,7 +101,7 @@ export class CreatePicwordComponent implements OnInit, OnDestroy {
           throw new Error(response.errors);
         }
         this.notificate = {type: 'message', messages: [{message: 'PW Created'}]};
-        this._router.navigateByUrl('/pw/picwords');
+        this._router.navigateByUrl('/auth/profile/picwords');
       },
       err => {
         console.log(err);

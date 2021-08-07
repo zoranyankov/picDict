@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { PicwordsService } from 'src/app/picwords/picwords.service';
 import { IPW } from 'src/app/shared/interfaces/picword-interface';
 import { IPWRes } from 'src/app/shared/interfaces/picword-res-interface';
@@ -18,19 +19,22 @@ export class ProfileComponent implements OnInit {
   constructor(
     private _auth: AuthService,
     private _picword: PicwordsService,
+    private _activatedRoute: ActivatedRoute,
     // private _help: HelpService,
     ) { }
 
   ngOnInit(): void {
     this.userName = this._auth.getLoggedUserName();
     this.userId = this._auth.getLoggedUserId();
-    console.log(this.userId);
+    let param = this._activatedRoute.snapshot.params.load;
+    if(param) {
+      return this.laodPws();
+    }
   }
 
   laodPws() {
     this._picword.getByUserId(this.userId)
       .subscribe((response: any) => {
-        console.log(response);
         if (!response) {
           throw new Error('No Data Found!')
         }

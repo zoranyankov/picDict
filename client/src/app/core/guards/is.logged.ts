@@ -11,7 +11,7 @@ export class IsLogged implements CanActivate {
         ) { }
     canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean | UrlTree | Observable<boolean | UrlTree> | Promise<boolean | UrlTree> {
         const {data : {paramsActivateRedirectUrl}} = route;
-        let validToken = this._auth.getLoggedState();
+        let validToken = this._auth.getToken();
         if (validToken) { return true; }
 
         return this._router.parseUrl(paramsActivateRedirectUrl || '/');

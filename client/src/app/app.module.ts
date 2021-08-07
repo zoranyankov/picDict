@@ -20,12 +20,12 @@ import { ConfigService } from './config/config.service';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,
     CoreModule,
     SharedModule,
     PicwordsModule,
     UserModule,
-    HttpClientModule
+    HttpClientModule,
+    AppRoutingModule
   ],
   providers: [ConfigService],
   bootstrap: [AppComponent]

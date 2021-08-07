@@ -17,10 +17,10 @@ export class HomeComponent implements OnInit, DoCheck {
   constructor(private _auth: AuthService) { }
 
   ngOnInit(): void {
-    this.isLogged = this._auth.getLoggedState();
+    this.isLogged = this._auth.getToken();
     console.log(this.isLogged);
   }
   ngDoCheck() {
-    this.isLogged = this._auth.getLoggedState();
+    this.isLogged = this._auth.getToken();
   }
 }

@@ -11,6 +11,6 @@ export class AppComponent implements OnInit{
   isLogged: Boolean = false
   constructor(private _auth:AuthService) {}
   ngOnInit() {
-    this.isLogged = this._auth.getLoggedState()
+    this.isLogged = this._auth.getToken()
   }
 }

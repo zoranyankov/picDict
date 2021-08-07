@@ -10,6 +10,7 @@ import { User } from './userModels/user.model';
 
 @Injectable()
 export class AuthService {
+  private _userId: string = '';
 
   currentUser = new BehaviorSubject<User | null>(null);
   constructor(
@@ -19,7 +20,7 @@ export class AuthService {
     private _router: Router,
   ) { }
 
-  register(username: String, password: String) {
+  register(username: string, password: string) {
     // console.log('in client register');
     return this._http.post<IRegResponse>(this._config.SERVER_AUTH_URL('register'), { username: username, password: password })
       .pipe(
@@ -29,13 +30,13 @@ export class AuthService {
         }),
         tap(res => {
           console.log(res);
-          this.authenticateUser(res.user.username, res.token);
+          this.authenticateUser(res.user._id, res.user.username, res.token);
           this._router.navigateByUrl('');
         })
       )
   }
 
-  // verify(verifyData: { username: String, token: String }) {
+  // verify(verifyData: { username: string, token: string }) {
   //   // console.log('in client verify');
   //   return this._http.post<IRegResponse>(this._config.SERVER_AUTH_URL('verify'), verifyData)
   //     .pipe(
@@ -56,7 +57,7 @@ export class AuthService {
   //     )
   // }
 
-  login(username: String, password: String) {
+  login(username: string, password: string) {
     return this._http.post<IRegResponse>(this._config.SERVER_AUTH_URL('login'), { username, password })
       .pipe(
         catchError(err => {
@@ -64,7 +65,10 @@ export class AuthService {
           return this._errorService.handleError(err);
         }),
         tap(res => {
-          this.authenticateUser(res.user.username, res.token);
+          console.log(res);
+          console.log(res.user);
+          
+          this.authenticateUser(res.user._id, res.user.username, res.token);
           this._router.navigateByUrl('');
         })
       )
@@ -79,7 +83,7 @@ export class AuthService {
   }
 
 
-  getLoggedState(): Boolean {
+  getToken(): boolean {
     let storage = localStorage.getItem('sid');
     let currentStorage = storage ? JSON.parse(storage) : null;
     let { _token } = currentStorage || { _token: null };
@@ -87,11 +91,16 @@ export class AuthService {
     return _token;
   }
 
-  private authenticateUser(user: String, token: String) {
+  getUserId(): string {
+    return this._userId;
+  }
+
+  private authenticateUser(userId: string, user: string, token: string) {
     // const expirationDate = new Date(new Date().getTime() + expiresIn*1000);
     const newUser = new User(user, token)
     // console.log(newUser);
     this.currentUser.next(newUser);
     localStorage.setItem('sid', JSON.stringify(newUser))
+    this._userId = userId;
   }
 }

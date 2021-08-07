@@ -9,9 +9,9 @@ export class NotLogged implements CanActivate {
     canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean | UrlTree | Observable<boolean | UrlTree> | Promise<boolean | UrlTree> {
         const {data : {paramsActivateRedirectUrl}} = route;
         console.log(state);
-        console.log(this._auth.getLoggedState());
+        console.log(this._auth.getToken());
         
-        if (!this._auth.getLoggedState()) { return true; }
+        if (!this._auth.getToken()) { return true; }
 
         return this.router.parseUrl(paramsActivateRedirectUrl || '/');
         // throw new Error("Method not implemented.");

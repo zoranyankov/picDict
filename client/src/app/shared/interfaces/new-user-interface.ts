@@ -1,5 +1,6 @@
 export interface INewUser {
-    username: String,
-    password: String,
-    picture: String
+    _id: string
+    username: string,
+    password: string,
+    picture: string
 }

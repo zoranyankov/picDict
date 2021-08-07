@@ -39,6 +39,7 @@
 .header-logo img {
     border-radius: 50%;
     max-width: 5rem;
+    cursor: pointer;
 }
 
 .header-nav-items li a {

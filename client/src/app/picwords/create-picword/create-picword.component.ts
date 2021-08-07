@@ -38,7 +38,6 @@ export class CreatePicwordComponent implements OnInit, OnDestroy {
           if (!response) {
             throw new Error('No Data Found!')
           }
-          console.log(response);
           // Format the date
           response.createdAt = response.createdAt.substring(0,10);
           this.pexelWord = response;
@@ -58,12 +57,10 @@ export class CreatePicwordComponent implements OnInit, OnDestroy {
   
   onCreateSubmit(form: NgForm) {
     let { word, picture } = form.value;
-    console.log(word, picture);
 
     if(this.action == 'Delete') {
       this._pwService.deleteOne(this.pwId)
       .subscribe((response: any) => {
-        console.log(response);
         if (!response || response.errors) {
           // this.notificate = { type: 'error', messages: response.errors };
           throw new Error(response.errors);
@@ -79,7 +76,6 @@ export class CreatePicwordComponent implements OnInit, OnDestroy {
     } else if(this.action == "Edit") {
       this._pwService.editOne(this.pwId, { word: word, pictureUrl: picture })
       .subscribe((response: any) => {
-        console.log(response);
         if (!response || response.errors) {
           // this.notificate = { type: 'error', messages: response.errors };
           throw new Error(response.errors);
@@ -95,7 +91,6 @@ export class CreatePicwordComponent implements OnInit, OnDestroy {
     } else {
       this._pwService.createPW({ word: word, pictureUrl: picture })
       .subscribe((response: any) => {
-        console.log();
         if (!response || response.errors) {
           // this.notificate = { type: 'error', messages: response.errors };
           throw new Error(response.errors);

@@ -15,7 +15,6 @@ export class PicwordComponent implements OnInit {
   @Input('flag') flag: string;
   @Input('home') inHome: boolean;
   @Output() onCopy = new EventEmitter<IPW>();
-  @Output() onSelect = new EventEmitter<IPW>();
 
   constructor() { 
     this.pWs = [];
@@ -30,9 +29,6 @@ export class PicwordComponent implements OnInit {
   
   copyLink(pW : IPW) {
     this.onCopy.emit(pW);
-  }
-  selectPw(pW : IPW) {
-    this.onSelect.emit(pW);
   }
 
 }

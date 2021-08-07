@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { PicwordsService } from 'src/app/picwords/picwords.service';
-import { IPW } from 'src/app/shared/interfaces/picword-interface';
 import { IPWRes } from 'src/app/shared/interfaces/picword-res-interface';
 // import { HelpService } from 'src/app/shared/services/help.service';
 import { AuthService } from '../auth.service';
@@ -43,9 +42,5 @@ export class ProfileComponent implements OnInit {
         err => {
           // this.notificate = { type: 'error', messages: err };
         })
-  }
-
-  onSelect(event: IPW) {
-    
   }
 }

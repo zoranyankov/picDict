@@ -17,10 +17,8 @@ export class PicwordDetailsComponent implements OnInit {
 
   ngOnInit(): void {
     let pwId = this._activatedRoute.snapshot.params.pwId;
-    console.log(pwId);
     this._picword.getOne(pwId)
     .subscribe((response: any) => {
-      console.log(response);
       // Format the date
       response.createdAt = response.createdAt.substring(0,10);
       this.pW = response;

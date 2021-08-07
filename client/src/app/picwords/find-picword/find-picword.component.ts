@@ -26,7 +26,6 @@ export class FindPicwordComponent implements OnInit {
     this._pexels.search(word)
     .subscribe((response: any) => {
       let https: IPW[]= [];
-      console.log(response);
       
       // Destructuring PEXELS response
       response.photos.forEach((x: {id:string, src: {tiny: string}}) => https.push({_id: x.id, word: word, pictureUrl: x.src.tiny}));

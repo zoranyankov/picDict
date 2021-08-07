@@ -6,6 +6,7 @@ import { RouterModule } from '@angular/router';
 import { IsLogged } from './guards/is.logged';
 import { NotLogged } from './guards/not.logged';
 import { Logout } from './guards/logout';
+import { StateService } from './state.service';
 
 
 
@@ -23,6 +24,7 @@ import { Logout } from './guards/logout';
     FooterComponent
   ],
   providers:[
+    StateService,
     IsLogged,
     NotLogged,
     Logout

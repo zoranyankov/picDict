@@ -78,7 +78,7 @@ export class AuthService {
     let cookie = localStorage.getItem('sid');
     let { user } = cookie ? JSON.parse(cookie) : { user: '' };
     console.log(user);
-    console.log(cookie);
+    // console.log(cookie);
     return user;
   }
 
@@ -94,7 +94,6 @@ export class AuthService {
     let storage = localStorage.getItem('sid');
     let currentStorage = storage ? JSON.parse(storage) : null;
     let { _token } = currentStorage || { _token: null };
-    console.log(_token);
     return _token;
   }
 

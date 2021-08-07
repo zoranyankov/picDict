@@ -14,7 +14,7 @@ export class PicwordsService {
     private _config: ConfigService,
     private _auth: AuthService,
     private _errorService: HelpService
-    ) { }
+  ) { }
 
   createPW(pw: IPW) {
     const token = this._auth.getLoggedUserToken();
@@ -36,6 +36,17 @@ export class PicwordsService {
           return this._errorService.handleError(err);
         })
       )
+  }
+
+  getByUserId(userId: string) {
+    const token = this._auth.getLoggedUserToken();
+    return this._http.get(`${this._config.API_PICWORD_URL}/byUser/${userId}`, { headers: { 'x-access-token': token } })
+      // .pipe(
+      //   catchError(err => {
+      //     console.log(err);
+      //     return this._errorService.handleError(err);
+      //   })
+      // )
   }
 
 }

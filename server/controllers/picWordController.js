@@ -86,7 +86,8 @@ router.get('/byUser/:userId', verifyToken, (req, res) => {
                 // res.status(204).json({errors : {message: "You haven't created any picWords yet"}});
                 return;
             }
-            res.status(302).json(picWords);
+            // res.status(302).json(picWords);
+            res.status(200).json(picWords);
             return;
         })
         .catch(err => {

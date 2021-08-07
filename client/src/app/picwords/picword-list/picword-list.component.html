@@ -1,5 +1,8 @@
 <div class="pw-list-wrapper">
     <!-- <div class="picword-card" *ngFor="let picWord of picWords"> -->
     <app-picword [picWords]="picWords"></app-picword>
+    <div *ngIf="!picWords.length">
+        <h1>No Data Found!</h1>
+    </div>
     <!-- </div> -->
 </div>

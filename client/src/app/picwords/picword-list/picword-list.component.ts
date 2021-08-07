@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { throwError } from 'rxjs';
 import { IPW } from 'src/app/shared/interfaces/picword-interface';
 import { HelpService } from 'src/app/shared/services/help.service';
 // import { IPWRes } from 'src/app/shared/interfaces/picword-res-interface';
@@ -28,8 +29,13 @@ export class PicwordListComponent implements OnInit {
       //   userId = uId;
       // })
       console.log(userId);
-      this._picword.getAll()
+      this._picword.getByUserId(userId)
         .subscribe((response: any) => {
+          console.log(response);
+          if(!response){
+            throw new Error('No Data Found!')
+          }
+          
           let shuffle = this._helpService.shuffleArray(response);
           this.picWords = shuffle.slice(0, 6);
         },

@@ -29,6 +29,17 @@ const routes: Routes = [
         paramsActivateRedirectUrl: '/'
       },
     },
+  {
+    path:'pw/user-pwList',
+    component: PicwordListComponent,
+      canActivate: [
+        IsLogged
+      ],
+      data: {
+        paramsActivateRedirectUrl: '/',
+        userPwList: true
+      },
+    },
     {
       path:'pw/create-picword',
       component: CreatePicwordComponent,

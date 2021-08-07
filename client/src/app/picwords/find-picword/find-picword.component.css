@@ -1,3 +1,7 @@
+:host {
+    margin: 50px auto;
+}
+
 .choose-external-content {
     text-align: center;
 }
@@ -37,26 +41,4 @@
     border-radius: 0.3rem;
     padding: 0.5rem;
     margin: 10px 0;
-}
-
-.choose-external-form .button {
-    cursor: pointer;
-    margin-right: 1rem;
-    text-decoration: none;
-    padding: 8px 13px;
-    background-color: #2e2c2f;
-    border-radius: 4px;
-    color: #f6c95b;
-    border: 1px solid #521b52b0;
-    box-shadow: 1px 1px 3px 0px #757373;
-    margin: 20px;
-}
-
-.choose-external-form .button:hover {
-    background-color: #757475;
-    color: #ffde8e;
-}
-
-:host {
-    margin: 50px auto;
 }

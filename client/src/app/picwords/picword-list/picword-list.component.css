@@ -2,17 +2,6 @@
     margin: 50px auto;
 }
 
-
-/* .pw-list-wrapper {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    align-items: center;
-    width: 70rem;
-    height: fit-content;
+.picwords label {
+    margin: 0.7rem;
 }
-
-.pw-list-wrapper div.picword-card {
-    padding: 0 70px;
-    flex-grow: 1;
-} */

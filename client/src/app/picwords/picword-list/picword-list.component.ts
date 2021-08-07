@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NgForm } from '@angular/forms';
 // import { ActivatedRoute } from '@angular/router';
 import { IPW } from 'src/app/shared/interfaces/picword-interface';
 import { HelpService } from 'src/app/shared/services/help.service';
@@ -11,7 +12,9 @@ import { PicwordsService } from '../picwords.service';
   styleUrls: ['./picword-list.component.css']
 })
 export class PicwordListComponent implements OnInit {
-  picWords: IPW[] = [];
+  picWords: IPW[] | undefined;
+  toggle: number = 6;
+  // pWCount: number = 6;
 
   constructor(
     private _picword: PicwordsService,
@@ -22,6 +25,7 @@ export class PicwordListComponent implements OnInit {
   ngOnInit(): void {
     // let userId = this._activatedRoute.snapshot.params.userId;
     // console.log(userId);
+    this.picWords = undefined;
 
     this._picword.getAll()
       .subscribe((response: any) => {
@@ -29,14 +33,18 @@ export class PicwordListComponent implements OnInit {
         shuffle = shuffle.slice(0, 6);
 
         // Convert IPWRes to IPW
-        shuffle = shuffle.map(x => ({_id: x._id, word: x.word, pictureUrl: x.pictureUrl}));
+        shuffle = shuffle.map(x => ({ _id: x._id, word: x.word, pictureUrl: x.pictureUrl }));
         console.log(shuffle);
         this.picWords = shuffle;
       },
         err => {
           // this.notificate = { type: 'error', messages: err };
         })
+  }
 
+  toggleView(pws: number) {
+    console.log(pws);
+    this.toggle = pws;
   }
 
 }

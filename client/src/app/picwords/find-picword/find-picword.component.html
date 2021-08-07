@@ -23,8 +23,8 @@
             <option value="hard">Hard</option>
         </select> -->
         <!-- <Notificate type="error">{fields.errors.pexels_difficulty || <br />}</Notificate> -->
-        <button *ngIf="picWords.length == 0" type="submit" class="button">Search in PEXELS</button>
-        <button *ngIf="picWords.length > 0" type="submit" class="button">More...</button>
+        <button *ngIf="picWords.length == 0" type="submit" class="btn">Search in PEXELS</button>
+        <button *ngIf="picWords.length > 0" type="submit" class="btn">More...</button>
     </form>
     <app-picword *ngIf="picWords.length > 0" [picWords]="picWords" [flag]="'find'" (onCopy)="onCopy($event)"></app-picword>
     <!-- <div class="https-container" *ngIf="picWords.length > 0"> -->

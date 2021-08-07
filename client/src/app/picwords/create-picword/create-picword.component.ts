@@ -19,7 +19,7 @@ export class CreatePicwordComponent implements OnInit, OnDestroy {
   pwId: string = '';
   action: string = '';
   buttonName: string = 'Create';
-  buttonClass: string = 'button';
+  buttonClass: string = 'btn';
 
   constructor(
     private _pwService: PicwordsService,
@@ -42,7 +42,7 @@ export class CreatePicwordComponent implements OnInit, OnDestroy {
           response.createdAt = response.createdAt.substring(0,10);
           this.pexelWord = response;
           this.buttonName = this.action;
-          this.buttonClass = `button pw-${this.action}`;
+          this.buttonClass = `btn pw-${this.action}`;
           // this.profilePWs = response;
         },
           err => {

@@ -7,20 +7,20 @@
     </div>
     <nav class="header-nav">
         <ul class="header-nav-items">
-            <li><a routerLink="" routerLinkActive="active-link" [routerLinkActiveOptions]="{exact : true}">Home</a></li>
+            <li><a class="btn" routerLink="" routerLinkActive="active-link" [routerLinkActiveOptions]="{exact : true}">Home</a></li>
             <ng-template [ngIf]="isLogged" [ngIfElse]="notLogged">
-                <li><a routerLink="/pw/picwords" routerLinkActive="active-link">All PicWords</a></li>
-                <li><a routerLink="/pw/find-picword" routerLinkActive="active-link">Find PexelWord</a></li>
+                <li><a class="btn" routerLink="/pw/picwords" routerLinkActive="active-link">All PicWords</a></li>
+                <li><a class="btn" routerLink="/pw/find-picword" routerLinkActive="active-link">Find PexelWord</a></li>
                 <!-- <li><a routerLink="/pw/edit-picword" routerLinkActive="active-link">Edit PicWord</a></li> -->
-                <li><a routerLink="/pw/create-picword" routerLinkActive="active-link">Create PicWord</a></li>
-                <li><a routerLink="/auth/profile" routerLinkActive="active-link">Profile Page</a></li>
-                <li><a routerLink="/about" routerLinkActive="active-link">About PD</a></li>
-                <li><a routerLink="/auth/logout" routerLinkActive="active-link">Logout</a></li>
+                <li><a class="btn" routerLink="/pw/create-picword" routerLinkActive="active-link">Create PicWord</a></li>
+                <li><a class="btn" routerLink="/auth/profile" routerLinkActive="active-link">Profile Page</a></li>
+                <li><a class="btn" routerLink="/about" routerLinkActive="active-link">About PD</a></li>
+                <li><a class="btn" routerLink="/auth/logout" routerLinkActive="active-link">Logout</a></li>
             </ng-template>
             <ng-template #notLogged>
-                <li><a routerLink="/auth/login" routerLinkActive="active-link">Login</a></li>
-                <li><a routerLink="/auth/register" routerLinkActive="active-link">Register</a></li>
-                <li><a routerLink="/about" routerLinkActive="active-link">About PD</a></li>
+                <li><a class="btn" routerLink="/auth/login" routerLinkActive="active-link">Login</a></li>
+                <li><a class="btn" routerLink="/auth/register" routerLinkActive="active-link">Register</a></li>
+                <li><a class="btn" routerLink="/about" routerLinkActive="active-link">About PD</a></li>
             </ng-template>
         </ul>
     </nav>

@@ -59,14 +59,9 @@
     width: 20%;
 }
 
-.picword .button {
-    cursor: pointer;
-    margin-right: 1rem;
-    text-decoration: none;
+.picword .btn {
     padding: 5px 30px;
     font-size: 15px;
-    border-radius: 4px;
-    box-shadow: 1px 1px 3px 0px #757373;
     margin: 10px 0 100px 0;
 }
 
@@ -80,11 +75,6 @@
     background-color: #a51e1e;
     color: #f6c95b;
     border: 1px solid #521b52b0;
-}
-
-.picword .button:hover {
-    background-color: #757475;
-    color: #ffde8e;
 }
 
 .picword .pw-delete:hover {

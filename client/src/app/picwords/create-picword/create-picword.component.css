@@ -26,23 +26,10 @@
     width: 300px;
 }
 
-.create-question-content .button {
-    cursor: pointer;
-    margin-right: 1rem;
-    text-decoration: none;
+.create-question-content .btn {
     padding: 5px 30px;
     font-size: 20px;
-    background-color: #2e2c2f;
-    border-radius: 4px;
-    color: #f6c95b;
-    border: 1px solid #521b52b0;
-    box-shadow: 1px 1px 3px 0px #757373;
     margin: 10px 0 100px 0;
-}
-
-.create-question-content .button:hover {
-    background-color: #757475;
-    color: #ffde8e;
 }
 
 .button input {

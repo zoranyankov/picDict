@@ -26,24 +26,6 @@ p {
     display: block;
 }
 
-.auth-container .btn {
-    cursor: pointer;
-    margin-right: 1rem;
-    text-decoration: none;
-    padding: 8px 13px;
-    background-color: #2e2c2f;
-    border-radius: 4px;
-    color: #f6c95b;
-    border: 1px solid #521b52b0;
-    box-shadow: 1px 1px 3px 0px #757373;
-    margin: 20px;
-}
-
-.auth-container .btn:hover {
-    background-color: #757475;
-    color: #ffde8e;
-}
-
 .auth-links {
     font-weight: bold;
     font-size: 20px;

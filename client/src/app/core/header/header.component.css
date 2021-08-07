@@ -42,25 +42,6 @@
     cursor: pointer;
 }
 
-.header-nav-items li a {
-    margin-right: 1rem;
-    text-decoration: none;
-    padding: 8px 13px;
-    /* background-color: rgb(44 151 202);
-    border-radius: 4px;
-    color: white; */
-    background-color: #2e2c2f;
-    border-radius: 4px;
-    color: #f6c95b;
-    border: 1px solid #521b52b0;
-    box-shadow: 1px 1px 3px 0px #757373;
-}
-
-.header-nav-items li a:hover {
-    background-color: #757475;
-    color: #ffde8e;
-}
-
 .header-nav-items li a.active-link {
     /* color: #5cf1d5; */
     color: #2e2c2f;

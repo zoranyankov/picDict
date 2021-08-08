@@ -1,6 +1,7 @@
 .notification div p.error {
     color: rgb(145, 31, 3);
     font-weight: bold;
+    background: orange;
 }
 
 .notification div p.max-width {

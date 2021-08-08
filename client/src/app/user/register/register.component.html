@@ -7,23 +7,42 @@
         </div> -->
         <div class="form-group">
             <label class="form-label" htmlFor="username">Username</label>
-            <input type="username" class="form-control" placeholder="Username" name="username" ngModel>
+            <input type="username" class="form-control" placeholder="Username" name="username" #username="ngModel" ngModel required [minlength]='5'>
+            <div class='notify'>
+                <div *ngIf="username.touched">
+                    <p *ngIf="username.errors?.required" class="error">Username is required</p>
+                    <p *ngIf="username.errors?.minlength" class="error">Username must be at least 5</p>
+                </div>
+            </div>
         </div>
         <div class="form-group">
             <label class="form-label" htmlFor="password">Password</label>
-            <input type="password" class="form-control" placeholder="Password" name="password" ngModel>
+            <input type="password" class="form-control" placeholder="Password" name="password" #password="ngModel" ngModel required [minlength]='7'>
+            <div class='notify'>
+                <div *ngIf="password.touched">
+                    <p *ngIf="password.errors?.required" class="error">Password is required</p>
+                    <p *ngIf="password.errors?.minlength" class="error">Password must be at least 7</p>
+                </div>
+            </div>
         </div>
-        <!-- <Notificate type="error">{this.state.errors.password} <br /></Notificate> -->
         <div class="form-group">
             <label class="form-label" htmlFor="repeatPassword">Repeat Password</label>
-            <input type="password" class="form-control" placeholder="Repeat-Password" name="rePassword" ngModel>
+            <input type="password" class="form-control" placeholder="Repeat-Password" name="rePassword" otherValue="password" #rePassword="ngModel" ngModel appPassMatch required [minlength]='7'>
+            <div class='notify'>
+                <div *ngIf="rePassword.touched && password.touched">
+                    <p *ngIf="rePassword.errors?.required" class="error">Repeat Password is required</p>
+                    <p *ngIf="rePassword.errors?.minlength" class="error">Repeat Password must be at least 7</p>
+                    <p *ngIf="rePassword.errors?.passMissmatch" class="error">Both password must match</p>
+                </div>
+            </div>
         </div>
-        <!-- <Notificate type="error">{this.state.errors.rePassword} <br /></Notificate> -->
-        <button class="btn">Register</button>
         <app-notificate [notificate]="notificate"></app-notificate>
+        <button class="btn">Register</button>
         <div class="auth-links">
             Already have an account?
-            <a routerLink="/auth/login"><span class="nav-a">Login now</span> </a>
+            <a routerLink="/auth/login">
+                <p class="nav-a">Login now</p>
+            </a>
         </div>
     </form>
 </div>

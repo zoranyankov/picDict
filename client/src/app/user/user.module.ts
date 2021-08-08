@@ -9,6 +9,7 @@ import { AuthService } from './auth.service';
 import { SharedModule } from '../shared/shared.module';
 import { HelpService } from '../shared/services/help.service';
 import { PicwordsModule } from '../picwords/picwords.module';
+import { PassMatchDirective } from './pass-match.directive';
 
 
 
@@ -16,7 +17,8 @@ import { PicwordsModule } from '../picwords/picwords.module';
   declarations: [
     LoginComponent,
     RegisterComponent,
-    ProfileComponent
+    ProfileComponent,
+    PassMatchDirective
   ],
   imports: [
     CommonModule,

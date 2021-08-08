@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { timer } from 'rxjs';
 import { INotificate } from 'src/app/shared/interfaces/notificate-interface';
 import { IRegResponse } from 'src/app/shared/interfaces/register-response-interface';
 import { AuthService } from '../auth.service';
@@ -9,9 +10,11 @@ import { AuthService } from '../auth.service';
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
-export class LoginComponent implements OnInit {
+export class LoginComponent implements OnInit, OnDestroy {
 
-  notificate: INotificate = { type: '', messages: [] }
+  notificate: INotificate = { type: '', messages: [] };
+  timer: any;
+
   constructor(private _authService: AuthService) { }
 
   ngOnInit(): void {
@@ -25,17 +28,19 @@ export class LoginComponent implements OnInit {
       .subscribe(newUser => {
         let newRes: IRegResponse = newUser
         let message = `User ${newRes.user.username} is logged in`;
-        this.notificate = {type: 'message', messages: [{message}]};
+        this.notificate = { type: 'message', messages: [{ message }] };
       },
         // Handle server errors
         err => {
-          console.log(err);
-          
           this.notificate = { type: 'error', messages: err };
+          this.timer = setTimeout(() => {
+            
+            this.notificate = { type: '', messages: [] };
+          }, 5000);
         });
-      }
-      // ngOnChanges(change: SimpleChanges) {
-        
-      // }
+  }
 
+  ngOnDestroy() {
+    clearTimeout(this.timer);
+  }
 }

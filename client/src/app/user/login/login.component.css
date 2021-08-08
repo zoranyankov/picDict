@@ -3,6 +3,10 @@
     text-align: center;
 }
 
+.auth-container h1 {
+    margin-bottom: 50px;
+}
+
 p {
     margin: 0;
 }
@@ -30,4 +34,12 @@ p {
     font-weight: bold;
     font-size: 20px;
     font-style: italic;
+}
+
+.notify {
+    min-height: 35px;
+}
+
+.error {
+    color: red;
 }

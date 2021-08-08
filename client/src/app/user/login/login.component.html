@@ -8,22 +8,33 @@
         </div>  -->
         <div class="form-group">
             <label class="form-label">Username</label>
-            <input type="username" class="form-control" placeholder="Username" name="username" ngModel/>
+            <input type="username" class="form-control" placeholder="Username" name="username" #username="ngModel" ngModel required [minlength]="5" />
             <!-- <Notificate type="error">{this.state.errors.username }
                 < br /></Notificate> -->
+            <div class='notify'>
+                <div *ngIf="username.touched">
+                    <span *ngIf="username.errors?.required" class="error">Username is required</span>
+                    <span *ngIf="username.errors?.minlength" class="error">Username must be at least 5</span>
+                </div>
+            </div>
         </div>
         <div class="form-group">
             <label class="form-label" htmlFor="password">Password</label>
-            <input type="password" class="form-control" placeholder="Password" name="password" ngModel/>
+            <input type="password" class="form-control" placeholder="Password" name="password" #password="ngModel" ngModel required [minlength]='7' />
             <!-- <Notificate type="error">{this.state.errors.password}
                 < br /></Notificate> -->
+            <div class='notify'>
+                <div *ngIf="password.touched">
+                    <span *ngIf="password.errors?.required" class="error">Password is required</span>
+                    <span *ngIf="password.errors?.minlength" class="error">Password must be at least 7</span>
+                </div>
+            </div>
         </div>
         <!-- <br></br> -->
+        <app-notificate *ngIf="notificate" [notificate]="notificate"></app-notificate>
         <button class="btn">Login</button>
-        <app-notificate [notificate]="notificate"></app-notificate>
     </form>
     <p class="auth-links">
-        Don't have an account?
-        <a routerLink="/auth/register"><span class="nav-a">Register now</span> </a>
+        Don' t have an account? <a routerLink="/auth/register"><span class="nav-a">Register now</span> </a>
     </p>
 </div>

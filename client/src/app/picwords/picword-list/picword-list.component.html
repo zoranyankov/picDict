@@ -1,15 +1,16 @@
 <div class="pw-list-wrapper">
     <!-- <div class="picword-card" *ngFor="let picWord of picWords"> -->
+    <div class="buttons">
+        <button class="btn" (click)="toggleView(1)">Show 1 PW</button>
+        <button class="btn" (click)="toggleView(3)">Show 3 PW</button>
+        <button class="btn" (click)="toggleView(6)">Show 6 PW</button>
+    </div>
     <div *ngIf="currentWords" class="picwords">
-        <div class="buttons">
-            <button class="btn" (click)="toggleView(1)">Show 1 PW</button>
-            <button class="btn" (click)="toggleView(3)">Show 3 PW</button>
-            <button class="btn" (click)="toggleView(6)">Show 6 PW</button>
-        </div>
         <app-picword [picWords]="currentWords "></app-picword>
     </div>
-    <div *ngIf="!currentWords ">
+    <div *ngIf="!currentWords " class="loading">
         <!-- <h1>No Data Found!</h1> -->
+        <img src="https://c.tenor.com/I6kN-6X7nhAAAAAj/loading-buffering.gif" alt="loading gif">
         <h1>Loading...</h1>
     </div>
     <!-- </div> -->

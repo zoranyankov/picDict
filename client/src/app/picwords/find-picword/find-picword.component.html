@@ -3,7 +3,7 @@
         <Image cloudName="softquizy" class="choose-external-logo" publicId='choose-quiz'/>
     </div> -->
     <form #form="ngForm" class="choose-external-form" (ngSubmit)="onFindSubmit(form)">
-        <h2 *ngIf="picWords.length == 0" class="choose-external-title">Search for picture in PEXELS</h2><br />
+        <h2 *ngIf="currentPWs.length == 0" class="choose-external-title">Search for picture in PEXELS</h2><br />
 
         <!-- TODO: Add Categories -->
         <!-- <label for="category">Select Category: </label>
@@ -23,10 +23,13 @@
             <option value="hard">Hard</option>
         </select> -->
         <!-- <Notificate type="error">{fields.errors.pexels_difficulty || <br />}</Notificate> -->
-        <button *ngIf="picWords.length == 0" type="submit" class="btn">Search in PEXELS</button>
-        <button *ngIf="picWords.length > 0" type="submit" class="btn">More...</button>
+        <button *ngIf="currentPWs.length == 0" type="submit" class="btn">Search in PEXELS</button>
+        <div *ngIf="currentPWs.length > 0" class="buttons">
+            <button type="button" (click)="onFindSubmit(form)" class="btn">New Search</button>
+            <button type="button" (click)="moreSubmit()" class="btn">More...</button>
+        </div>
     </form>
-    <app-picword *ngIf="picWords.length > 0" [picWords]="picWords" [flag]="'find'" (onCopy)="onCopy($event)"></app-picword>
+    <app-picword *ngIf="currentPWs.length > 0" [picWords]="currentPWs" [flag]="'find'" [title]="title" (onCopy)="onCopy($event)"></app-picword>
     <!-- <div class="https-container" *ngIf="picWords.length > 0"> -->
     <!-- </div> -->
 </div>

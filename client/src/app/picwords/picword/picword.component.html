@@ -1,4 +1,4 @@
-<div class="{{wrapper}}">
+<div class="{{inHome ? 'home-wrapper' : 'picword-wrapper'}}">
     <div class="picword" *ngFor="let pW of pWs">
         <ng-template [ngIf]="!flag" [ngIfElse]="findLink">
             <div class="picword-img">
@@ -7,14 +7,14 @@
             <h5 class="picword-name">{{pW.word}}</h5>
         </ng-template>
         <ng-template #findLink [ngSwitch]="flag">
-            <div *ngSwitchCase="'find'">
-                <div (click)="copyLink(pW)" class="{{flagStyle}}">
+            <div *ngSwitchCase="'find'" [class.loading]="title=='Loading...'">
+                <div (click)="copyLink(pW)" class="{{flag ? 'picword-img flag' : 'picword-img'}}">
                     <img [src]="pW.pictureUrl" alt="food-pic">
                 </div>
-                <button type="submit" (click)="copyLink(pW)" class="picword-name btn">COPY PEXEL</button>
+                <button type="submit" (click)="copyLink(pW)" class="picword-name btn">{{title}}</button>
             </div>
             <div *ngSwitchCase="'profile'">
-                <div [routerLink]="['/pw/picword-details', pW._id]" class="{{flagStyle}}">
+                <div [routerLink]="['/pw/picword-details', pW._id]" class="{{flag ? 'picword-img flag' : 'picword-img'}}">
                     <img [src]="pW.pictureUrl" alt="food-pic">
                 </div>
                 <button type="submit" [routerLink]="['/pw/picword-details', pW._id]" class="picword-name btn">{{pW.word}}</button>

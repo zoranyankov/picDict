@@ -14,6 +14,8 @@ export class ProfileComponent implements OnInit {
   userName: string = 'User';
   userId: string = '';
   profilePWs: IPWRes[] = [];
+  currentPWs: IPWRes[] = [];
+  loading: boolean = false;
 
   constructor(
     private _auth: AuthService,
@@ -27,17 +29,27 @@ export class ProfileComponent implements OnInit {
     this.userId = this._auth.getLoggedUserId();
     let param = this._activatedRoute.snapshot.params.load;
     if(param) {
+      this.loading = true;
       return this.laodPws();
     }
   }
 
+  moreSubmit() {
+    // Loop the initial array
+    let pastPWs = this.profilePWs.splice(0, 6);
+    this.currentPWs = this.profilePWs.slice(0,6);
+    this.profilePWs = this.profilePWs.concat(pastPWs);
+  }
+
   laodPws() {
+    this.loading = true;
     this._picword.getByUserId(this.userId)
       .subscribe((response: any) => {
         if (!response) {
           throw new Error('No Data Found!')
         }
         this.profilePWs = response;
+        this.currentPWs = this.profilePWs.slice(0, 6);
       },
         err => {
           // this.notificate = { type: 'error', messages: err };

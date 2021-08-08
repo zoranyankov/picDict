@@ -1,5 +1,5 @@
 <div class="profile-content">
-    <ng-template [ngIf]="profilePWs.length == 0" [ngIfElse]="userCreated">
+    <ng-template [ngIf]="currentPWs.length == 0 && !loading" [ngIfElse]="userCreated">
         <div class="profile-header">
             <!-- <Image cloudName="softquizy" class="profile-animation" publicId='profile-page-logo' /> -->
             <div class="profile-data">
@@ -20,10 +20,17 @@
             </div>
         </div>
     </ng-template>
-    <ng-template #userCreated>
-        <a href="/auth/profile" class="button back-btn">Back to Profile Page</a>
+    <ng-template #userCreated class="profile-pws-wrapper">
+        <a href="/auth/profile" class="btn back-btn">Back to Profile Page</a>
+        <a (click)="moreSubmit()" class="btn next-btn">Show more</a>
         <h1 class="profile-title picwords">{{userName}}'s PicWords</h1>
-        <app-picword *ngIf="profilePWs.length > 0" [picWords]="profilePWs" [flag]="'profile'"></app-picword>
+        <div *ngIf="loading && currentPWs.length==0" class="loading">
+            <div class="loading-img">
+                <img src="https://c.tenor.com/I6kN-6X7nhAAAAAj/loading-buffering.gif" alt="loading gif">
+            </div>
+            <h3>Loading....</h3>
+        </div>
+        <app-picword *ngIf="currentPWs.length > 0" [picWords]="currentPWs" [flag]="'profile'"></app-picword>
     </ng-template>
 
     <!-- <div class="profile-results">

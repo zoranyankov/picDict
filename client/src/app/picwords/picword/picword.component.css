@@ -62,8 +62,36 @@
     padding: 10px;
     background: none;
     cursor: pointer;
+    box-shadow: none;
+    border: none;
 }
 
 .picword-home {
     width: 65rem;
+}
+
+div.loading div.picword-img {
+    background-color: transparent;
+    width: 75px;
+    height: 75px;
+    margin: 0 auto;
+    box-shadow: none;
+    border: none;
+}
+
+div.loading div.picword-img img {
+    box-shadow: none;
+    border: none;
+    width: 100%;
+}
+
+.picword-wrapper div.loading button.btn {
+    background: transparent;
+    color: #040404;
+    border: none;
+    box-shadow: none;
+    letter-spacing: 7px;
+    padding-left: 50px;
+    text-shadow: none;
+    font-style: italic;
 }

@@ -67,12 +67,16 @@
     margin: 0;
 }
 
-.next-btn {
+
+/* Variant 1 */
+
+
+/* .next-btn {
     position: absolute;
     right: 0;
     top: 50px;
     margin: 0;
-}
+} */
 
 .loading {
     display: flex;

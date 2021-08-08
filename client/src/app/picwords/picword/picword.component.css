@@ -4,6 +4,7 @@
     justify-content: space-between;
     align-items: center;
     width: 70rem;
+    min-height: 33rem;
     height: fit-content;
 }
 

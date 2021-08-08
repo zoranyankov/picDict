@@ -36,9 +36,14 @@ export class ProfileComponent implements OnInit {
 
   moreSubmit() {
     // Loop the initial array
-    let pastPWs = this.profilePWs.splice(0, 6);
-    this.currentPWs = this.profilePWs.slice(0,6);
-    this.profilePWs = this.profilePWs.concat(pastPWs);
+    
+    // Variant 1
+    // let pastPWs = this.profilePWs.splice(0, 6);
+    // this.currentPWs = this.profilePWs.slice(0,6);
+    // this.profilePWs = this.profilePWs.concat(pastPWs);
+    
+    // Variant 2
+    this.currentPWs = this.currentPWs.concat(this.profilePWs.splice(0, 6))
   }
 
   laodPws() {

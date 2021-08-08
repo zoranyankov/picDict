@@ -8,6 +8,11 @@ import { PicwordListComponent } from './picword-list/picword-list.component';
 
 const routes: Routes = [
   {
+    path: 'pw',
+    redirectTo:'pw/picwords',
+    pathMatch: 'full',
+  },
+  {
     path: 'pw/picwords',
     component: PicwordListComponent,
     canActivate: [

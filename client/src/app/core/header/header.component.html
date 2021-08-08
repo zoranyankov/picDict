@@ -9,10 +9,17 @@
         <ul class="header-nav-items">
             <li><a class="btn" routerLink="" routerLinkActive="active-link" [routerLinkActiveOptions]="{exact : true}">Home</a></li>
             <ng-template [ngIf]="isLogged" [ngIfElse]="notLogged">
-                <li><a class="btn" routerLink="/pw/picwords" routerLinkActive="active-link">All PicWords</a></li>
-                <li><a class="btn" routerLink="/pw/find-picword" routerLinkActive="active-link">Find PexelWord</a></li>
+
                 <!-- <li><a routerLink="/pw/edit-picword" routerLinkActive="active-link">Edit PicWord</a></li> -->
-                <li><a class="btn" routerLink="/pw/create-picword" routerLinkActive="active-link">Create PicWord</a></li>
+                <li class="dropdown">
+                    <a routerLink="/pw" class="dropbtn btn" routerLinkActive="active-link">PicWords Menu</a>
+                    <div class="dropdown-content">
+                        <a class="btn" routerLink="/pw/picwords" routerLinkActive="active-link">All PicWords</a>
+                        <a class="btn" routerLink="/pw/find-picword" routerLinkActive="active-link">Find PexelWord</a>
+                        <a class="btn" routerLink="/pw/create-picword" routerLinkActive="active-link">Create PicWord</a>
+                    </div>
+                </li>
+
                 <li><a class="btn" routerLink="/auth/profile" routerLinkActive="active-link">Profile Page</a></li>
                 <li><a class="btn" routerLink="/about" routerLinkActive="active-link">About PD</a></li>
                 <li><a class="btn" routerLink="/auth/logout" routerLinkActive="active-link">Logout</a></li>

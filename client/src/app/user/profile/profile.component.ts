@@ -54,7 +54,7 @@ export class ProfileComponent implements OnInit {
           throw new Error('No Data Found!')
         }
         this.profilePWs = response;
-        this.currentPWs = this.profilePWs.slice(0, 6);
+        this.currentPWs = this.profilePWs.splice(0, 6);
       },
         err => {
           // this.notificate = { type: 'error', messages: err };

@@ -1,3 +1,4 @@
+@import url('https://use.fontawesome.com/releases/v5.15.3/css/all.css');
 :host {
     margin: 50px auto;
 }
@@ -36,6 +37,38 @@
 h1 {
     margin: 0;
     padding: 0;
+}
+
+.prev-btn {
+    position: absolute;
+    left: 100px;
+    top: 50px;
+    margin: 0;
+}
+
+.next-btn {
+    position: absolute;
+    right: 100px;
+    top: 50px;
+    margin: 0;
+}
+
+.fa-greater-than,
+.fa-less-than {
+    cursor: pointer;
+    position: absolute;
+    top: 50px;
+    margin: 0;
+    color: #f6c95b;
+    font-size: 50px;
+}
+
+.fa-greater-than {
+    right: 100px;
+}
+
+.fa-less-than {
+    left: 100px;
 }
 
 

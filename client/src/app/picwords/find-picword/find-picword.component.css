@@ -34,11 +34,24 @@
     align-items: center;
     background-repeat: no-repeat;
     margin-top: 1rem;
+    max-height: 120px;
 }
 
 .choose-external-form .form-control {
     width: 300px;
     border-radius: 0.3rem;
     padding: 0.5rem;
-    margin: 10px 0;
+    margin: 10px 0 0 0;
+}
+
+.notify {
+    min-height: 35px;
+}
+
+.error {
+    color: red;
+}
+
+.found-count {
+    margin: 0;
 }

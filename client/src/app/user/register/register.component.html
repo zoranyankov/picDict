@@ -37,7 +37,13 @@
             </div>
         </div>
         <app-notificate [notificate]="notificate"></app-notificate>
-        <button class="btn">Register</button>
+
+        <!--For demonstrating BE error handling-->
+        <button [disabled]="rePassword.errors?.passMissmatch" class="btn">Register</button>
+
+        <!--ALL SECURED - real life scenario-->
+        <!-- <button [disabled]="form.invalid || rePassword.errors?.passMissmatch" class="btn">Register</button> -->
+
         <div class="auth-links">
             Already have an account?
             <a routerLink="/auth/login">

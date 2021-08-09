@@ -10,7 +10,7 @@ import { Subscription } from 'rxjs';
     multi: true
   }]
 })
-export class PassMatchDirective implements Validator, OnDestroy{
+export class PassMatchDirective implements Validator, OnDestroy {
   currentControl!: AbstractControl;
   ohterControl!: AbstractControl;
   subscription!: Subscription;
@@ -19,7 +19,7 @@ export class PassMatchDirective implements Validator, OnDestroy{
 
   constructor(
     private form: NgForm
-  ) {}
+  ) { }
   ngOnDestroy(): void {
     this.subscription.unsubscribe();
   }
@@ -28,18 +28,15 @@ export class PassMatchDirective implements Validator, OnDestroy{
     this.currentControl = control;
     this.ohterControl = this.form.controls[this.otherValue];
     const otherControlValue = this.ohterControl.value;
-    
-    if(this.subscription){this.subscription.unsubscribe()}
+
+    if (this.subscription) { this.subscription.unsubscribe() }
     this.subscription = this.ohterControl.valueChanges.subscribe(() => {
-      this.currentControl.updateValueAndValidity({onlySelf: true})
+      this.currentControl.updateValueAndValidity({ onlySelf: true })
     })
 
-    if (this.form.invalid) {
-      return control.value !== otherControlValue ? {
-        passMissmatch: true
-      } : null
-    }
-    throw new Error('Method not implemented.');
+    return control.value !== otherControlValue ? {
+      passMissmatch: true
+    } : null
   }
-  
+
 }

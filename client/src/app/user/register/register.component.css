@@ -31,11 +31,3 @@ p {
     font-size: 20px;
     font-style: italic;
 }
-
-.notify {
-    min-height: 35px;
-}
-
-.error {
-    color: red;
-}

@@ -45,3 +45,11 @@ a.btn:hover {
     background-color: #757475;
     color: #ffde8e;
 }
+
+div.notify {
+    min-height: 35px;
+}
+
+span.error {
+    color: red;
+}

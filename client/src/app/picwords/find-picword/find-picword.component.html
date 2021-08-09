@@ -19,21 +19,8 @@
                 <span *ngIf="word.errors?.required" class="error">Word is required</span>
             </div>
         </div>
-        <!-- <div > -->
         <h3 *ngIf="picWords.length > 0" class="found-words-count" class="found-count">{{picWords.length > 1 ? picWords.length + ' words Found' : ''}}</h3>
-        <!-- </div> -->
-        <!-- <div > -->
         <h3 *ngIf="currentPWs.length == 0 && buttonClicked" class="notghing-found" class="found-count">No results for this word 😞</h3>
-        <!-- </div> -->
-        <!-- <Notificate type="error">{fields.errors.pexels_category || <br />}</Notificate><br /> -->
-        <!-- <label htmlFor="pexels_difficulty">Select Difficulty: </label>
-        <select name="pexels_difficulty" class="form-control">
-            <option value="any">Any Difficulty</option>
-            <option value="easy">Easy</option>
-            <option value="medium">Medium</option>
-            <option value="hard">Hard</option>
-        </select> -->
-        <!-- <Notificate type="error">{fields.errors.pexels_difficulty || <br />}</Notificate> -->
         <button [disabled]="form.invalid || word.errors" *ngIf="currentPWs.length == 0" type="submit" class="btn">Search in PEXELS</button>
         <div *ngIf="currentPWs.length > 0" class="buttons">
             <button type="button" (click)="onFindSubmit(form)" class="btn">New Search</button>

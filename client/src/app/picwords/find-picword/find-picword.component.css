@@ -44,14 +44,6 @@
     margin: 10px 0 0 0;
 }
 
-.notify {
-    min-height: 35px;
-}
-
-.error {
-    color: red;
-}
-
 .found-count {
     margin: 0;
 }

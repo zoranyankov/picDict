@@ -6,7 +6,7 @@
                 <img [src]="pW.pictureUrl" alt="food-pic">
             </div>
             <h5 class="picword-name">{{pW.word}}</h5>
-            <h3 class="pw-info-title">Created - <span>{{pW?.createdAt}}</span></h3>
+            <h3 class="pw-info-title">Created - <span>{{pW?.createdAt | date: 'd/MMM/y - h:mm:ss a'}}</span></h3>
             <div class="buttons">
                 <button [routerLink]="['/pw/picword/', pW._id, 'Edit']" class="pw-edit btn">Edit</button>
                 <button [routerLink]="['/pw/picword/', pW._id, 'Delete']" class="pw-delete btn">Delete</button>

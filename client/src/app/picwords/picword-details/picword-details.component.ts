@@ -20,7 +20,7 @@ export class PicwordDetailsComponent implements OnInit {
     this._picword.getOne(pwId)
     .subscribe((response: any) => {
       // Format the date
-      response.createdAt = response.createdAt.substring(0,10);
+      // response.createdAt = response.createdAt.substring(0,10);
       this.pW = response;
       // if (!response) {
       //   throw new Error('No Data Found!')

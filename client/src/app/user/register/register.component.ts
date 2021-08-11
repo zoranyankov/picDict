@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { INewUser } from 'src/app/shared/interfaces/new-user-interface';
 import { INotificate } from 'src/app/shared/interfaces/notificate-interface';
 import { AuthService } from '../auth.service';
 
@@ -33,7 +32,4 @@ export class RegisterComponent implements OnInit {
           this.notificate = { type: 'error', messages: err };
         });
       }
-      // ngOnChanges(change: SimpleChanges) {
-
-      // }
   }

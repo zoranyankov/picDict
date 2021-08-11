@@ -26,7 +26,6 @@ export class LoginComponent implements OnInit, OnDestroy {
     this._authService
       .login(username, password)
       .subscribe(newUser => {
-        // let newRes: INewUser = newUser
         let message = `User ${newUser.user.username} is logged in`;
         this.notificate = { type: 'message', messages: [{ message }] };
       },

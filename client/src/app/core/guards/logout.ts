@@ -14,7 +14,6 @@ export class Logout implements CanActivate {
 
         return this.router.parseUrl(paramsActivateRedirectUrl || '/');
         // throw new Error("Method not implemented.");
-
     }
 
 }

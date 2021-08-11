@@ -63,19 +63,7 @@ export class AuthService {
           return this._errorService.handleError(err);
         }),
         tap(res => {
-          // if (!res || !res.result) {
-          // if (!res) {
-          //   this.currentUser.next(null);
-          //   localStorage.removeItem('sid');
-          //   console.log('appErr');
-          //   // return false;
-          // }
-          console.log(res);
-          console.log(user);
-          console.log(verifyData);
-          // let newuser:INewUser = {_id: res.user._id, username: res.user.username, picture: res.user.picture, token: res.token}
           this.currentUser.next(user);
-          // return true;
         })
       )
   }
@@ -149,9 +137,6 @@ export class AuthService {
 
   public authenticateUser(user: INewUser | null) {
     // const expirationDate = new Date(new Date().getTime() + expiresIn*1000);
-    // const newUser = new User(userId, user, token);
-    // console.log(newUser);
-    console.log(user);
     this.currentUser.next(user);
     if(user) {localStorage.setItem('sid', JSON.stringify(user));}
     this._stateService.setState({isAuthName: user?.username || '', isLogged: true, isAuthorized: true});

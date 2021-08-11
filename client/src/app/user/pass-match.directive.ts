@@ -3,7 +3,7 @@ import { AbstractControl, NgForm, NG_VALIDATORS, ValidationErrors, Validator } f
 import { Subscription } from 'rxjs';
 
 @Directive({
-  selector: '[appPassMatch]',
+  selector: '[ngModel][appPassMatch]',
   providers: [{
     provide: NG_VALIDATORS,
     useExisting: PassMatchDirective,

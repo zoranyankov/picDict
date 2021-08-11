@@ -1,8 +1,8 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { timer } from 'rxjs';
+import { INewUser } from 'src/app/shared/interfaces/new-user-interface';
 import { INotificate } from 'src/app/shared/interfaces/notificate-interface';
-import { IRegResponse } from 'src/app/shared/interfaces/register-response-interface';
 import { AuthService } from '../auth.service';
 
 @Component({
@@ -26,8 +26,8 @@ export class LoginComponent implements OnInit, OnDestroy {
     this._authService
       .login(username, password)
       .subscribe(newUser => {
-        let newRes: IRegResponse = newUser
-        let message = `User ${newRes.user.username} is logged in`;
+        // let newRes: INewUser = newUser
+        let message = `User ${newUser.user.username} is logged in`;
         this.notificate = { type: 'message', messages: [{ message }] };
       },
         // Handle server errors

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { INewUser } from 'src/app/shared/interfaces/new-user-interface';
 import { INotificate } from 'src/app/shared/interfaces/notificate-interface';
-import { IRegResponse } from 'src/app/shared/interfaces/register-response-interface';
 import { AuthService } from '../auth.service';
 
 @Component({
@@ -10,9 +10,10 @@ import { AuthService } from '../auth.service';
   styleUrls: ['./register.component.css']
 })
 export class RegisterComponent implements OnInit {
-
+  // currentUser$ = this._auth.currentUser$;
   notificate: INotificate = { type: '', messages: [] }
-  constructor(private _authService: AuthService) { }
+  constructor(private _auth: AuthService) {
+   }
 
   ngOnInit(): void {
   }
@@ -20,11 +21,11 @@ export class RegisterComponent implements OnInit {
   registerSubmit(form: NgForm): void {
     let { username, password, rePassword } = form.value;
     console.log(username, password, rePassword);
-    this._authService
+    this._auth
       .register(username, password)
       .subscribe(newUser => {
-        let newRes: IRegResponse = newUser
-        let message = `User ${newRes.user.username} is registered`;
+        // let newRes: INewUser = newUser
+        let message = `User ${newUser.username} is registered`;
         this.notificate = {type: 'message', messages: [{message}]};
       },
         // Handle server errors

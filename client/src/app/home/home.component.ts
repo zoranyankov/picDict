@@ -17,10 +17,16 @@ export class HomeComponent implements OnInit, DoCheck {
   constructor(private _auth: AuthService) { }
 
   ngOnInit(): void {
-    this.isLogged = this._auth.getLoggedUserId() ? true : false;
+    // this.isLogged = this._auth.getLoggedUserId() ? true : false;
+    this._auth.isLoggedIn$.subscribe(isLogged => {
+    this.isLogged = isLogged;
+  })
     console.log(this.isLogged);
   }
   ngDoCheck() {
-    this.isLogged = this._auth.getLoggedUserId() ? true : false;
+    // this.isLogged = this._auth.getLoggedUserId() ? true : false;
+  //   this._auth.isLoggedIn$.subscribe(isLogged => {
+  //   this.isLogged = isLogged;
+  // })
   }
 }

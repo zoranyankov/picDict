@@ -19,7 +19,7 @@ const routes: Routes = [
       IsLogged
     ],
     data: {
-      paramsActivateRedirectUrl: '/'
+      paramsActivateRedirectUrl: 'auth/login'
     },
   },
   {
@@ -29,7 +29,7 @@ const routes: Routes = [
       IsLogged
     ],
     data: {
-      paramsActivateRedirectUrl: '/',
+      paramsActivateRedirectUrl: 'auth/login',
       flag: 'profile'
     },
   },
@@ -40,7 +40,7 @@ const routes: Routes = [
       IsLogged
     ],
     data: {
-      paramsActivateRedirectUrl: '/'
+      paramsActivateRedirectUrl: 'auth/login'
     },
   },
   {

@@ -1,0 +1,45 @@
+<ng-template [ngIf]="!displayResults" [ngIfElse]="results">
+    <div class="picword-wrapper">
+        <div class="picword" *ngIf="currentPW">
+            <div class="picword-img">
+                <img [src]="currentPW.pictureUrl" alt="food-pic">
+            </div>
+            <div class="answers-wrapper">
+                <h5 *ngFor="let answer of currentAnswers" [class.correct]="currentPW.word == answer && showResult" (click)="checkAnswer(ans)" #ans class="picword-name">{{answer}}</h5>
+            </div>
+        </div>
+        <div class="picword" *ngIf="!currentPW">
+            <h1 class="profile-title">PicWord Details</h1>
+            <div class="loading">
+                <h1>Loading...</h1>
+            </div>
+        </div>
+        <button class="btn" [disabled]="showResult? false : true" *ngIf="picWords.length > 0" (click)="nextWord()">Next Word</button>
+        <button class="btn" *ngIf="picWords.length == 0" (click)="showResults()">Show Results</button>
+    </div>
+</ng-template>
+<ng-template #results>
+    <table>
+        <thead>
+            <tr>
+                <th>Image</th>
+                <th>Word</th>
+                <th>Answer</th>
+                <th>Result</th>
+            </tr>
+        </thead>
+        <tbody *ngIf="totalResults">
+            <tr *ngFor="let res of totalResults">
+                <td><img style="width: 100px;" [src]="res.pictureUrl" alt="resultImg"></td>
+                <td>{{res.correctAnswer}}</td>
+                <td>{{res.selectedAnswer}}</td>
+                <td>{{res.result}}</td>
+            </tr>
+        </tbody>
+        <tfoot>
+            <tr>
+                <td colspan="4">Your result is: {{totalScore}}</td>
+            </tr>
+        </tfoot>
+    </table>
+</ng-template>

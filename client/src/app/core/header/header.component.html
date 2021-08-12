@@ -9,8 +9,7 @@
         <ul class="header-nav-items">
             <li><a class="btn" routerLink="" routerLinkActive="active-link" [routerLinkActiveOptions]="{exact : true}">Home</a></li>
             <ng-template [ngIf]="isLogged" [ngIfElse]="notLogged">
-
-                <!-- <li><a routerLink="/pw/edit-picword" routerLinkActive="active-link">Edit PicWord</a></li> -->
+                <li><a class="btn" routerLink="picword-test" routerLinkActive="active-link">Test</a></li>
                 <li class="dropdown">
                     <a routerLink="/pw" class="dropbtn btn" routerLinkActive="active-link">PicWords Menu</a>
                     <div class="dropdown-content">
@@ -21,11 +20,11 @@
                 </li>
 
                 <li class="dropdown">
-                    <a routerLink="/profile" class="dropbtn btn" routerLinkActive="active-link">Profile Page</a>
+                    <a routerLink="/auth/profile" class="dropbtn btn" routerLinkActive="active-link">Profile Page</a>
                     <div class="dropdown-content">
                         <a class="btn" routerLink="/auth/profile" routerLinkActive="active-link" [routerLinkActiveOptions]="{exact : true}">Profile Page</a>
                         <a class="btn" routerLink="/auth/profile/load" routerLinkActive="active-link">Profile PicWords</a>
-                        <a class="btn" routerLink="/pw/profile/results" routerLinkActive="active-link">Profile Results</a>
+                        <a class="btn" routerLink="/auth/profile/results" routerLinkActive="active-link">Profile Results</a>
                     </div>
                 </li>
                 <li><a class="btn" routerLink="/about" routerLinkActive="active-link">About PD</a></li>

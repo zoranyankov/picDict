@@ -20,7 +20,14 @@
                     </div>
                 </li>
 
-                <li><a class="btn" routerLink="/auth/profile" routerLinkActive="active-link">Profile Page</a></li>
+                <li class="dropdown">
+                    <a routerLink="/profile" class="dropbtn btn" routerLinkActive="active-link">Profile Page</a>
+                    <div class="dropdown-content">
+                        <a class="btn" routerLink="/auth/profile" routerLinkActive="active-link" [routerLinkActiveOptions]="{exact : true}">Profile Page</a>
+                        <a class="btn" routerLink="/auth/profile/load" routerLinkActive="active-link">Profile PicWords</a>
+                        <a class="btn" routerLink="/pw/profile/results" routerLinkActive="active-link">Profile Results</a>
+                    </div>
+                </li>
                 <li><a class="btn" routerLink="/about" routerLinkActive="active-link">About PD</a></li>
                 <li><a class="btn" routerLink="/auth/logout" routerLinkActive="active-link">Logout</a></li>
             </ng-template>

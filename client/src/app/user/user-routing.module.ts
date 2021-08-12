@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { CorrectProfParam } from '../core/guards/correctProfParam';
 import { IsLogged } from '../core/guards/is.logged';
 import { Logout } from '../core/guards/logout';
 import { NotLogged } from '../core/guards/not.logged';
@@ -45,6 +46,11 @@ const routes: Routes = [
     }
   },
   {
+    path: 'profile',
+    redirectTo: 'auth/profile',
+    pathMatch: 'full'
+  },
+  {
     path: 'auth/profile',
     component: ProfileComponent,
     pathMatch: 'full',
@@ -59,7 +65,8 @@ const routes: Routes = [
     path: 'auth/profile/:load',
     component: ProfileComponent,
     canActivate: [
-      IsLogged
+      IsLogged,
+      CorrectProfParam
     ],
     data: {
       paramsActivateRedirectUrl: '/'

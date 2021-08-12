@@ -7,6 +7,7 @@ import { IsLogged } from './guards/is.logged';
 import { NotLogged } from './guards/not.logged';
 import { Logout } from './guards/logout';
 import { StateService } from './state.service';
+import { CorrectProfParam } from './guards/correctProfParam';
 
 
 
@@ -27,6 +28,7 @@ import { StateService } from './state.service';
     StateService,
     IsLogged,
     NotLogged,
+    CorrectProfParam,
     Logout
   ]
 })

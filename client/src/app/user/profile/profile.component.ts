@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { PicwordsService } from 'src/app/picwords/picwords.service';
 import { IPWRes } from 'src/app/shared/interfaces/picword-res-interface';
-// import { HelpService } from 'src/app/shared/services/help.service';
 import { AuthService } from '../auth.service';
 
 @Component({
@@ -28,7 +27,7 @@ export class ProfileComponent implements OnInit {
     this.userName = this._auth.getLoggedUserName();
     this.userId = this._auth.getLoggedUserId();
     let param = this._activatedRoute.snapshot.params.load;
-    if(param) {
+    if(param == 'load') {
       this.loading = true;
       return this.laodPws();
     }

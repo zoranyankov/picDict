@@ -63,8 +63,10 @@ router.get('/:userId', verifyToken, (req, res) => {
 
 router.post('/add', verifyToken, (req, res, next) => { //TODO: checkResultsInput,
 
-    const { creatorId, quizName, userResults, score } = req.body;
-    let newResult = { quizName, userResults, score, creatorId};
+    // const { creatorId, quizName, userResults, score } = req.body;
+    const { creatorId, userResults, score } = req.body;
+    // let newResult = { quizName, userResults, score, creatorId};
+    let newResult = { userResults, score, creatorId};
     // const errors = req.errors;
     // const newPicWord = req.body;
 

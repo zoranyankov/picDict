@@ -10,6 +10,7 @@ import { FormsModule } from '@angular/forms';
 import { PicwordsService } from './picwords.service';
 import { SharedModule } from '../shared/shared.module';
 import { PicwordTestComponent } from './picword-test/picword-test.component';
+import { ResultService } from './result.service';
 
 
 @NgModule({
@@ -26,12 +27,13 @@ import { PicwordTestComponent } from './picword-test/picword-test.component';
     PicwordsRoutingModule,
     FormsModule,
     SharedModule
-  ],  
+  ],
   exports: [
     PicwordComponent
   ],
   providers: [
-    PicwordsService
+    PicwordsService, 
+    ResultService
   ]
 })
 export class PicwordsModule { }

@@ -1,10 +1,10 @@
 const mongoose = require('mongoose');
 
 const resultSchema = new mongoose.Schema({
-    quizName: {
-        type: String,
-        required: [true, 'Quiz Name is required!'],
-    },
+    // quizName: {
+    //     type: String,
+    //     required: [true, 'Quiz Name is required!'],
+    // },
     userResults: {
         type: Array,
         required: [true, 'Result data is required!'],

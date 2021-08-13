@@ -3,7 +3,9 @@ import { IAnswer } from 'src/app/shared/interfaces/answer-interface';
 import { IPW } from 'src/app/shared/interfaces/picword-interface';
 import { IPWRes } from 'src/app/shared/interfaces/picword-res-interface';
 import { HelpService } from 'src/app/shared/services/help.service';
+import { AuthService } from 'src/app/user/auth.service';
 import { PicwordsService } from '../picwords.service';
+import { ResultService } from '../result.service';
 
 @Component({
   selector: 'app-picword-test',
@@ -22,14 +24,18 @@ export class PicwordTestComponent implements OnInit {
   totalResults: IAnswer[] = [];
   currentTestPWs: IPW[] = [];
   totalScore: number = 0;
+  creatorId: string = '';
 
   constructor(
     private _picword: PicwordsService,
-    private _help: HelpService
+    private _help: HelpService,
+    private _auth: AuthService,
+    private _result: ResultService
   ) { }
 
   ngOnInit(): void {
     this.picWords = [];
+    this.creatorId = this._auth.getLoggedUserId();
 
     this._picword.getAll()
       .subscribe((response: any) => {
@@ -54,7 +60,7 @@ export class PicwordTestComponent implements OnInit {
   }
 
   checkAnswer(e: any) {
-    
+
     // Compose the current result
     let currentResult: IAnswer = {
       wrongAnswers: [...this.currentAnswers],
@@ -66,13 +72,13 @@ export class PicwordTestComponent implements OnInit {
     this.totalResults.push(currentResult);
     this.showResult = true;
     console.log(e);
-    
+
     let alEl = document.querySelectorAll('h5');
-    alEl.forEach((el: HTMLHeadingElement ) => el.removeEventListener('mouseclick', this.checkAnswer, true));
+    alEl.forEach((el: HTMLHeadingElement) => el.removeEventListener('mouseclick', this.checkAnswer, true));
     e.classList.add('wrong');
   }
-  
-  nextWord(){
+
+  nextWord() {
     //Reset the classnames
     document.querySelectorAll('h5').forEach(el => el.className = 'picword-name')
     // Get the next picword
@@ -88,11 +94,13 @@ export class PicwordTestComponent implements OnInit {
 
   showResults() {
     this.totalScore = this.totalResults.reduce((a, x) => {
-      if(x.result) {
+      if (x.result) {
         a++
       }
       return a;
     }, 0)
     this.displayResults = true;
+    this._result.add({ creatorId: this.creatorId, userResults: this.totalResults, score: this.totalScore })
+    .subscribe({error: (err) => console.log(err)});
   }
 }

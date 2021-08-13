@@ -1,5 +1,6 @@
 <ng-template [ngIf]="!displayResults" [ngIfElse]="results">
     <div class="picword-wrapper">
+        <h1 class="title">Guess the word!</h1>
         <div class="picword" *ngIf="currentPW">
             <div class="picword-img">
                 <img [src]="currentPW.pictureUrl" alt="food-pic">
@@ -19,12 +20,13 @@
     </div>
 </ng-template>
 <ng-template #results>
+    <h1 class="title">Your results</h1>
     <table>
         <thead>
             <tr>
                 <th>Image</th>
-                <th>Word</th>
-                <th>Answer</th>
+                <th>Correct Word</th>
+                <th>Your Answer</th>
                 <th>Result</th>
             </tr>
         </thead>
@@ -33,12 +35,18 @@
                 <td><img style="width: 100px;" [src]="res.pictureUrl" alt="resultImg"></td>
                 <td>{{res.correctAnswer}}</td>
                 <td>{{res.selectedAnswer}}</td>
-                <td>{{res.result}}</td>
+                <ng-template [ngIf]="res.result" [ngIfElse]="falsy">
+                    <td><i class="fas fa-check-circle"></i></td>
+                </ng-template>
+                <ng-template #falsy>
+                    <td><i class="fas fa-times-circle"></i></td>
+                </ng-template>
             </tr>
         </tbody>
         <tfoot>
             <tr>
-                <td colspan="4">Your result is: {{totalScore}}</td>
+                <td colspan="3">Your result is: </td>
+                <td>{{totalScore}}</td>
             </tr>
         </tfoot>
     </table>

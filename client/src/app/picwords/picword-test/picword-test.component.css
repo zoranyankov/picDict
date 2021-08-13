@@ -162,7 +162,7 @@ tbody tr {
 
 tbody tr td {
     font-size: 14px;
-    text-align: right;
+    text-align: center;
     flex-direction: row-reverse;
     display: table-cell;
     padding: 16px;
@@ -188,7 +188,7 @@ tfoot {
     color: #fff;
     font-size: 17px;
     background-color: #ff4081;
-    text-align: right;
+    text-align: center;
     flex-direction: row-reverse;
     line-height: 1.3125rem;
 }

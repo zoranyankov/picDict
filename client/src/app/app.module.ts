@@ -11,6 +11,10 @@ import { PicwordsModule } from './picwords/picwords.module';
 import { UserModule } from './user/user.module';
 import { HomeComponent } from './home/home.component';
 import { ConfigService } from './config/config.service';
+import { StoreModule } from '@ngrx/store';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { environment } from '../environments/environment';
+import { reducer } from './+state/reducers';
 
 @NgModule({
   declarations: [
@@ -25,7 +29,10 @@ import { ConfigService } from './config/config.service';
     PicwordsModule,
     UserModule,
     HttpClientModule,
-    AppRoutingModule
+    AppRoutingModule,
+    StoreModule.forRoot({state: reducer}, {}),
+    StoreDevtoolsModule.instrument({ })
+    // StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production })
   ],
   providers: [ConfigService],
   bootstrap: [AppComponent]

@@ -4,6 +4,8 @@ import { catchError } from 'rxjs/operators';
 import { ConfigService } from '../config/config.service';
 import { IPWCreate } from '../shared/interfaces/pwCreate-interface';
 import { IResult } from '../shared/interfaces/result-interface';
+import { IResultRes } from '../shared/interfaces/result-response-interface';
+import { IResults } from '../shared/interfaces/results-interface';
 import { HelpService } from '../shared/services/help.service';
 import { AuthService } from '../user/auth.service';
 
@@ -39,16 +41,16 @@ export class ResultService {
   //     )
   // }
 
-  // getByUserId(userId: string) {
-  //   const token = this._auth.getLoggedUserToken();
-  //   return this._http.get(`${this._config.API_RESULT_URL}/byUser/${userId}`, { headers: { 'x-access-token': token } })
-  //     .pipe(
-  //       catchError(err => {
-  //         console.log(err);
-  //         return this._errorService.handleError(err);
-  //       })
-  //     )
-  // }
+  getByUserId(userId: string) : any {
+    const token = this._auth.getLoggedUserToken();
+    return this._http.get(`${this._config.API_RESULT_URL}/${userId}`, { headers: { 'x-access-token': token } })
+      .pipe(
+        catchError(err => {
+          console.log(err);
+          return this._errorService.handleError(err);
+        })
+      )
+  }
 
   // getOne(pwId: string) {
   //   const token = this._auth.getLoggedUserToken();

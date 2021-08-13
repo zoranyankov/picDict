@@ -1,5 +1,5 @@
 <div class="profile-content">
-    <ng-template [ngIf]="currentPWs.length == 0 && !loading" [ngIfElse]="userCreated">
+    <ng-template [ngIf]="currentPWs.length == 0 && !loading && currentResults.length == 0" [ngIfElse]="userCreated">
         <div class="profile-header">
             <!-- <Image cloudName="softquizy" class="profile-animation" publicId='profile-page-logo' /> -->
             <div class="profile-data">
@@ -12,7 +12,7 @@
 
             <div class="btn-wrapper">
                 <!-- <p>PROFILE RESULTS</p> -->
-                <button class="btn">{{userName}}'s Results</button>
+                <button (click)="loadResults()" class="btn">{{userName}}'s Results</button>
             </div>
             <div class="btn-wrapper">
                 <!-- <p>CREATED PICWORDS</p> -->
@@ -27,7 +27,7 @@
         <!-- <a (click)="moreSubmit()" class="btn next-btn">Show more</a> -->
 
         <h1 class="profile-title picwords">{{userName}}'s PicWords</h1>
-        <div *ngIf="loading && currentPWs.length==0" class="loading">
+        <div *ngIf="loading && currentPWs.length==0 && currentResults.length == 0" class="loading">
             <div class="loading-img">
                 <img src="https://c.tenor.com/I6kN-6X7nhAAAAAj/loading-buffering.gif" alt="loading gif">
             </div>
@@ -37,6 +37,40 @@
 
         <!--Variant 2-->
         <a *ngIf="profilePWs.length != 0" (click)="moreSubmit()" class="btn next-btn">Show more</a>
+    </ng-template>
+
+    <ng-template [ngIf]="currentResults.length > 0">
+        <h1 class="title">Your results</h1>
+        <table>
+            <thead>
+                <tr>
+                    <th>Image</th>
+                    <th>Correct Word</th>
+                    <th>Your Answer</th>
+                    <th>Result</th>
+                </tr>
+            </thead>
+            <tbody *ngIf="currentResults">
+                <tr *ngFor="let res of currentResults">
+                    <td><img style="width: 100px;" [src]="res.pictureUrl" alt="resultImg"></td>
+                    <td>{{res.correctAnswer}}</td>
+                    <td>{{res.selectedAnswer}}</td>
+                    <ng-template [ngIf]="res.result" [ngIfElse]="falsy">
+                        <td><i class="fas fa-check-circle"></i></td>
+                    </ng-template>
+                    <ng-template #falsy>
+                        <td><i class="fas fa-times-circle"></i></td>
+                    </ng-template>
+                </tr>
+            </tbody>
+            <tfoot>
+                <tr>
+                    <td colspan="3">Your result is: </td>
+                    <td>{{totalScore}}</td>
+                </tr>
+            </tfoot>
+        </table>
+        <button (click)="loadNextResults()" class="btn">Load Next</button>
     </ng-template>
 
     <!-- <div class="profile-results">

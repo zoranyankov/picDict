@@ -115,6 +115,9 @@ div.loading div.picword-img img {
     border: 5px solid green;
 }
 
+
+/* Table styles */
+
 table {
     position: center;
     min-width: 650px;

@@ -22,7 +22,8 @@ router.get('/:userId', verifyToken, (req, res) => {
                 res.status(204).end();
                 return;
             }
-            res.status(302).json(results);
+            // res.status(302).json(results);
+            res.status(200).json(results);
             return;
         })
         .catch(err => {

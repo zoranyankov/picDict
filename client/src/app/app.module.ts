@@ -15,6 +15,7 @@ import { StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { reducers } from './+state';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
 
 @NgModule({
   declarations: [
@@ -30,6 +31,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     UserModule,
     HttpClientModule,
     AppRoutingModule,
+    MatSnackBarModule,
     StoreModule.forRoot(reducers),
     StoreDevtoolsModule.instrument({ }),
     BrowserAnimationsModule

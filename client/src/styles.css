@@ -85,3 +85,37 @@ span.error {
 
 /* html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; } */
+
+
+/* MatSnackBar */
+
+.green-snackbar {
+    /* background: rgb(65, 252, 134); */
+    background-color: rgb(19, 173, 76);
+    color: white;
+}
+
+.green-snackbar button {
+    background-color: rgb(19, 173, 76);
+    color: white;
+    border: none;
+}
+
+.mat-snack-bar-container {
+    margin-top: 40% !important;
+}
+
+.mat-simple-snackbar {
+    justify-content: center !important;
+}
+
+.red-snackbar {
+    background: #F44336;
+    color: white;
+}
+
+.red-snackbar button {
+    background-color: #F44336;
+    color: white !important;
+    border: none;
+}

@@ -1,5 +1,7 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { Store } from '@ngrx/store';
+import { error, success } from 'src/app/+state/notifyActions';
 import { INotificate } from 'src/app/shared/interfaces/notificate-interface';
 import { AuthService } from '../auth.service';
 
@@ -13,7 +15,10 @@ export class RegisterComponent implements OnInit, OnDestroy {
   notificate: INotificate = { type: '', messages: [] }
   timer: any;
 
-  constructor(private _auth: AuthService) {
+  constructor(
+    private _auth: AuthService,
+    private _store: Store
+    ) {
    }
 
   ngOnInit(): void {
@@ -25,11 +30,13 @@ export class RegisterComponent implements OnInit, OnDestroy {
       .register(username, password)
       .subscribe(newUser => {
         // let newRes: INewUser = newUser
-        let message = `User ${newUser.username} is registered`;
+        let message = `User ${newUser.user.username} is registered`;
+        this._store.dispatch(success({ messages: [{message}] }));
         this.notificate = {type: 'message', messages: [{message}]};
       },
         // Handle server errors
         err => {
+          this._store.dispatch(error({ messages: err }))
           this.notificate = { type: 'error', messages: err };
           this.timer = setTimeout(() => {
             

@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { IAppState } from 'src/app/+state';
-import { selectUsername } from 'src/app/+state/selectors';
+import { selectUsername } from 'src/app/+state/authSelectors';
 
 @Component({
   selector: 'app-header',

@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { IAppState } from '../+state';
-import { selectUsername } from '../+state/selectors';
+import { selectUsername } from '../+state/authSelectors';
 import { IPW } from '../shared/interfaces/picword-interface';
 
 @Component({

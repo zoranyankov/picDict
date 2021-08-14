@@ -35,7 +35,7 @@ export class AuthService {
    }
 
   register(username: string, password: string) {
-    return this._http.post<INewUser>(this._config.SERVER_AUTH_URL('register'), { username: username, password: password })
+    return this._http.post<IRegResponse>(this._config.SERVER_AUTH_URL('register'), { username, password })
       .pipe(
         catchError(err => {
           console.log(err);
@@ -43,7 +43,8 @@ export class AuthService {
         }),
         tap(res => {
           console.log(res);
-          this.authenticateUser(res);
+          let user:INewUser = {_id: res.user._id, username: res.user.username, picture: res.user.picture, token: res.token}
+          this.authenticateUser(user);
           this._router.navigateByUrl('');
         })
       )

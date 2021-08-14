@@ -81,3 +81,7 @@ span.error {
     text-transform: capitalize;
     text-shadow: 1px 1px 3px #030307;
 }
+
+
+/* html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; } */

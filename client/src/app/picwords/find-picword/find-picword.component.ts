@@ -1,4 +1,4 @@
-import { Component, ElementRef, Input, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 import { IPW } from 'src/app/shared/interfaces/picword-interface';
@@ -26,7 +26,6 @@ export class FindPicwordComponent implements OnInit {
   ngOnInit(): void {
   }
   onFindSubmit(form: NgForm) {
-    console.log('submitting');
     this.buttonClicked = true;
     this.title = 'Loading...';
     this.currentPWs = [{ _id: '1', 'word': 'Loading...', pictureUrl: 'https://c.tenor.com/I6kN-6X7nhAAAAAj/loading-buffering.gif' }];

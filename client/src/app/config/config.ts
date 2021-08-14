@@ -9,18 +9,12 @@ export class ConfigService {
   API_RESULT_URL: string = `${environment.serverUrl}api/results`;
   PEXELS_API_TOKEN: string = '563492ad6f9170000100000111bc7c61400e40be8ab6ea1b36b9afe1';
   
+  // Pexel Endpoints
   PEXELS_API_URL = (wrd : string) => `https://api.pexels.com/v1/search?query=${wrd}`;
 
+  //Authentication Endpoints
   SERVER_AUTH_URL(path: string): string {
     return `${environment.serverUrl}auth/${path}`;
   }
-  // //Authentication Endpoints
-  // auth: object = {
-  //   register: `${this.SERVER_AUTH_URL}/register`,
-  //   login: `${this.SERVER_AUTH_URL}/login`,
-  //   verify: `${this.SERVER_AUTH_URL}/verify`,
-  //   updateResults: `${this.SERVER_AUTH_URL}/updateResults`,
-  // }
-
-  constructor() { }
+    constructor() { }
 }

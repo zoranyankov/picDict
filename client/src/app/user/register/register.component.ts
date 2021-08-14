@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { INotificate } from 'src/app/shared/interfaces/notificate-interface';
 import { AuthService } from '../auth.service';
@@ -8,9 +8,11 @@ import { AuthService } from '../auth.service';
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.css']
 })
-export class RegisterComponent implements OnInit {
-  // currentUser$ = this._auth.currentUser$;
+export class RegisterComponent implements OnInit, OnDestroy {
+
   notificate: INotificate = { type: '', messages: [] }
+  timer: any;
+
   constructor(private _auth: AuthService) {
    }
 
@@ -30,6 +32,14 @@ export class RegisterComponent implements OnInit {
         // Handle server errors
         err => {
           this.notificate = { type: 'error', messages: err };
+          this.timer = setTimeout(() => {
+            
+            this.notificate = { type: '', messages: [] };
+          }, 5000);
         });
       }
+      
+  ngOnDestroy() {
+    clearTimeout(this.timer);
+  }
   }

@@ -1,7 +1,5 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { timer } from 'rxjs';
-import { INewUser } from 'src/app/shared/interfaces/new-user-interface';
 import { INotificate } from 'src/app/shared/interfaces/notificate-interface';
 import { AuthService } from '../auth.service';
 
@@ -15,15 +13,14 @@ export class LoginComponent implements OnInit, OnDestroy {
   notificate: INotificate = { type: '', messages: [] };
   timer: any;
 
-  constructor(private _authService: AuthService) { }
+  constructor(private _auth: AuthService) { }
 
   ngOnInit(): void {
   }
 
   loginSubmit(form: NgForm): void {
     let { username, password } = form.value;
-    console.log(username, password);
-    this._authService
+    this._auth
       .login(username, password)
       .subscribe(newUser => {
         let message = `User ${newUser.user.username} is logged in`;

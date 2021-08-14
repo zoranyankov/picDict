@@ -27,15 +27,24 @@ export class AppComponent {
       return;
     }
     let user = storage ? JSON.parse(storage) : null;
-    console.log(user);
 
     // If there is a valid storage format - verifies the validity of the token
     this._auth.verify(user).subscribe(res => {
-      console.log(res);
-
-      if (!res || res.result == false) { return this._auth.authenticateUser(null); }
-
+        if (!res || res.result == false) {
+          localStorage.removeItem('sid');
+          this._auth.authenticateUser(null);
+          return;
+        }
+      }
+      ,
+      err => {
+        console.log(err);
+        localStorage.removeItem('sid');
+        this._auth.authenticateUser(null);
+      }
+      )
+    
+      
       this._auth.authenticateUser(user)
-    })
   }
 }

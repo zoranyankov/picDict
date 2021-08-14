@@ -3,8 +3,6 @@ import { ActivatedRoute } from '@angular/router';
 import { PicwordsService } from 'src/app/picwords/picwords.service';
 import { ResultService } from 'src/app/picwords/result.service';
 import { IPWRes } from 'src/app/shared/interfaces/picword-res-interface';
-import { IResult } from 'src/app/shared/interfaces/result-interface';
-import { IResultRes } from 'src/app/shared/interfaces/result-response-interface';
 import { IResults } from 'src/app/shared/interfaces/results-interface';
 import { AuthService } from '../auth.service';
 
@@ -29,7 +27,6 @@ export class ProfileComponent implements OnInit {
     private _picword: PicwordsService,
     private _activatedRoute: ActivatedRoute,
     private _result: ResultService
-    // private _help: HelpService,
   ) { }
 
   ngOnInit(): void {
@@ -81,8 +78,6 @@ export class ProfileComponent implements OnInit {
           let current = this.allResults.shift();
           this.totalScore = current.score;
           this.currentResults = current.userResults;
-
-          // this.results = currentResults;
         },
         error: (err: any) => console.log(err)
       });

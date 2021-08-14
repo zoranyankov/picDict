@@ -71,8 +71,7 @@ export class PicwordTestComponent implements OnInit {
     };
     this.totalResults.push(currentResult);
     this.showResult = true;
-    console.log(e);
-
+    // TODO: Disable more than 1 answer click 
     let alEl = document.querySelectorAll('h5');
     alEl.forEach((el: HTMLHeadingElement) => el.removeEventListener('mouseclick', this.checkAnswer, true));
     e.classList.add('wrong');

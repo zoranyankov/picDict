@@ -5,10 +5,6 @@
     align-items: center;
 }
 
-.create-question-title {
-    font-size: 40px;
-}
-
 .create-question-form {
     display: flex;
     flex-direction: column;

@@ -11,12 +11,6 @@
     width: 15rem;
 }
 
-.choose-external-content .choose-external-title {
-    font-size: 3rem;
-    margin-top: 1rem;
-    display: inline-block;
-}
-
 .choose-external-content label {
     width: 300px;
     font-weight: bold;

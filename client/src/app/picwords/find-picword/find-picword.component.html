@@ -3,7 +3,7 @@
         <Image cloudName="softquizy" class="choose-external-logo" publicId='choose-quiz'/>
     </div> -->
     <form #form="ngForm" class="choose-external-form" (ngSubmit)="onFindSubmit(form)">
-        <h2 *ngIf="currentPWs.length == 0" class="choose-external-title">Search for picture in PEXELS</h2><br />
+        <h1 *ngIf="currentPWs.length == 0" class="section-title">Search for picture in PEXELS</h1><br />
 
         <!-- TODO: Add Categories -->
         <!-- <label for="category">Select Category: </label>

@@ -7,7 +7,8 @@
 
 .welcome-text-heading {
     font-family: 'Lobster', cursive;
-    font-size: 35px;
+    font-size: 3rem;
+    color: #887507;
 }
 
 .welcome-text-content {

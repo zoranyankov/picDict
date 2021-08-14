@@ -1,32 +1,40 @@
 <ng-template [ngIf]="!displayResults" [ngIfElse]="results">
+    <h1 class="section-title">Guess the word!</h1>
     <div class="picword-wrapper">
-        <h1 class="title">Guess the word!</h1>
-        <div class="picword" *ngIf="currentPW">
-            <div class="picword-img">
-                <img [src]="currentPW.pictureUrl" alt="food-pic">
+        <div *ngIf="picWords.length==0" class="loading">
+            <div class="loading-img">
+                <img src="https://c.tenor.com/I6kN-6X7nhAAAAAj/loading-buffering.gif" alt="loading gif">
             </div>
-            <div class="answers-wrapper">
-                <button *ngFor="let answer of currentAnswers" [class.correct]="currentPW.word == answer && showResult" (click)="checkAnswer(ans)" #ans [disabled]="disableAnswers" class="picword-name">{{answer}}</button>
-            </div>
+            <h3>Loading....</h3>
         </div>
-        <div class="picword" *ngIf="!currentPW">
-            <h1 class="profile-title">PicWord Details</h1>
-            <div class="loading">
-                <h1>Loading...</h1>
+        <section *ngIf="picWords.length > 0" class="current-picword">
+            <div class="picword" *ngIf="currentPW">
+                <div class="picword-img">
+                    <img [src]="currentPW.pictureUrl" alt="food-pic">
+                </div>
+                <div class="answers-wrapper">
+                    <button *ngFor="let answer of currentAnswers" [class.correct]="currentPW.word == answer && showResult" (click)="checkAnswer(ans)" #ans [disabled]="disableAnswers" class="picword-name">{{answer}}</button>
+                </div>
             </div>
-        </div>
-        <div class="counter">
-            <div class="status">
-                <h3>Current word: {{initialPWs - picWords.length + ' / ' + initialPWs}}</h3>
+            <div class="picword" *ngIf="!currentPW">
+                <h1 class="profile-title">PicWord Details</h1>
+                <div class="loading">
+                    <h1>Loading...</h1>
+                </div>
             </div>
-            <div class="status">
-                <h3>You have {{totalScore}} correct answers</h3>
+            <div class="counter">
+                <div class="status">
+                    <h3>Current word: {{initialPWs - picWords.length + ' / ' + initialPWs}}</h3>
+                </div>
+                <div class="status">
+                    <h3>You have {{totalScore}} correct answers</h3>
+                </div>
             </div>
-        </div>
-        <section class="buttons">
-            <button class="btn restart" *ngIf="picWords.length > 0" (click)="restart()">Restart</button>
-            <button class="btn" [disabled]="showResult? false : true" *ngIf="picWords.length > 0" (click)="nextWord()">Next Word</button>
-            <button class="btn" *ngIf="picWords.length == 0" (click)="showResults()">Show Results</button>
+            <article class="buttons">
+                <button class="btn restart" *ngIf="picWords.length > 0" (click)="restart()">Restart</button>
+                <button class="btn" [disabled]="showResult? false : true" *ngIf="picWords.length > 0" (click)="nextWord()">Next Word</button>
+                <button class="btn" *ngIf="picWords.length == 0" (click)="showResults()">Show Results</button>
+            </article>
         </section>
     </div>
 </ng-template>

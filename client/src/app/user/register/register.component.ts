@@ -21,7 +21,6 @@ export class RegisterComponent implements OnInit, OnDestroy {
 
   registerSubmit(form: NgForm): void {
     let { username, password, rePassword } = form.value;
-    console.log(username, password, rePassword);
     this._auth
       .register(username, password)
       .subscribe(newUser => {

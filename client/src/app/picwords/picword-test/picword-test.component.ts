@@ -25,6 +25,7 @@ export class PicwordTestComponent implements OnInit {
   currentTestPWs: IPW[] = [];
   totalScore: number = 0;
   creatorId: string = '';
+  disableAnswers: boolean = false;
 
   constructor(
     private _picword: PicwordsService,
@@ -60,6 +61,7 @@ export class PicwordTestComponent implements OnInit {
   }
 
   checkAnswer(e: any) {
+    this.disableAnswers = false;
 
     // Compose the current result
     let currentResult: IAnswer = {
@@ -70,16 +72,18 @@ export class PicwordTestComponent implements OnInit {
       result: this.currentPW!.word == e.innerHTML,
     };
     this.totalResults.push(currentResult);
+    // Display current result
     this.showResult = true;
-    // TODO: Disable more than 1 answer click 
-    let alEl = document.querySelectorAll('h5');
-    alEl.forEach((el: HTMLHeadingElement) => el.removeEventListener('mouseclick', this.checkAnswer, true));
+    // Disable more than 1 answer click 
+    this.disableAnswers = true;
     e.classList.add('wrong');
   }
 
   nextWord() {
+    this.showResult = true;
+    this.disableAnswers = false;
     //Reset the classnames
-    document.querySelectorAll('h5').forEach(el => el.className = 'picword-name')
+    document.querySelectorAll('button.picword-name').forEach(el => el.className = 'picword-name')
     // Get the next picword
     this.currentPW = undefined;
     this.currentAnswers = [];

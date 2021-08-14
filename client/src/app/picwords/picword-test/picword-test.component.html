@@ -6,7 +6,7 @@
                 <img [src]="currentPW.pictureUrl" alt="food-pic">
             </div>
             <div class="answers-wrapper">
-                <h5 *ngFor="let answer of currentAnswers" [class.correct]="currentPW.word == answer && showResult" (click)="checkAnswer(ans)" #ans class="picword-name">{{answer}}</h5>
+                <button *ngFor="let answer of currentAnswers" [class.correct]="currentPW.word == answer && showResult" (click)="checkAnswer(ans)" #ans [disabled]="disableAnswers" class="picword-name">{{answer}}</button>
             </div>
         </div>
         <div class="picword" *ngIf="!currentPW">

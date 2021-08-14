@@ -5,7 +5,7 @@
     </p>
 </div>
 <app-picword [home]="true" [picWords]="pws"></app-picword>
-<div *ngIf="!isLogged">
+<div *ngIf="!(isLogged$ | async)">
     <p class="auth-links">Already a member? - <a routerLink="auth/login">Login</a></p>
     <p class="auth-links">Don't have an account? - <a routerLink="auth/register">Register</a></p>
 </div>

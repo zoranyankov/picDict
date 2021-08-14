@@ -5,10 +5,11 @@
         </div>
         <h3 class="header-title">Picture Dictionary</h3>
     </div>
+    {{isLogged$ | async | json}}
     <nav class="header-nav">
         <ul class="header-nav-items">
             <li><a class="btn" routerLink="" routerLinkActive="active-link" [routerLinkActiveOptions]="{exact : true}">Home</a></li>
-            <ng-template [ngIf]="isLogged" [ngIfElse]="notLogged">
+            <ng-template [ngIf]="isLogged$ | async" [ngIfElse]="notLogged">
                 <li><a class="btn" routerLink="picword-test" routerLinkActive="active-link">Test</a></li>
                 <li class="dropdown">
                     <a routerLink="/pw" class="dropbtn btn" routerLinkActive="active-link">PicWords Menu</a>

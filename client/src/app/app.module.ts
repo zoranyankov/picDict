@@ -13,8 +13,7 @@ import { HomeComponent } from './home/home.component';
 import { ConfigService } from './config/config.service';
 import { StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
-import { environment } from '../environments/environment';
-import { reducer } from './+state/reducers';
+import { reducers } from './+state';
 
 @NgModule({
   declarations: [
@@ -30,7 +29,7 @@ import { reducer } from './+state/reducers';
     UserModule,
     HttpClientModule,
     AppRoutingModule,
-    StoreModule.forRoot({state: reducer}, {}),
+    StoreModule.forRoot(reducers),
     StoreDevtoolsModule.instrument({ })
     // StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production })
   ],

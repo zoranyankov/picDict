@@ -1,10 +1,12 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
+import { Store } from '@ngrx/store';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { catchError, map, tap } from 'rxjs/operators';
+import { login } from '../+state/authActions';
 import { ConfigService } from '../config/config.service';
-import { StateService } from '../core/state.service';
+// import { StateService } from '../core/state.service';
 import { INewUser } from '../shared/interfaces/new-user-interface';
 import { IRegResponse } from '../shared/interfaces/register-response-interface';
 import { HelpService } from '../shared/services/help.service';
@@ -24,7 +26,8 @@ export class AuthService {
     private _http: HttpClient,
     private _errorService: HelpService,
     private _router: Router,
-    private _stateService: StateService
+    // private _stateService: StateService,
+    private _store: Store
   ) {
     this.isLoggedIn$ = this.currentUser$.pipe(map(user => {
       console.log(user);
@@ -137,8 +140,9 @@ export class AuthService {
 
   public authenticateUser(user: INewUser | null) {
     // const expirationDate = new Date(new Date().getTime() + expiresIn*1000);
+    this._store.dispatch(login({user}))
     this.currentUser.next(user);
     if(user) {localStorage.setItem('sid', JSON.stringify(user));}
-    this._stateService.setState({isAuthName: user?.username || '', isLogged: true, isAuthorized: true});
+    // this._stateService.setState({isAuthName: user?.username || '', isLogged: true, isAuthorized: true});
   }
 }

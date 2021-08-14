@@ -11,10 +11,12 @@ export class AppComponent {
   currUser: any = null;
   constructor(private _auth: AuthService) {
     
-    let cookie = localStorage.getItem('sid');
+    // Check if there is record (from BackEnd) in local storage and if yes - checks token validity
+    let storage = localStorage.getItem('sid');
+    // If there is invalid format of the storage - clears it
     try {
-      let { username, token } = cookie && JSON.parse(cookie) ? JSON.parse(cookie) : { username: '', token: '' };
-      if (!cookie || !username || !token) {
+      let { username, token } = storage && JSON.parse(storage) ? JSON.parse(storage) : { username: '', token: '' };
+      if (!storage || !username || !token) {
         this._auth.authenticateUser(null);
         localStorage.removeItem('sid');
         throw new Error('Invalid Token');
@@ -24,9 +26,10 @@ export class AppComponent {
       localStorage.removeItem('sid');
       return;
     }
-    let user = cookie ? JSON.parse(cookie) : null;
+    let user = storage ? JSON.parse(storage) : null;
     console.log(user);
 
+    // If there is a valid storage format - verifies the validity of the token
     this._auth.verify(user).subscribe(res => {
       console.log(res);
 

@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { IsLogged } from '../core/guards/is.logged';
+import { IsLogged } from '../core/guards/auth.guard';
+// import { IsLogged } from '../core/guards/is.logged';
 import { CreatePicwordComponent } from './create-picword/create-picword.component';
 import { FindPicwordComponent } from './find-picword/find-picword.component';
 import { PicwordDetailsComponent } from './picword-details/picword-details.component';

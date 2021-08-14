@@ -5,7 +5,7 @@ import { Store } from '@ngrx/store';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { catchError, map, tap } from 'rxjs/operators';
 import { login } from '../+state/authActions';
-import { ConfigService } from '../config/config.service';
+import { ConfigService } from '../config/config';
 // import { StateService } from '../core/state.service';
 import { INewUser } from '../shared/interfaces/new-user-interface';
 import { IRegResponse } from '../shared/interfaces/register-response-interface';

@@ -7,7 +7,6 @@ export const initialState: IAuthState = {
     username: '',
     picture: '',
     token: '',
-    isLogged: false
 }
 
 export const authReducer = createReducer(
@@ -15,8 +14,3 @@ export const authReducer = createReducer(
     on(login, (state, { user }) => ({ ...state, ...user })),
     on(logout, () => initialState),
 )
-
-// export function appReducer(state: any = initialState, action: any) {
-//     console.log(action);
-//     return state;
-// }

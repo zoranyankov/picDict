@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { catchError } from 'rxjs/operators';
-import { ConfigService } from '../config/config.service';
+import { ConfigService } from '../config/config';
 import { IPWCreate } from '../shared/interfaces/pwCreate-interface';
 import { IResult } from '../shared/interfaces/result-interface';
 import { IResultRes } from '../shared/interfaces/result-response-interface';

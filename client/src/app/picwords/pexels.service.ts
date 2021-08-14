@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { ConfigService } from '../config/config.service';
+import { ConfigService } from '../config/config';
 import { IPWCreate } from '../shared/interfaces/pwCreate-interface';
 
 @Injectable({

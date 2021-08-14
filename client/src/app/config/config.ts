@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
-import { AuthService } from '../user/auth.service';
 
 @Injectable()
 export class ConfigService {
@@ -24,33 +23,4 @@ export class ConfigService {
   // }
 
   constructor() { }
-
-  //Get current Token 
-  // getToken = () => {
-  //   console.log('ingetToken');
-  //   let hasCookie = localStorage.getItem('sid');
-  //   if (!hasCookie) {
-  //     return null;
-  //   }
-  //   const {_token} = JSON.parse(hasCookie);
-  //   console.log(_token);
-    
-  //   if (_token) {
-  //     return _token;
-  //   }
-  // }
-
-  //   //LOCAL USER SERVICES - optional
-  //  localUser = {
-  //   saveUser(userInfo:Object) {
-  //       localStorage.setItem('sid', JSON.stringify(userInfo));
-  //   },
-  //   getUser() {
-  //       const user = localStorage.getItem('sid');
-  //       return user ? JSON.parse(user) : null;
-  //   },
-  //   clearUser() {
-  //       localStorage.removeItem('sid');
-  //   }
-  // }
 }

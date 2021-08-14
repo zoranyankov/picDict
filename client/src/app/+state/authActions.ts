@@ -11,8 +11,3 @@ export const login = createAction(
 export const logout = createAction(
     `${authNameSpase} logout`,
 )
-
-// export const register = createAction(
-//     `${authNameSpase} register`,
-//     props<{username: string, password: string}>()
-// )

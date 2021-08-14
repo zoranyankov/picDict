@@ -3,5 +3,4 @@ export interface IAuthState {
     readonly username: string,
     readonly picture: string,
     readonly token: string,
-    readonly isLogged: boolean
 }

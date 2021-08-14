@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
-import { error } from 'src/app/+state/notifyActions';
+import { error, success } from 'src/app/+state/notifyActions';
 import { IAnswer } from 'src/app/shared/interfaces/answer-interface';
 import { IPW } from 'src/app/shared/interfaces/picword-interface';
 import { IPWRes } from 'src/app/shared/interfaces/picword-res-interface';
@@ -25,6 +25,7 @@ export class PicwordTestComponent implements OnInit {
   totalScore: number = 0;
   creatorId: string = '';
   disableAnswers: boolean = false;
+  loading: boolean = false;
 
   // Set test length
   initialPWs = 10;
@@ -45,11 +46,13 @@ export class PicwordTestComponent implements OnInit {
   }
 
   getWords () {
+    this.loading = true;
     this._picword.getAll()
     .subscribe((response: any) => {
       // Convert IPWRes to IPW
       response = response.map((x: IPWRes) => ({ _id: x._id, word: x.word, pictureUrl: x.pictureUrl }));
       response = this._help.shuffleArray(response);
+      this.loading = false;
       this.picWords = response.slice(0, this.initialPWs);
       this.allAnswers = this.picWords.reduce((a: string[], x) => {
         a.push(x.word);
@@ -105,12 +108,15 @@ export class PicwordTestComponent implements OnInit {
 
 
   showResults() {
+    console.log('inShowResults');
+    
     this.displayResults = true;
     this._result.add({ creatorId: this.creatorId, userResults: this.totalResults, score: this.totalScore })
     .subscribe({error: (err) => {
       console.log(err);
       this._store.dispatch(error({ messages: err }));
     }});
+    this._store.dispatch(success({ messages: [{message: `You have finished with ${this.totalScore} correct answers`}] }));
   }
 
   restart() {

@@ -1,13 +1,13 @@
 <ng-template [ngIf]="!displayResults" [ngIfElse]="results">
     <h1 class="section-title">Guess the word!</h1>
     <div class="picword-wrapper">
-        <div *ngIf="picWords.length==0" class="loading">
+        <div *ngIf="loading" class="loading">
             <div class="loading-img">
                 <img src="https://c.tenor.com/I6kN-6X7nhAAAAAj/loading-buffering.gif" alt="loading gif">
             </div>
             <h3>Loading....</h3>
         </div>
-        <section *ngIf="picWords.length > 0" class="current-picword">
+        <section *ngIf="!loading" class="current-picword">
             <div class="picword" *ngIf="currentPW">
                 <div class="picword-img">
                     <img [src]="currentPW.pictureUrl" alt="food-pic">

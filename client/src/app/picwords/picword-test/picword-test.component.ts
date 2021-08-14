@@ -38,25 +38,28 @@ export class PicwordTestComponent implements OnInit {
   ngOnInit(): void {
     this.picWords = [];
     this.creatorId = this._auth.getLoggedUserId();
+    this.getWords();   
+  }
 
+  getWords () {
     this._picword.getAll()
-      .subscribe((response: any) => {
-        // Convert IPWRes to IPW
-        response = response.map((x: IPWRes) => ({ _id: x._id, word: x.word, pictureUrl: x.pictureUrl }));
-        response = this._help.shuffleArray(response);
-        this.picWords = response.slice(0, this.initialPWs);
-        this.allAnswers = this.picWords.reduce((a: string[], x) => {
-          a.push(x.word);
-          return a;
-        }, []) //.map(x => x.toLocaleLowerCase());
-        this.currentPW = this.picWords.shift();
-        this.currentAnswers = this.allAnswers.filter(x => x != this.currentPW?.word);
-        this.currentAnswers = this._help.shuffleArray(this.currentAnswers).slice(0, 2).concat(this.currentPW!.word);
-        this.currentAnswers = this._help.shuffleArray(this.currentAnswers);
-      },
-        err => {
-          // this.notificate = { type: 'error', messages: err };
-        })
+    .subscribe((response: any) => {
+      // Convert IPWRes to IPW
+      response = response.map((x: IPWRes) => ({ _id: x._id, word: x.word, pictureUrl: x.pictureUrl }));
+      response = this._help.shuffleArray(response);
+      this.picWords = response.slice(0, this.initialPWs);
+      this.allAnswers = this.picWords.reduce((a: string[], x) => {
+        a.push(x.word);
+        return a;
+      }, []) //.map(x => x.toLocaleLowerCase());
+      this.currentPW = this.picWords.shift();
+      this.currentAnswers = this.allAnswers.filter(x => x != this.currentPW?.word);
+      this.currentAnswers = this._help.shuffleArray(this.currentAnswers).slice(0, 2).concat(this.currentPW!.word);
+      this.currentAnswers = this._help.shuffleArray(this.currentAnswers);
+    },
+      err => {
+        // this.notificate = { type: 'error', messages: err };
+      })
   }
 
   checkAnswer(e: any) {
@@ -102,5 +105,10 @@ export class PicwordTestComponent implements OnInit {
     this.displayResults = true;
     this._result.add({ creatorId: this.creatorId, userResults: this.totalResults, score: this.totalScore })
     .subscribe({error: (err) => console.log(err)});
+  }
+
+  restart() {
+    this.picWords = []
+    this.getWords();
   }
 }

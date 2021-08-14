@@ -23,8 +23,11 @@
                 <h3>You have {{totalScore}} correct answers</h3>
             </div>
         </div>
-        <button class="btn" [disabled]="showResult? false : true" *ngIf="picWords.length > 0" (click)="nextWord()">Next Word</button>
-        <button class="btn" *ngIf="picWords.length == 0" (click)="showResults()">Show Results</button>
+        <section class="buttons">
+            <button class="btn restart" *ngIf="picWords.length > 0" (click)="restart()">Restart</button>
+            <button class="btn" [disabled]="showResult? false : true" *ngIf="picWords.length > 0" (click)="nextWord()">Next Word</button>
+            <button class="btn" *ngIf="picWords.length == 0" (click)="showResults()">Show Results</button>
+        </section>
     </div>
 </ng-template>
 <ng-template #results>

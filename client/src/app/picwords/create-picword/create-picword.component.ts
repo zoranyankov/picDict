@@ -1,6 +1,8 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
+import { Store } from '@ngrx/store';
+import { error, success } from 'src/app/+state/notifyActions';
 import { INotificate } from 'src/app/shared/interfaces/notificate-interface';
 import { IPWRes } from 'src/app/shared/interfaces/picword-res-interface';
 import { IPWCreate } from 'src/app/shared/interfaces/pwCreate-interface';
@@ -26,6 +28,7 @@ export class CreatePicwordComponent implements OnInit, OnDestroy {
     private _router: Router,
     private _pexels: PexelsService,
     private _activatedRoute: ActivatedRoute,
+    private _store: Store,
     ) { }
     
     ngOnInit(): void {
@@ -46,6 +49,7 @@ export class CreatePicwordComponent implements OnInit, OnDestroy {
           // this.profilePWs = response;
         },
           err => {
+            this._store.dispatch(error({ messages: err }));
             // this.notificate = { type: 'error', messages: err };
           })
       }
@@ -65,12 +69,13 @@ export class CreatePicwordComponent implements OnInit, OnDestroy {
           // this.notificate = { type: 'error', messages: response.errors };
           throw new Error(response.errors);
         }
-        this.notificate = {type: 'message', messages: [{message: 'PW Created'}]};
+        this._store.dispatch(success({ messages: [{message: 'Picword is successfully Deleted'}] }));
+        this.notificate = {type: 'message', messages: [{message: 'PW Deleted'}]};
         this._router.navigateByUrl('/auth/profile/picwords');
       },
       err => {
         console.log(err);
-        
+        this._store.dispatch(error({ messages: err }));
         this.notificate = { type: 'error', messages: err };
       })
     } else if(this.action == "Edit") {
@@ -80,12 +85,13 @@ export class CreatePicwordComponent implements OnInit, OnDestroy {
           // this.notificate = { type: 'error', messages: response.errors };
           throw new Error(response.errors);
         }
-        this.notificate = {type: 'message', messages: [{message: 'PW Created'}]};
+        this._store.dispatch(success({ messages: [{message: 'Picword is successfully Edited'}] }));
+        this.notificate = {type: 'message', messages: [{message: 'PW Edited'}]};
         this._router.navigateByUrl(`/pw/picword-details/${this.pwId}`);
       },
       err => {
         console.log(err);
-        
+        this._store.dispatch(error({ messages: err }));
         this.notificate = { type: 'error', messages: err };
       })
     } else {
@@ -95,12 +101,13 @@ export class CreatePicwordComponent implements OnInit, OnDestroy {
           // this.notificate = { type: 'error', messages: response.errors };
           throw new Error(response.errors);
         }
+        this._store.dispatch(success({ messages: [{message: 'Picword is successfully Created'}] }));
         this.notificate = {type: 'message', messages: [{message: 'PW Created'}]};
         this._router.navigateByUrl('/auth/profile/picwords');
       },
       err => {
         console.log(err);
-        
+        this._store.dispatch(error({ messages: err }));
         this.notificate = { type: 'error', messages: err };
       })
     }

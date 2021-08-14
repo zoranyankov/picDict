@@ -18,8 +18,8 @@ export class RegisterComponent implements OnInit, OnDestroy {
   constructor(
     private _auth: AuthService,
     private _store: Store
-    ) {
-   }
+  ) {
+  }
 
   ngOnInit(): void {
   }
@@ -31,21 +31,20 @@ export class RegisterComponent implements OnInit, OnDestroy {
       .subscribe(newUser => {
         // let newRes: INewUser = newUser
         let message = `User ${newUser.user.username} is registered`;
-        this._store.dispatch(success({ messages: [{message}] }));
-        this.notificate = {type: 'message', messages: [{message}]};
+        this._store.dispatch(success({ messages: [{ message }] }));
+        this.notificate = { type: 'message', messages: [{ message }] };
       },
         // Handle server errors
         err => {
           this._store.dispatch(error({ messages: err }))
           this.notificate = { type: 'error', messages: err };
           this.timer = setTimeout(() => {
-            
             this.notificate = { type: '', messages: [] };
           }, 5000);
         });
-      }
-      
+  }
+
   ngOnDestroy() {
     clearTimeout(this.timer);
   }
-  }
+}

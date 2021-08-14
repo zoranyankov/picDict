@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
+import { Store } from '@ngrx/store';
+import { error } from 'src/app/+state/notifyActions';
 import { IPW } from 'src/app/shared/interfaces/picword-interface';
 import { HelpService } from 'src/app/shared/services/help.service';
 import { PexelsService } from '../pexels.service';
@@ -21,6 +23,7 @@ export class FindPicwordComponent implements OnInit {
     private _pexels: PexelsService,
     private _router: Router,
     private _helpService: HelpService,
+    private _store: Store,
   ) { }
 
   ngOnInit(): void {
@@ -42,6 +45,7 @@ export class FindPicwordComponent implements OnInit {
         this.currentPWs = this.picWords.slice(0, 3);
       },
         err => {
+          this._store.dispatch(error({ messages: err }));
         })
   }
 

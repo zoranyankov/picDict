@@ -17,7 +17,7 @@ export class LoginComponent implements OnInit, OnDestroy {
 
   constructor(
     private _auth: AuthService,
-    private _store: Store
+    private _store: Store,
   ) { }
 
   ngOnInit(): void {
@@ -35,8 +35,7 @@ export class LoginComponent implements OnInit, OnDestroy {
         // Handle server errors
         err => {
           console.log(err);
-
-          this._store.dispatch(error({ messages: err }))
+          this._store.dispatch(error({ messages: err }));
           this.notificate = { type: 'error', messages: err };
           this.timer = setTimeout(() => {
 

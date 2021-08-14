@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Store } from '@ngrx/store';
+import { error } from 'src/app/+state/notifyActions';
 import { IAnswer } from 'src/app/shared/interfaces/answer-interface';
 import { IPW } from 'src/app/shared/interfaces/picword-interface';
 import { IPWRes } from 'src/app/shared/interfaces/picword-res-interface';
@@ -32,7 +34,8 @@ export class PicwordTestComponent implements OnInit {
     private _picword: PicwordsService,
     private _help: HelpService,
     private _auth: AuthService,
-    private _result: ResultService
+    private _result: ResultService,
+    private _store: Store,
   ) { }
 
   ngOnInit(): void {
@@ -58,7 +61,7 @@ export class PicwordTestComponent implements OnInit {
       this.currentAnswers = this._help.shuffleArray(this.currentAnswers);
     },
       err => {
-        // this.notificate = { type: 'error', messages: err };
+        this._store.dispatch(error({ messages: err }));
       })
   }
 
@@ -104,7 +107,10 @@ export class PicwordTestComponent implements OnInit {
   showResults() {
     this.displayResults = true;
     this._result.add({ creatorId: this.creatorId, userResults: this.totalResults, score: this.totalScore })
-    .subscribe({error: (err) => console.log(err)});
+    .subscribe({error: (err) => {
+      console.log(err);
+      this._store.dispatch(error({ messages: err }));
+    }});
   }
 
   restart() {

@@ -8,6 +8,7 @@ import {
 import { Store } from '@ngrx/store';
 import { selectMessages, selectNotify, selectType } from './+state/notifySelectors';
 import { IAppState } from './+state';
+import { error } from './+state/notifyActions';
 
 @Component({
   selector: 'app-root',
@@ -31,13 +32,13 @@ export class AppComponent {
 
     this.notify$.subscribe(notify => {
       let message = notify.messages.reduce((a, m) => a += ` "${m.message}" `, '');
-      if(notify.type == 'error'){
+      if (notify.type == 'error') {
         this._snack.open(message, void 0, {
           duration: 3000,
           panelClass: ['red-snackbar', 'login-snackbar'],
           verticalPosition: this.verticalPosition
         })
-      } else if(notify.type == 'success') {
+      } else if (notify.type == 'success') {
         this._snack.open(message, void 0, {
           duration: 3000,
           panelClass: ['green-snackbar', 'login-snackbar'],
@@ -64,20 +65,23 @@ export class AppComponent {
     let user = storage ? JSON.parse(storage) : null;
 
     // If there is a valid storage format - verifies the validity of the token
-    this._auth.verify(user).subscribe(res => {
-      if (!res || res.result == false) {
-        localStorage.removeItem('sid');
-        this._auth.authenticateUser(null);
-        return;
+    this._auth
+      .verify(user)
+      .subscribe(res => {
+        if (!res || res.result == false) {
+          localStorage.removeItem('sid');
+          this._auth.authenticateUser(null);
+          return;
+        }
       }
-    }
-      ,
-      err => {
-        console.log(err);
-        localStorage.removeItem('sid');
-        this._auth.authenticateUser(null);
-      }
-    )
+        ,
+        err => {
+          console.log(err);
+          this._store.dispatch(error({ messages: err }));
+          localStorage.removeItem('sid');
+          this._auth.authenticateUser(null);
+        }
+      )
 
 
     this._auth.authenticateUser(user)

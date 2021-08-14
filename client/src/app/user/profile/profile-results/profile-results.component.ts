@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Store } from '@ngrx/store';
+import { error } from 'src/app/+state/notifyActions';
 import { ResultService } from 'src/app/picwords/result.service';
 import { IResult } from 'src/app/shared/interfaces/result-interface';
 import { IResults } from 'src/app/shared/interfaces/results-interface';
@@ -19,7 +21,8 @@ export class ProfileResultsComponent implements OnInit {
   totalScore: number = 0;
   constructor(
     private _auth: AuthService,
-    private _result: ResultService
+    private _result: ResultService,
+    private _store: Store,
   ) {
 
   }
@@ -41,7 +44,10 @@ export class ProfileResultsComponent implements OnInit {
           this.totalScore = current.score;
           this.currentResults = current.userResults;
         },
-        error: (err: any) => console.log(err)
+        error: (err: any) => {
+          console.log(err);
+          this._store.dispatch(error({ messages: err }));
+        }
       });
   }
 

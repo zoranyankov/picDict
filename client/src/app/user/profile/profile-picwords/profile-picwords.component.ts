@@ -1,14 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { PicwordsService } from 'src/app/picwords/picwords.service';
 import { IPWRes } from 'src/app/shared/interfaces/picword-res-interface';
-import { AuthService } from '../auth.service';
+import { AuthService } from '../../auth.service';
 
 @Component({
-  selector: 'app-profile',
-  templateUrl: './profile.component.html',
-  styleUrls: ['./profile.component.css']
+  selector: 'app-profile-picwords',
+  templateUrl: './profile-picwords.component.html',
+  styleUrls: ['./profile-picwords.component.css']
 })
-export class ProfileComponent implements OnInit {
+export class ProfilePicwordsComponent implements OnInit {
   userName: string = 'User';
   userId: string = '';
   loading: boolean = false;
@@ -25,6 +25,7 @@ export class ProfileComponent implements OnInit {
   ngOnInit(): void {
     this.userName = this._auth.getLoggedUserName();
     this.userId = this._auth.getLoggedUserId();
+    this.laodPws();
   }
   
   moreSubmit() {
@@ -52,7 +53,5 @@ export class ProfileComponent implements OnInit {
         err => {
           // this.notificate = { type: 'error', messages: err };
         })
-  }
-  
-  
+  } 
 }

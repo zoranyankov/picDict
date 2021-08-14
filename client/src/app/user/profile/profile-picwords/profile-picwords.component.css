@@ -1,0 +1,32 @@
+.profile-content {
+    padding: 1rem 0rem;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    min-height: 45rem;
+}
+
+.profile-content .profile-title {
+    font-size: 3rem;
+    text-transform: capitalize;
+}
+
+
+/* Loading styles */
+
+.loading {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 100px;
+}
+
+.loading-img {
+    width: 75px;
+    height: 75px;
+    background: transparent;
+}
+
+.loading-img img {
+    width: 100%;
+}

@@ -21,26 +21,28 @@
         </div>
     </ng-template>
     <ng-template #userCreated class="profile-pws-wrapper">
-        <a href="/auth/profile" class="btn back-btn">Back to Profile Page</a>
+        <div class="profile-pws" *ngIf="currentPage == 'load'">
+            <!-- <a href="/auth/profile" class="btn back-btn">Back to Profile Page</a> -->
 
-        <!--Variant 1-->
-        <!-- <a (click)="moreSubmit()" class="btn next-btn">Show more</a> -->
+            <!--Variant 1-->
+            <!-- <a (click)="moreSubmit()" class="btn next-btn">Show more</a> -->
 
-        <h1 class="profile-title picwords">{{userName}}'s PicWords</h1>
-        <div *ngIf="loading && currentPWs.length==0 && currentResults.length == 0" class="loading">
-            <div class="loading-img">
-                <img src="https://c.tenor.com/I6kN-6X7nhAAAAAj/loading-buffering.gif" alt="loading gif">
+            <h1 class="profile-title picwords">{{userName}}'s PicWords</h1>
+            <div *ngIf="loading && currentPWs.length==0 && currentResults.length == 0" class="loading">
+                <div class="loading-img">
+                    <img src="https://c.tenor.com/I6kN-6X7nhAAAAAj/loading-buffering.gif" alt="loading gif">
+                </div>
+                <h3>Loading....</h3>
             </div>
-            <h3>Loading....</h3>
-        </div>
-        <app-picword *ngIf="currentPWs.length > 0" [picWords]="currentPWs" [flag]="'profile'"></app-picword>
+            <app-picword *ngIf="currentPWs.length > 0" [picWords]="currentPWs" [flag]="'profile'"></app-picword>
 
-        <!--Variant 2-->
-        <a *ngIf="profilePWs.length != 0" (click)="moreSubmit()" class="btn next-btn">Show more</a>
+            <!--Variant 2-->
+            <a *ngIf="profilePWs.length != 0" (click)="moreSubmit()" class="btn next-btn">Show more</a>
+        </div>
     </ng-template>
 
-    <ng-template [ngIf]="currentResults.length > 0">
-        <h1 class="title">Your results</h1>
+    <ng-template [ngIf]="currentResults.length > 0 && currentPage == 'results' ">
+        <h1 class="profile-title results">{{userName}}'s Results</h1>
         <table>
             <thead>
                 <tr>
@@ -70,13 +72,6 @@
                 </tr>
             </tfoot>
         </table>
-        <button (click)="loadNextResults()" class="btn">Load Next</button>
+        <button *ngIf="this.allResults.length > 0" (click)="loadNextResults()" class="btn">Load Next</button>
     </ng-template>
-
-    <!-- <div class="profile-results">
-            <Switch>
-                <Route path={`${match.url}/results`} component={ProfileResults} />
-                <Route path={`${match.url}/profile-questions`} component={ProfileQuestions} />
-            </Switch>
-        </div> -->
 </div>

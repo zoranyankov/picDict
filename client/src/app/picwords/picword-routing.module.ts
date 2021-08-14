@@ -24,17 +24,17 @@ const routes: Routes = [
       paramsActivateRedirectUrl: 'auth/login'
     },
   },
-  {
-    path: 'pw/user-pwList/:userId',
-    component: PicwordListComponent,
-    canActivate: [
-      IsLogged
-    ],
-    data: {
-      paramsActivateRedirectUrl: 'auth/login',
-      flag: 'profile'
-    },
-  },
+  // {
+  //   path: 'pw/user-pwList/:userId',
+  //   component: PicwordListComponent,
+  //   canActivate: [
+  //     IsLogged
+  //   ],
+  //   data: {
+  //     paramsActivateRedirectUrl: 'auth/login',
+  //     flag: 'profile'
+  //   },
+  // },
   {
     path: 'pw/create-picword',
     component: CreatePicwordComponent,

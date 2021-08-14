@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, DoCheck, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { PicwordsService } from 'src/app/picwords/picwords.service';
 import { ResultService } from 'src/app/picwords/result.service';
@@ -11,7 +11,7 @@ import { AuthService } from '../auth.service';
   templateUrl: './profile.component.html',
   styleUrls: ['./profile.component.css']
 })
-export class ProfileComponent implements OnInit {
+export class ProfileComponent implements OnInit, DoCheck {
   userName: string = 'User';
   userId: string = '';
   profilePWs: IPWRes[] = [];
@@ -22,22 +22,47 @@ export class ProfileComponent implements OnInit {
   loading: boolean = false;
   totalScore: number = 0;
 
+  currentPage: string = '';
+
+
   constructor(
     private _auth: AuthService,
     private _picword: PicwordsService,
-    private _activatedRoute: ActivatedRoute,
+    private _route: ActivatedRoute,
     private _result: ResultService
-  ) { }
+  ) {
+    this._route.params.subscribe(param => {
+      this.currentPage = param.load;
+      return param;
+    })
+  }
 
   ngOnInit(): void {
+    console.log(this.currentPage);
+
     this.userName = this._auth.getLoggedUserName();
     this.userId = this._auth.getLoggedUserId();
-    let param = this._activatedRoute.snapshot.params.load;
+    let param = this._route.snapshot.params.load;
     if (param == 'load') {
       this.loading = true;
       return this.laodPws();
     }
     if (param == 'results') {
+      this.loading = true;
+      return this.loadResults();
+    }
+  }
+  ngDoCheck() {
+    let param = this.currentPage;
+    console.log(param);
+
+    if (param == 'load' && this.currentResults.length != 0) {
+      this.currentResults = [];
+      this.loading = true;
+      return this.laodPws();
+    }
+    if (param == 'results' && this.currentPWs.length != 0) {
+      this.currentPWs = [];
       this.loading = true;
       return this.loadResults();
     }
@@ -69,12 +94,13 @@ export class ProfileComponent implements OnInit {
           // this.notificate = { type: 'error', messages: err };
         })
   }
+  
   loadResults() {
     this.loading = true;
     this._result.getByUserId(this.userId)
       .subscribe({
         next: (response: any) => {
-          this.allResults = response;
+          this.allResults = [...response];
           let current = this.allResults.shift();
           this.totalScore = current.score;
           this.currentResults = current.userResults;
@@ -82,6 +108,7 @@ export class ProfileComponent implements OnInit {
         error: (err: any) => console.log(err)
       });
   }
+
   loadNextResults() {
     this.loading = true;
     let current = this.allResults.shift();

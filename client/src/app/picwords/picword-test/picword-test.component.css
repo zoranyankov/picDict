@@ -7,7 +7,12 @@
     width: 70rem;
     min-height: 33rem;
     height: fit-content;
-    margin: 70px auto;
+    margin: 50px auto;
+}
+
+.picword-wrapper .title {
+    color: #07883b;
+    font-size: 40px;
 }
 
 
@@ -53,7 +58,7 @@
 .picword-name {
     display: inline-block;
     font-size: 2rem;
-    margin: 0;
+    margin: 20px 10px 0;
     /* color: #075d07; */
     color: green;
     text-shadow: 1px 1px 3px #1315b8;
@@ -64,18 +69,8 @@
     text-transform: capitalize;
     border: none;
     cursor: pointer;
+    background: transparent;
 }
-
-
-/* .btn {
-    border: none;
-    margin: 10px;
-    padding: 10px;
-    background: none;
-    cursor: pointer;
-    box-shadow: none;
-    border: none;
-} */
 
 .picword-home {
     width: 65rem;
@@ -95,18 +90,6 @@ div.loading div.picword-img img {
     border: none;
     width: 100%;
 }
-
-
-/* .picword-wrapper div.loading button.btn {
-    background: transparent;
-    color: #040404;
-    border: none;
-    box-shadow: none;
-    letter-spacing: 7px;
-    padding-left: 50px;
-    text-shadow: none;
-    font-style: italic;
-} */
 
 .wrong {
     border: 5px solid red;
@@ -196,3 +179,20 @@ tfoot {
     flex-direction: row-reverse;
     line-height: 1.3125rem;
 }
+
+.counter {
+    width: 60rem;
+    display: flex;
+    justify-content: space-between;
+}
+
+.counter .status {
+    color: #615f5b;
+    text-shadow: 1px 1px 3px #67ecd4;
+    font-size: 25px;
+}
+
+
+/* .counter .status h3 {
+    margin-bottom: 0;
+} */

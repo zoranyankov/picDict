@@ -17,15 +17,16 @@ export class PicwordTestComponent implements OnInit {
   currentPW: IPW | undefined = undefined; //{_id: '', word: '', pictureUrl: ''};
   allAnswers: string[] = [];
   currentAnswers: string[] = [];
-  toggle: number = 6;
-  counter: number = 0;
+  totalResults: IAnswer[] = [];
   showResult: boolean = false;
   displayResults: boolean = false;
-  totalResults: IAnswer[] = [];
-  currentTestPWs: IPW[] = [];
   totalScore: number = 0;
   creatorId: string = '';
   disableAnswers: boolean = false;
+
+  // Set test length
+  initialPWs = 10;
+
 
   constructor(
     private _picword: PicwordsService,
@@ -42,14 +43,12 @@ export class PicwordTestComponent implements OnInit {
       .subscribe((response: any) => {
         // Convert IPWRes to IPW
         response = response.map((x: IPWRes) => ({ _id: x._id, word: x.word, pictureUrl: x.pictureUrl }));
-        console.log(response);
         response = this._help.shuffleArray(response);
-        this.picWords = response.slice(0, 10);
+        this.picWords = response.slice(0, this.initialPWs);
         this.allAnswers = this.picWords.reduce((a: string[], x) => {
           a.push(x.word);
           return a;
         }, []) //.map(x => x.toLocaleLowerCase());
-        this.currentTestPWs = [...this.picWords];
         this.currentPW = this.picWords.shift();
         this.currentAnswers = this.allAnswers.filter(x => x != this.currentPW?.word);
         this.currentAnswers = this._help.shuffleArray(this.currentAnswers).slice(0, 2).concat(this.currentPW!.word);
@@ -62,6 +61,10 @@ export class PicwordTestComponent implements OnInit {
 
   checkAnswer(e: any) {
     this.disableAnswers = false;
+    let currentChoise = this.currentPW!.word == e.innerHTML
+    if(currentChoise) {
+      this.totalScore ++;
+    }
 
     // Compose the current result
     let currentResult: IAnswer = {
@@ -69,7 +72,7 @@ export class PicwordTestComponent implements OnInit {
       pictureUrl: this.currentPW!.pictureUrl,
       correctAnswer: this.currentPW!.word,
       selectedAnswer: e.innerHTML!,
-      result: this.currentPW!.word == e.innerHTML,
+      result: currentChoise,
     };
     this.totalResults.push(currentResult);
     // Display current result
@@ -96,12 +99,6 @@ export class PicwordTestComponent implements OnInit {
 
 
   showResults() {
-    this.totalScore = this.totalResults.reduce((a, x) => {
-      if (x.result) {
-        a++
-      }
-      return a;
-    }, 0)
     this.displayResults = true;
     this._result.add({ creatorId: this.creatorId, userResults: this.totalResults, score: this.totalScore })
     .subscribe({error: (err) => console.log(err)});

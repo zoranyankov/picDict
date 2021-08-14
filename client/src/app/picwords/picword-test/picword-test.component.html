@@ -15,6 +15,14 @@
                 <h1>Loading...</h1>
             </div>
         </div>
+        <div class="counter">
+            <div class="status">
+                <h3>Current word: {{initialPWs - picWords.length + ' / ' + initialPWs}}</h3>
+            </div>
+            <div class="status">
+                <h3>You have {{totalScore}} correct answers</h3>
+            </div>
+        </div>
         <button class="btn" [disabled]="showResult? false : true" *ngIf="picWords.length > 0" (click)="nextWord()">Next Word</button>
         <button class="btn" *ngIf="picWords.length == 0" (click)="showResults()">Show Results</button>
     </div>

@@ -4,6 +4,6 @@ export interface IResultRes {
     createdAt: string,
     creatorId: string,
     score: string,
-    userResults: IResults,
+    userResults: IResults[],
     _id: string
 }

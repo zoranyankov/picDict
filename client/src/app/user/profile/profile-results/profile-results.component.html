@@ -1,39 +1,17 @@
 <div class="profile-content">
     <h1 class="section-title">{{userName}}'s Results</h1>
-    <div *ngIf="loading && currentResults.length==0" class="loading">
+    <div *ngIf="loading && allResults.length==0" class="loading">
         <div class="loading-img">
             <img src="https://c.tenor.com/I6kN-6X7nhAAAAAj/loading-buffering.gif" alt="loading gif">
         </div>
         <h3>Loading....</h3>
     </div>
-    <table *ngIf="currentResults.length > 0">
-        <thead>
-            <tr>
-                <th>Image</th>
-                <th>Correct Word</th>
-                <th>Your Answer</th>
-                <th>Result</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr *ngFor="let res of currentResults">
-                <td><img style="width: 100px;" [src]="res.pictureUrl" alt="resultImg"></td>
-                <td>{{res.correctAnswer}}</td>
-                <td>{{res.selectedAnswer}}</td>
-                <ng-template [ngIf]="res.result" [ngIfElse]="falsy">
-                    <td><i class="fas fa-check-circle"></i></td>
-                </ng-template>
-                <ng-template #falsy>
-                    <td><i class="fas fa-times-circle"></i></td>
-                </ng-template>
-            </tr>
-        </tbody>
-        <tfoot>
-            <tr>
-                <td colspan="3">Your result is: </td>
-                <td>{{totalScore}}</td>
-            </tr>
-        </tfoot>
-    </table>
-    <button *ngIf="this.allResults.length > 0" (click)="loadNextResults()" class="btn">Load Next</button>
+    <ul *ngIf="allResults">
+        <li *ngFor="let result of allResults">
+            <div class="result" (click)="toggleTable($event)">
+                <p>Results from {{result.createdAt | date: 'd/MMM/y - h:mm:ss a'}}</p>
+                <app-table [style.display]="'none'" [current]="result" [totalScore]="result.score"></app-table>
+            </div>
+        </li>
+    </ul>
 </div>

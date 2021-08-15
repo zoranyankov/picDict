@@ -2,8 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { error } from 'src/app/+state/notifyActions';
 import { ResultService } from 'src/app/picwords/result.service';
-import { IResult } from 'src/app/shared/interfaces/result-interface';
-import { IResults } from 'src/app/shared/interfaces/results-interface';
+import { IResultRes } from 'src/app/shared/interfaces/result-response-interface';
 import { AuthService } from '../../auth.service';
 
 @Component({
@@ -16,9 +15,12 @@ export class ProfileResultsComponent implements OnInit {
   userId: string = '';
   loading: boolean = false;
 
-  allResults: any[] = [];
-  currentResults: IResults[] = [];
-  totalScore: number = 0;
+  allResults: IResultRes[] = [];
+  // currentResults: IResults[] = [];
+
+  currentResult:IResultRes | undefined;
+
+  totalScore: string = '0';
   constructor(
     private _auth: AuthService,
     private _result: ResultService,
@@ -40,9 +42,6 @@ export class ProfileResultsComponent implements OnInit {
         next: (response: any) => {
           console.log(response);
           this.allResults = [...response];
-          let current = this.allResults.shift();
-          this.totalScore = current.score;
-          this.currentResults = current.userResults;
         },
         error: (err: any) => {
           console.log(err);
@@ -51,11 +50,13 @@ export class ProfileResultsComponent implements OnInit {
       });
   }
 
-
-  loadNextResults() {
-    this.loading = true;
-    let current = this.allResults.shift();
-    this.totalScore = current.score;
-    this.currentResults = current.userResults;
+  toggleTable(ev: Event) {
+    let tableEl = (ev.currentTarget as HTMLElement).children[1];
+    let style = tableEl.getAttribute('style');
+    if(style == 'display: none;'){
+      tableEl.setAttribute('style', 'display:inline-block');
+    } else {      
+      tableEl.setAttribute('style', 'display: none;');
+    }
   }
 }

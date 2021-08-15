@@ -1,0 +1,29 @@
+<table>
+    <thead>
+        <tr>
+            <th>Image</th>
+            <th>Correct Word</th>
+            <th>Your Answer</th>
+            <th>Result</th>
+        </tr>
+    </thead>
+    <tbody *ngIf="toShow">
+        <tr *ngFor="let res of toShow" [class.correct]="res.result" [class.wrong]="!res.result">
+            <td><img style="width: 100px;" [src]="res.pictureUrl" alt="resultImg"></td>
+            <td>{{res.correctAnswer}}</td>
+            <td>{{res.selectedAnswer}}</td>
+            <ng-template [ngIf]="res.result" [ngIfElse]="falsy">
+                <td><i class="fas fa-check-circle"></i></td>
+            </ng-template>
+            <ng-template #falsy>
+                <td><i class="fas fa-times-circle"></i></td>
+            </ng-template>
+        </tr>
+    </tbody>
+    <tfoot>
+        <tr>
+            <td colspan="3">Your result is: </td>
+            <td>{{totalScore}}</td>
+        </tr>
+    </tfoot>
+</table>

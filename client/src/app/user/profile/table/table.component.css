@@ -1,0 +1,97 @@
+/* Results table styles */
+
+:host {
+    padding: 30px;
+}
+
+table {
+    position: center;
+    min-width: 650px;
+    width: 100%;
+    display: table;
+    border-spacing: 0;
+    border-collapse: collapse;
+    /* display: table; */
+    /* border-collapse: separate; */
+    /* box-sizing: border-box; */
+    text-indent: initial;
+    /* border-spacing: 2px; */
+    border-color: gray;
+    margin: 70px auto;
+}
+
+th {
+    color: #fff;
+    background-color: #508cda;
+    color: rgba(0, 0, 0, 0.87);
+    font-weight: 500;
+    line-height: 1.5rem;
+    display: table-cell;
+    padding: 16px;
+    font-size: 0.875rem;
+    /* text-align: left; */
+    font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+    /* font-weight: 400;
+    line-height: 1.43; */
+    border-bottom: 1px solid rgba(224, 224, 224, 1);
+    letter-spacing: 0.01071em;
+    vertical-align: inherit;
+}
+
+
+/* 
+tbody tr:nth-child(odd) {
+    background-color: rgba(248, 246, 108, 0.692);
+}
+
+tbody tr:nth-child(even) {
+    background-color: rgba(152, 248, 108, 0.692);
+} */
+
+tr.wrong {
+    background-color: rgba(248, 108, 108, 0.692);
+}
+
+tr.correct {
+    background-color: rgba(152, 248, 108, 0.692);
+}
+
+tbody tr {
+    color: inherit;
+    display: table-row;
+    outline: 0;
+    vertical-align: middle;
+}
+
+tbody tr td {
+    font-size: 14px;
+    text-align: center;
+    flex-direction: row-reverse;
+    display: table-cell;
+    padding: 16px;
+    /* font-size: 0.875rem; */
+    /* text-align: left; */
+    font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+    font-weight: 400;
+    line-height: 1.43;
+    border-bottom: 1px solid rgba(224, 224, 224, 1);
+    letter-spacing: 0.01071em;
+    vertical-align: inherit;
+}
+
+thead tr {
+    border-radius: 4px;
+}
+
+tr:last-child {
+    border-radius: 4px;
+}
+
+tfoot {
+    color: #fff;
+    font-size: 17px;
+    background-color: #ff4081;
+    text-align: center;
+    flex-direction: row-reverse;
+    line-height: 1.3125rem;
+}

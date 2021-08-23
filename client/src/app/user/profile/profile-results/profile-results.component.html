@@ -1,14 +1,16 @@
 <div class="profile-content">
-    <h1 *ngIf="!noData" class="section-title">{{userName}}'s Results</h1>
-    <div *ngIf="loading && allResults.length==0 && !noData" class="loading">
-        <div class="loading-img">
-            <img src="https://c.tenor.com/I6kN-6X7nhAAAAAj/loading-buffering.gif" alt="loading gif">
+    <ng-template [ngIf]="!noData" [ngIfElse]="noDataMessage">
+        <h1 class="section-title">{{userName}}'s Results</h1>
+        <div *ngIf="loading && allResults.length==0" class="loading">
+            <div class="loading-img">
+                <img src="https://c.tenor.com/I6kN-6X7nhAAAAAj/loading-buffering.gif" alt="loading gif">
+            </div>
+            <h3>Loading....</h3>
         </div>
-        <h3>Loading....</h3>
-    </div>
-    <div *ngIf="noData">
+    </ng-template>
+    <ng-template #noDataMessage>
         <h1 class="no-data">{{userName | titlecase}} has not finished any Test</h1>
-    </div>
+    </ng-template>
     <ul *ngIf="allResults">
         <li *ngFor="let result of allResults">
             <div class="result" (click)="toggleTable($event)">

@@ -14,6 +14,7 @@ export class ProfilePicwordsComponent implements OnInit {
   userName: string = 'User';
   userId: string = '';
   loading: boolean = false;
+  noData: boolean = false;
 
   
   profilePWs: IPWRes[] = [];
@@ -48,13 +49,15 @@ export class ProfilePicwordsComponent implements OnInit {
     this._picword.getByUserId(this.userId)
       .subscribe((response: any) => {
         if (!response) {
-          throw new Error('No Data Found!')
+          this.noData = true;
+          return;
+          // throw new Error('No Data Found!')
         }
         this.profilePWs = response;
         this.currentPWs = this.profilePWs.splice(0, 6);
       },
         err => {
-          this._store.dispatch(error({ messages: err }));
+          // this._store.dispatch(error({ messages: err }));
         })
   } 
 }

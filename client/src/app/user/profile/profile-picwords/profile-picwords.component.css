@@ -5,3 +5,8 @@
     flex-direction: column;
     min-height: 45rem;
 }
+
+.no-data {
+    padding: 150px;
+    color: #ff002f;
+}

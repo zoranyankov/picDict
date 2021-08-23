@@ -24,3 +24,8 @@ div.result {
     box-shadow: 2px 3px 10px 0px #bda105;
     border-radius: 5px;
 }
+
+.no-data {
+    padding: 150px;
+    color: #ff002f;
+}

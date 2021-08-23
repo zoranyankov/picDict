@@ -4,12 +4,15 @@
     <!--Variant 1-->
     <!-- <a (click)="moreSubmit()" class="btn next-btn">Show more</a> -->
 
-    <h1 class="section-title">{{userName}}'s PicWords</h1>
-    <div *ngIf="loading && currentPWs.length==0" class="loading">
+    <h1 *ngIf="!noData" class="section-title">{{userName}}'s PicWords</h1>
+    <div *ngIf="loading && currentPWs.length==0 && !noData" class="loading">
         <div class="loading-img">
             <img src="https://c.tenor.com/I6kN-6X7nhAAAAAj/loading-buffering.gif" alt="loading gif">
         </div>
         <h3>Loading....</h3>
+    </div>
+    <div *ngIf="noData">
+        <h1 class="no-data">{{userName | titlecase}} has not created any PicWords</h1>
     </div>
     <app-picword *ngIf="currentPWs.length > 0" [picWords]="currentPWs" [flag]="'profile'"></app-picword>
 

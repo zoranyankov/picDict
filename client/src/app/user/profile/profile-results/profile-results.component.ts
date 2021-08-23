@@ -14,13 +14,14 @@ export class ProfileResultsComponent implements OnInit {
   userName: string = 'User';
   userId: string = '';
   loading: boolean = false;
+  noData: boolean = false;
 
   allResults: IResultRes[] = [];
   // currentResults: IResults[] = [];
 
-  currentResult:IResultRes | undefined;
+  currentResult: IResultRes | undefined;
 
-  totalScore: string = '0';
+  // totalScore: string = '0';
   constructor(
     private _auth: AuthService,
     private _result: ResultService,
@@ -40,6 +41,10 @@ export class ProfileResultsComponent implements OnInit {
     this._result.getByUserId(this.userId)
       .subscribe({
         next: (response: any) => {
+          if (!response) {
+            this.noData = true;
+            return;
+          }
           console.log(response);
           this.allResults = [...response];
         },
@@ -53,9 +58,9 @@ export class ProfileResultsComponent implements OnInit {
   toggleTable(ev: Event) {
     let tableEl = (ev.currentTarget as HTMLElement).children[1];
     let style = tableEl.getAttribute('style');
-    if(style == 'display: none;'){
+    if (style == 'display: none;') {
       tableEl.setAttribute('style', 'display:inline-block');
-    } else {      
+    } else {
       tableEl.setAttribute('style', 'display: none;');
     }
   }

@@ -4,19 +4,29 @@
     <!--Variant 1-->
     <!-- <a (click)="moreSubmit()" class="btn next-btn">Show more</a> -->
     <ng-template [ngIf]="!noData" [ngIfElse]="noDataMessage">
-        <h1 class="section-title">{{userName}}'s PicWords</h1>
+        <section class="header">
+            <label class="search-box">Filter:
+                <input type="text" [(ngModel)]="search">
+            </label>
+            <h1 class="section-title">{{userName}}'s PicWords</h1>
+        </section>
         <div *ngIf="loading && currentPWs.length==0" class="loading">
             <div class="loading-img">
                 <img src="https://c.tenor.com/I6kN-6X7nhAAAAAj/loading-buffering.gif" alt="loading gif">
             </div>
             <h3>Loading....</h3>
         </div>
+        <div *ngIf="currentPWs.length > 0">
+            <app-picword *ngIf="!noMatch" [picWords]="currentPWs" [flag]="'profile'"></app-picword>
+            <a *ngIf="filteredPWs.length != 0" (click)="moreSubmit()" class="btn next-btn">Show more</a>
+        </div>
+        <div *ngIf="noMatch">
+            <h1 class="no-data">No PicWords match this search</h1>
+        </div>
     </ng-template>
     <ng-template #noDataMessage>
         <h1 class="no-data">{{userName | titlecase}} has not created any PicWords</h1>
     </ng-template>
-    <app-picword *ngIf="currentPWs.length > 0" [picWords]="currentPWs" [flag]="'profile'"></app-picword>
 
     <!--Variant 2-->
-    <a *ngIf="profilePWs.length != 0" (click)="moreSubmit()" class="btn next-btn">Show more</a>
 </div>

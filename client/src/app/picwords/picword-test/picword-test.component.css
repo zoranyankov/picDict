@@ -195,3 +195,11 @@ tfoot {
 button.restart {
     background: #730303;
 }
+
+.fa-check-circle {
+    color: green;
+}
+
+.fa-times-circle {
+    color: red;
+}

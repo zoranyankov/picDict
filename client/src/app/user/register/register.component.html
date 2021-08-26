@@ -41,7 +41,7 @@
         <app-notificate [notificate]="notificate"></app-notificate>
 
         <!--For demonstrating BE error handling-->
-        <button [disabled]="rePassword.errors?.passMissmatch" class="btn">Register</button>
+        <button [class.inactive]="rePassword.errors?.passMissmatch" [disabled]="rePassword.errors?.passMissmatch" class="btn">Register</button>
 
         <!--ALL SECURED - real life scenario-->
         <!-- <button [disabled]="form.invalid || rePassword.errors?.passMissmatch" class="btn">Register</button> -->

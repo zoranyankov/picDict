@@ -32,8 +32,8 @@
             </div>
             <article class="buttons">
                 <button class="btn restart" *ngIf="picWords.length > 0" (click)="restart()">Restart</button>
-                <button class="btn" [disabled]="showResult? false : true" *ngIf="picWords.length > 0" (click)="nextWord()">Next Word</button>
-                <button class="btn" [disabled]="showResult? false : true" *ngIf="picWords.length == 0" (click)="showResults()">Show Results</button>
+                <button class="btn" [class.inactive]="showResult? false : true" [disabled]="showResult? false : true" *ngIf="picWords.length > 0" (click)="nextWord()">Next Word</button>
+                <button class="btn" [class.inactive]="showResult? false : true" [disabled]="showResult? false : true" *ngIf="picWords.length == 0" (click)="showResults()">Show Results</button>
             </article>
         </section>
     </div>

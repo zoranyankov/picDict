@@ -23,6 +23,7 @@ div.result {
     background-color: rgb(194, 194, 194);
     box-shadow: 2px 3px 10px 0px #bda105;
     border-radius: 5px;
+    cursor: pointer;
 }
 
 .no-data {

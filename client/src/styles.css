@@ -47,6 +47,12 @@ a.btn:hover {
     color: #ffde8e;
 }
 
+button.btn.inactive {
+    background-color: #945d5d;
+    color: #d4d3d4;
+    cursor: auto;
+}
+
 div.notify {
     min-height: 35px;
 }

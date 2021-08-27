@@ -34,13 +34,13 @@ export class AppComponent {
       let message = notify.messages.reduce((a, m) => a += ` "${m.message}" `, '');
       if (notify.type == 'error') {
         this._snack.open(message, void 0, {
-          duration: 3000,
+          duration: 2000,
           panelClass: ['red-snackbar', 'login-snackbar'],
           verticalPosition: this.verticalPosition
         })
       } else if (notify.type == 'success') {
         this._snack.open(message, void 0, {
-          duration: 3000,
+          duration: 2000,
           panelClass: ['green-snackbar', 'login-snackbar'],
           verticalPosition: this.verticalPosition
         })

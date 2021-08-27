@@ -72,7 +72,7 @@ User page
 Logged in users can navigate through header-navigation menu. All PicWords page is populated only when there is created PicWords in the database - if not? - be the first to create some. Find PexelWord helps you in an easy and straight-forward way to find new pictures to be used.
 
 
-![alt text](https://res.cloudinary.com/dwacfzgzg/image/upload/v1630096979/GitHub%20ScreenShots/all_pws_new_2_nkivvo.png)
+![alt text](https://res.cloudinary.com/dwacfzgzg/image/upload/v1630097793/GitHub%20ScreenShots/all_pws_new_2_cixhqk.png)
 
 Logged in users have also access to a Profile page which has an options to shows a list with created from current user PicWords and Results from the Tests in table view. 
 
@@ -81,7 +81,7 @@ Logged in users have also access to a Profile page which has an options to shows
 Every PicWord in the Profile PicWords list has creaton date/time and after choose (by click) - user has the options to Edit or Delete the current PicWord.
 There is also option to search in the list.
 
-![alt text](https://res.cloudinary.com/dwacfzgzg/image/upload/v1630097514/GitHub%20ScreenShots/edit_delete_vrqppq.png)
+![alt text](hhttps://res.cloudinary.com/dwacfzgzg/image/upload/w_1000,ar_16:9,c_fill,g_auto,e_sharpen/v1630097793/GitHub%20ScreenShots/edit_delete_w2qkf4.png)
 
 In the Test Result page the results are listed sorted by date of Test completion. After click a pretty color table is opened with the result  details.
 

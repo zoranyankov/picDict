@@ -81,7 +81,7 @@ Logged in users have also access to a Profile page which has an options to shows
 Every PicWord in the Profile PicWords list has creaton date/time and after choose (by click) - user has the options to Edit or Delete the current PicWord.
 There is also option to search in the list.
 
-![alt text](hhttps://res.cloudinary.com/dwacfzgzg/image/upload/w_1000,ar_16:9,c_fill,g_auto,e_sharpen/v1630097793/GitHub%20ScreenShots/edit_delete_w2qkf4.png)
+![alt text](https://res.cloudinary.com/dwacfzgzg/image/upload/w_1000,ar_16:9,c_fill,g_auto,e_sharpen/v1630097793/GitHub%20ScreenShots/edit_delete_w2qkf4.png)
 
 In the Test Result page the results are listed sorted by date of Test completion. After click a pretty color table is opened with the result  details.
 

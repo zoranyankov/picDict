@@ -42,14 +42,17 @@ PicDictApp
 |    └── About
 └─── User
      ├── Welcome page
-     ├── PicWords
+     ├── Test (Option to test yourself)
+     ├── PicWords Menu
      |   ├── All PicWords
-     |   ├── Find PicWord (searched in PexelWord)
+     |   ├── Find PexelWord (searched in PexelWord)
      |   └── Create PicWord
-     ├── Profile  // still not implemented! (TODO...)
-     |   └── Created PicWords
-     |       ├── Edit PicWord
-     |       └── Delete PicWord
+     ├── Profile Page // still not implemented! (TODO...)
+     |   ├──Profile Page
+     |   ├── Profile PicWords (Created from current user PicWords)
+     |   |   ├── Edit PicWord
+     |   |   └── Delete PicWord
+     |   └── Profile Results (List of Tables with Test Results)
      └── Logout
 ```
 
@@ -69,13 +72,20 @@ User page
 Logged in users can navigate through header-navigation menu. All PicWords page is populated only when there is created PicWords in the database - if not? - be the first to create some. Find PexelWord helps you in an easy and straight-forward way to find new pictures to be used.
 
 
-![alt text](https://res.cloudinary.com/dwacfzgzg/image/upload/v1628184224/GitHub%20ScreenShots/all_picWords_t2vvs2.png)
+![alt text](https://res.cloudinary.com/dwacfzgzg/image/upload/v1630096979/GitHub%20ScreenShots/all_pws_new_2_nkivvo.png)
 
-Logged in users have also access to a Profile page which has an options to shows a list with created from current user PicWords. Every PicWord in the list has creaton date/time. Every PicWord has also Edit and Delete buttons for managing the current PicWord.
+Logged in users have also access to a Profile page which has an options to shows a list with created from current user PicWords and Results from the Tests in table view. 
 
+![alt text](https://res.cloudinary.com/dwacfzgzg/image/upload/v1630097322/GitHub%20ScreenShots/profile_picwords_ecjlhb.png)
 
-![alt text](https://res.cloudinary.com/dwacfzgzg/image/upload/v1628184223/GitHub%20ScreenShots/profile_fsukhw.png)
+Every PicWord in the Profile PicWords list has creaton date/time and after choose (by click) - user has the options to Edit or Delete the current PicWord.
+There is also option to search in the list.
 
+![alt text](https://res.cloudinary.com/dwacfzgzg/image/upload/v1630097514/GitHub%20ScreenShots/edit_delete_vrqppq.png)
+
+In the Test Result page the results are listed sorted by date of Test completion. After click a pretty color table is opened with the result  details.
+
+![alt text](https://res.cloudinary.com/dwacfzgzg/image/upload/v1630097321/GitHub%20ScreenShots/profile_results_tzsa9k.png)
 
 Notes
 ---------

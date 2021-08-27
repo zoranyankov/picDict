@@ -82,15 +82,6 @@ export class AppComponent {
           this._auth.authenticateUser(null);
         }
       )
-
-
     this._auth.authenticateUser(user)
-  }
-  showSB() {
-    this._snack.open('Message archived', void 0, {
-      duration: 3000,
-      panelClass: ['red-snackbar', 'login-snackbar'],
-      verticalPosition: this.verticalPosition
-    });
   }
 }

@@ -14,25 +14,13 @@ import { HelpService } from '../shared/services/help.service';
 @Injectable()
 export class AuthService {
 
-  private currentUser = new BehaviorSubject<INewUser | null>(null);
-  currentUser$ = this.currentUser.asObservable();
-
-  isLoggedIn$: Observable<boolean>;
-  isNotLoggedIn$: Observable<boolean>;
-
-
   constructor(
     private _config: ConfigService,
     private _http: HttpClient,
     private _errorService: HelpService,
     private _router: Router,
     private _store: Store
-  ) {
-    this.isLoggedIn$ = this.currentUser$.pipe(map(user => {
-      return !!user;
-    }));
-    this.isNotLoggedIn$ = this.isLoggedIn$.pipe(map(isLoggedIn => !isLoggedIn));
-   }
+  ) { }
 
   register(username: string, password: string) {
     return this._http.post<IRegResponse>(this._config.SERVER_AUTH_URL('register'), { username, password })
@@ -57,11 +45,9 @@ export class AuthService {
         catchError(err => {
           console.log(err);
           localStorage.removeItem('sid');
-          this.currentUser.next(null);
           return this._errorService.handleError(err);
         }),
         tap(res => {
-          this.currentUser.next(user);
         })
       )
   }
@@ -134,10 +120,7 @@ export class AuthService {
 
   public authenticateUser(user: INewUser | null) {
     console.log(user);
-    // const expirationDate = new Date(new Date().getTime() + expiresIn*1000);
     this._store.dispatch(login(user ? {user} : { user: initialState}))
-    this.currentUser.next(user);
     if(user) {localStorage.setItem('sid', JSON.stringify(user));}
-    // this._stateService.setState({isAuthName: user?.username || '', isLogged: true, isAuthorized: true});
   }
 }

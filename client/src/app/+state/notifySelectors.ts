@@ -1,17 +1,17 @@
 import { createSelector } from "@ngrx/store";
 import { IAppState } from ".";
 
-export const selectAuth = (s: IAppState) => s.notify;
+export const selectNotification = (s: IAppState) => s.notify;
 
 export const selectType = createSelector(
-    selectAuth,
+    selectNotification,
     state => state.type
 )
 export const selectMessages = createSelector(
-    selectAuth,
+    selectNotification,
     state => state.messages
 )
 export const selectNotify= createSelector(
-    selectAuth,
+    selectNotification,
     state => state
 )

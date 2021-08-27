@@ -69,8 +69,11 @@ Not logged users can see the Welcome page and the About page - with ability to r
 User page
 ---------
 
-Logged in users can navigate through header-navigation menu. All PicWords page is populated only when there is created PicWords in the database - if not? - be the first to create some. Find PexelWord helps you in an easy and straight-forward way to find new pictures to be used.
+The main point of the application is to test your words knowledge by making simple and fun test with pictures - that's why stay on first place in navigation menu: 
 
+![alt text](https://res.cloudinary.com/dwacfzgzg/image/upload/v1630096859/GitHub%20ScreenShots/test_page_jjuseu.png)
+
+Logged in users can navigate through header-navigation menu. All PicWords page is populated only when there is created PicWords in the database - if not? - be the first to create some. Find PexelWord helps you in an easy and straight-forward way to find new pictures to be used.
 
 ![alt text](https://res.cloudinary.com/dwacfzgzg/image/upload/v1630097793/GitHub%20ScreenShots/all_pws_new_2_cixhqk.png)
 

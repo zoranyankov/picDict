@@ -3,7 +3,7 @@
         <img class="create-question-logo" />
     </div>
     <form #form="ngForm" class="create-question-form" (ngSubmit)="onCreateSubmit(form)">
-        <h1 class="section-title">Create new PicWord</h1>
+        <h1 class="section-title">{{buttonName != 'Create' ? buttonName : buttonName + ' new' }} PicWord</h1>
         <label>
             Write the word: 
             <input disabled="{{action == 'Delete'}}"

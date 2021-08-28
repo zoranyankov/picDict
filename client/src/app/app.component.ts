@@ -20,8 +20,8 @@ export class AppComponent {
   currUser: any = null;
   horizontalPosition: MatSnackBarHorizontalPosition = 'center';
   verticalPosition: MatSnackBarVerticalPosition = 'top';
-  type$ = this._store.select(selectType);
-  messages$ = this._store.select(selectMessages);
+  type$ = this._store.select(selectType); //Optional
+  messages$ = this._store.select(selectMessages); //Optional
   notify$ = this._store.select(selectNotify);
 
   constructor(

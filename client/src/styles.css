@@ -48,8 +48,8 @@ a.btn:hover {
 }
 
 button.btn.inactive {
-    background-color: #945d5d;
-    color: #d4d3d4;
+    background-color: #a8a7a7;
+    color: #ffde8e;
     cursor: auto;
 }
 

@@ -5,12 +5,12 @@
     <!-- <a (click)="showPrev()" class="btn prev-btn">Previous</a> -->
     <!-- <a (click)="showNext()" class="btn next-btn">Next</a> -->
     <div class="buttons">
-        <button class="btn" (click)="toggleView(1)">Show 1 PW</button>
-        <button class="btn" (click)="toggleView(3)">Show 3 PW</button>
-        <button class="btn" (click)="toggleView(6)">Show 6 PW</button>
+        <button class="btn" [class.active]="currentPWs.length == 1" (click)="toggleView(1)">Show 1 PW</button>
+        <button class="btn" [class.active]="currentPWs.length == 3" (click)="toggleView(3)">Show 3 PW</button>
+        <button class="btn" [class.active]="currentPWs.length == 6" (click)="toggleView(6)">Show 6 PW</button>
     </div>
     <div *ngIf="currentPWs" class="picwords">
-        <app-picword [picWords]="currentPWs "></app-picword>
+        <app-picword [picWords]="currentPWs"></app-picword>
     </div>
     <div *ngIf="!currentPWs " class="loading">
         <!-- <h1>No Data Found!</h1> -->

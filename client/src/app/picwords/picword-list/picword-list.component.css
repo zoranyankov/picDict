@@ -71,6 +71,11 @@ h1 {
     left: 100px;
 }
 
+button.btn.active {
+    color: #2e2c2f;
+    background-color: #f6c95b;
+}
+
 
 /* .pw-list-wrapper {
     display: flex;

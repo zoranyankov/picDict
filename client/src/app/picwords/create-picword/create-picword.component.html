@@ -40,7 +40,8 @@
         </div>
         <app-notificate [notificate]="notificate"></app-notificate>
         <div class="buttons">
-            <button [disabled]="picture.errors && picture.errors.pattern" class="{{buttonClass}}" type="submit">{{buttonName}}</button>
+            <!-- <button [disabled]="picture.errors && picture.errors.pattern" class="{{buttonClass}}" type="submit">{{buttonName}}</button> -->
+            <button [class.inactive]="form.invalid" [disabled]="form.invalid" class="{{buttonClass}}" type="submit">{{buttonName}}</button>
         </div>
         <p class="pexels">You can search for picture with PEXELS.COM
         </p>

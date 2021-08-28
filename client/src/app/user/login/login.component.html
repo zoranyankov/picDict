@@ -31,8 +31,11 @@
             </div>
         </div>
         <!-- <br></br> -->
-        <app-notificate *ngIf="notificate" [notificate]="notificate"></app-notificate>
-        <button class="btn">Login</button>
+
+        <!-- Another way of Back-End notifications -->
+        <!-- <app-notificate *ngIf="notificate" [notificate]="notificate"></app-notificate> -->
+
+        <button [class.inactive]="form.invalid" [disabled]="form.invalid" class="btn">Login</button>
     </form>
     <p class="auth-links">
         Don' t have an account? <a routerLink="/auth/register"><span class="nav-a">Register now</span> </a>

@@ -38,10 +38,14 @@
                 </div>
             </div>
         </div>
-        <app-notificate [notificate]="notificate"></app-notificate>
+
+
+        <!-- Another way of Back-End notifications -->
+        <!-- <app-notificate [notificate]="notificate"></app-notificate> -->
 
         <!--For demonstrating BE error handling-->
-        <button [class.inactive]="rePassword.errors?.passMissmatch" [disabled]="rePassword.errors?.passMissmatch" class="btn">Register</button>
+        <!-- <button [class.inactive]="rePassword.errors?.passMissmatch" [disabled]="rePassword.errors?.passMissmatch" class="btn">Register</button> -->
+        <button [class.inactive]="form.invalid" [disabled]="form.invalid" class="btn">Register</button>
 
         <!--ALL SECURED - real life scenario-->
         <!-- <button [disabled]="form.invalid || rePassword.errors?.passMissmatch" class="btn">Register</button> -->

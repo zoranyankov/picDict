@@ -50,5 +50,14 @@ export class PicwordListComponent implements OnInit {
     this.picWords = this.picWords.concat(pastPWs);
     this.currentPWs = this.picWords.slice(0,this.toggle);
   }
+  // for phones view
+  showMore(){
+    if(this.currentPWs.length == 6) {
+      this.picWords.splice(0, 6);
+    }
+    if(this.picWords.length > 0){
+      this.currentPWs = [...this.currentPWs, ...this.picWords.splice(0, 3)];
+    }
+  }
 
 }

@@ -5,10 +5,10 @@
     <!-- <a (click)="moreSubmit()" class="btn next-btn">Show more</a> -->
     <ng-template [ngIf]="!noData" [ngIfElse]="noDataMessage">
         <section class="header">
+            <h1 class="section-title">{{userName}}'s PicWords</h1>
             <label class="search-box">Filter:
                 <input type="text" [(ngModel)]="search">
             </label>
-            <h1 class="section-title">{{userName}}'s PicWords</h1>
         </section>
         <div *ngIf="loading && currentPWs.length==0" class="loading">
             <div class="loading-img">

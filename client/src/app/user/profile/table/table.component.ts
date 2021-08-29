@@ -9,7 +9,7 @@ import { IResults } from 'src/app/shared/interfaces/results-interface';
 })
 export class TableComponent implements OnInit {
   @Input() current!: IResultRes;
-  @Input() totalScore!: string;
+  @Input() totalScore!: number;
   toShow: IResults[] = [];
 
   constructor() { 

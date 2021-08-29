@@ -1,70 +1,174 @@
-@import url('https://fonts.googleapis.com/css2?family=MonteCarlo&display=swap');
-:host {
-    display: block;
-    /* background-color: #1976d2; */
-    background-color: #cccdcb;
-    padding: 10px 0;
-    position: relative;
-    box-shadow: 0px 1px 10px 1px #656363;
-}
-
-.header-wrap {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin: 0 50px;
-    max-width: 100%;
-}
-
-.header-nav-items {
-    list-style: none;
-    display: flex;
-}
-
-.header-logo {
-    display: flex;
-    align-items: center;
-}
-
-.header-title {
-    margin: 0;
-    font-size: 2rem;
-    font-family: 'MonteCarlo', cursive;
-    max-width: 9rem;
-    line-height: 1;
-    /* font-weight: 600; */
-    letter-spacing: 2px;
-}
-
-.header-logo img {
-    border-radius: 50%;
-    max-width: 5rem;
-    cursor: pointer;
-}
-
-.header-nav-items li a.active-link {
-    /* color: #5cf1d5; */
-    color: #2e2c2f;
-    background-color: #f6c95b;
-    /* font-weight: bold; */
-}
-
-
-/* Dropdown styles */
-
-.dropdown-content {
-    display: none;
-    position: absolute;
-    z-index: 3;
-    right: 100px;
-}
-
-.dropdown-content a {
-    text-decoration: none;
-    display: inline-block;
-    margin: 30px 10px 0;
-}
-
-.dropdown:hover .dropdown-content {
-    display: block;
-}
+    @import url('https://fonts.googleapis.com/css2?family=MonteCarlo&display=swap');
+     :host {
+        display: block;
+        /* background-color: #1976d2; */
+        background-color: #cccdcb;
+        padding: 10px 0;
+        position: relative;
+        box-shadow: 0px 1px 10px 1px #656363;
+    }
+    
+    .header-wrap {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin: 0 50px;
+        max-width: 100%;
+    }
+    
+    .header-nav-items {
+        list-style: none;
+        display: flex;
+    }
+    
+    .header-logo {
+        display: flex;
+        align-items: center;
+    }
+    
+    .header-title {
+        margin: 0;
+        font-size: 2rem;
+        font-family: 'MonteCarlo', cursive;
+        max-width: 9rem;
+        line-height: 1;
+        /* font-weight: 600; */
+        letter-spacing: 2px;
+    }
+    
+    .header-logo img {
+        border-radius: 50%;
+        max-width: 5rem;
+        cursor: pointer;
+    }
+    
+    .header-nav-items li a.active-link {
+        /* color: #5cf1d5; */
+        color: #2e2c2f;
+        background-color: #f6c95b;
+        /* font-weight: bold; */
+    }
+    /* Dropdown styles */
+    
+    .dropdown-content {
+        display: none;
+        position: absolute;
+        z-index: 3;
+        right: 100px;
+    }
+    
+    .dropdown-content a {
+        text-decoration: none;
+        display: inline-block;
+        margin: 30px 10px 0;
+    }
+    
+    .dropdown:hover .dropdown-content {
+        display: block;
+    }
+    /*Desktop*/
+    
+    @media screen and (min-width:1300px) {
+        .header-nav-items {
+            flex-wrap: wrap;
+        }
+        .header-nav-items li {
+            margin: 20px 5px;
+        }
+        .dropdown-content {
+            top: 185px;
+            right: 150px;
+        }
+        .dropdown-content a {
+            display: inline-block;
+            margin: 10px 5px 0;
+        }
+    }
+    
+    @media screen and (max-width:1300px) {
+        /* .header-nav {
+        min-height: 110px;
+    } */
+        /* .header-nav-items {
+            flex-wrap: wrap;
+        }
+        .header-nav-items li {
+            margin: 20px 5px;
+        }
+        .dropdown-content {
+            top: 185px;
+            right: 150px;
+        }
+        .dropdown-content a {
+            display: inline-block;
+            margin: 10px 5px 0;
+        } */
+    }
+    /* Tablets */
+    
+    @media screen and (max-width:955px) {
+        .header-nav-items {
+            flex-wrap: wrap;
+        }
+        .header-nav-items li {
+            margin: 20px 5px;
+        }
+        .dropdown-content {
+            top: 175px;
+            right: 150px;
+        }
+        .dropdown-content a {
+            display: inline-block;
+            margin: 10px 5px 0;
+        }
+    }
+    /* Ipad */
+    
+    @media screen and (max-width:798px) {
+        .dropdown-content {
+            top: 187px;
+            right: 100px;
+        }
+        .header-wrap {
+            flex-direction: column;
+        }
+        .header-nav-items li {
+            margin: 18px 0;
+        }
+    }
+    
+    @media screen and (max-width:600px) {
+        .header-nav-items {
+            display: flex;
+            flex-direction: column;
+            padding: 0;
+            margin: 0;
+            justify-content: stretch;
+        }
+        .header-nav-items li {
+            margin: 0;
+        }
+        .header-nav-items li a {
+            width: 150px;
+            padding: 5px 3px;
+            display: block;
+        }
+        .dropdown-content {
+            top: 150px;
+            right: 50px;
+        }
+        .dropdown-content a {
+            margin: 0;
+        }
+    }
+    /*     
+    @media screen and (max-width:740px) {
+        .header-nav-items li {
+            margin: 11px 3px;
+        }
+        .dropdown-content {
+            top: 130px;
+        }
+    } */
+    
+    @media screen and (max-width:780px) {}

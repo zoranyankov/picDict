@@ -14,7 +14,7 @@
     <ul *ngIf="allResults">
         <li *ngFor="let result of allResults">
             <div class="result" (click)="toggleTable($event)">
-                <p>Results from {{result.createdAt | date: 'd/MMM/y - h:mm:ss a'}}</p>
+                <p>Results from {{result.createdAt | date: 'd/MMM/y - h:mm:ss a'}} - with Total Score: <span [style.color]="result.score > 5 ? 'green' : 'red'">{{result.score}}</span></p>
                 <app-table [style.display]="'none'" [current]="result" [totalScore]="result.score"></app-table>
             </div>
         </li>

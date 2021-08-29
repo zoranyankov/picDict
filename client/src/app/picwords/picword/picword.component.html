@@ -1,7 +1,7 @@
 <div class="{{inHome ? 'home-wrapper' : 'picword-wrapper'}}">
     <div class="picword" *ngFor="let pW of pWs">
         <ng-template [ngIf]="!flag" [ngIfElse]="findLink">
-            <div class="picword-img">
+            <div class="picword-img" [class.alone]="pWs.length == 1">
                 <img [src]="pW.pictureUrl" alt="food-pic">
             </div>
             <h5 class="picword-name">{{pW.word}}</h5>

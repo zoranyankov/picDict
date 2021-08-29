@@ -59,7 +59,7 @@ export class ProfileResultsComponent implements OnInit {
     let tableEl = (ev.currentTarget as HTMLElement).children[1];
     let style = tableEl.getAttribute('style');
     if (style == 'display: none;') {
-      tableEl.setAttribute('style', 'display:inline-block');
+      tableEl.setAttribute('style', 'display:contents');
     } else {
       tableEl.setAttribute('style', 'display: none;');
     }

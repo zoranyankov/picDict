@@ -29,3 +29,13 @@
 p {
     margin: 0;
 }
+
+
+/* IPad */
+
+
+/* @media screen and (max-width:798px) {
+    .main-content-wrapper {
+        height: 100vh;
+    }
+} */

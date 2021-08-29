@@ -6,9 +6,10 @@
 
 table {
     position: center;
-    min-width: 650px;
-    width: 100%;
-    display: table;
+    /* min-width: 650px; */
+    /* width: 100%; */
+    display: contents;
+    /* display: table; */
     border-spacing: 0;
     border-collapse: collapse;
     /* display: table; */

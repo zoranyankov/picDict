@@ -8,6 +8,7 @@
 
 ul {
     list-style: none;
+    padding: 30px;
 }
 
 div.result {
@@ -15,9 +16,10 @@ div.result {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    min-width: 70vw;
+    /* min-width: 70vw; */
     min-height: 30px;
-    width: fit-content;
+    width: 90vw;
+    /* width: fit-content; */
     height: fit-content;
     margin: 10px;
     background-color: rgb(194, 194, 194);
@@ -29,4 +31,8 @@ div.result {
 .no-data {
     padding: 150px;
     color: #ff002f;
+}
+
+span {
+    font-weight: bold;
 }

@@ -1,16 +1,17 @@
 <div class="pw-list-wrapper">
     <!-- <div class="picword-card" *ngFor="let picWord of picWords"> -->
-    <i (click)="showPrev()" class="fas fa-less-than"></i>
-    <i (click)="showNext()" class="fas fa-greater-than"></i>
+    <i (click)="showPrev()" class="fas fa-less-than hide"></i>
+    <i (click)="showNext()" class="fas fa-greater-than hide"></i>
     <!-- <a (click)="showPrev()" class="btn prev-btn">Previous</a> -->
     <!-- <a (click)="showNext()" class="btn next-btn">Next</a> -->
     <div class="buttons">
-        <button class="btn" [class.active]="currentPWs.length == 1" (click)="toggleView(1)">Show 1 PW</button>
-        <button class="btn" [class.active]="currentPWs.length == 3" (click)="toggleView(3)">Show 3 PW</button>
-        <button class="btn" [class.active]="currentPWs.length == 6" (click)="toggleView(6)">Show 6 PW</button>
+        <button class="btn hide" [class.active]="currentPWs.length == 1" (click)="toggleView(1)">Show 1 PW</button>
+        <button class="btn hide" [class.active]="currentPWs.length == 3" (click)="toggleView(3)">Show 3 PW</button>
+        <button class="btn hide" [class.active]="currentPWs.length == 6" (click)="toggleView(6)">Show 6 PW</button>
     </div>
     <div *ngIf="currentPWs" class="picwords">
         <app-picword [picWords]="currentPWs"></app-picword>
+        <button class="btn show" (click)="showMore()">Show more</button>
     </div>
     <div *ngIf="!currentPWs " class="loading">
         <!-- <h1>No Data Found!</h1> -->

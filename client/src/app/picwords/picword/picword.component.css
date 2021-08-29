@@ -3,18 +3,19 @@
     flex-wrap: wrap;
     justify-content: space-between;
     align-items: center;
-    width: 70rem;
+    width: 85vw;
     min-height: 33rem;
     height: fit-content;
 }
 
-.home-wrapper {
+
+/* .home-wrapper {
     display: flex;
     justify-content: space-between;
     align-items: center;
     height: fit-content;
-    /* width: 65rem; */
-}
+    width: 65rem;
+} */
 
 .picword {
     display: flex;
@@ -95,4 +96,55 @@ div.loading div.picword-img img {
     padding-left: 50px;
     text-shadow: none;
     font-style: italic;
+}
+
+
+/*Desktop*/
+
+@media screen and (min-width:900px) and (max-width: 1110px) {
+    .home-wrapper {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        height: fit-content;
+        width: 65rem;
+    }
+    .picword-img {
+        margin: 0;
+        width: 150px;
+        height: 150px;
+    }
+    .picword-img.alone {
+        margin: 0;
+        width: 250px;
+        height: 250px;
+    }
+    .picword {
+        margin: 20px 30px;
+    }
+}
+
+@media screen and (min-width:750px) and (max-width:900px) {
+    .picword-img {
+        margin: 0;
+        width: 150px;
+        height: 150px;
+    }
+    .picword-img.alone {
+        margin: 0;
+        width: 250px;
+        height: 250px;
+    }
+}
+
+@media screen and (min-width:650px) and (max-width:900px) {
+    .picword {
+        margin: 20px 10px;
+    }
+}
+
+@media screen and (min-width:250px) and (max-width:700px) {
+    .picword-wrapper {
+        justify-content: center;
+    }
 }
